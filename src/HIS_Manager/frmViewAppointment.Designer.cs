@@ -47,7 +47,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(571, 292);
+            this.btnCancel.Location = new System.Drawing.Point(554, 286);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(58, 23);
             this.btnCancel.TabIndex = 7;
@@ -60,13 +60,12 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.MediumPurple;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 87);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(637, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(600, 193);
             this.dataGridView1.TabIndex = 6;
             // 
             // label1
@@ -103,7 +102,7 @@
             "Appointment Date",
             "Clinician",
             "Patient"});
-            this.cmbSearch.Location = new System.Drawing.Point(69, 21);
+            this.cmbSearch.Location = new System.Drawing.Point(100, 21);
             this.cmbSearch.Name = "cmbSearch";
             this.cmbSearch.Size = new System.Drawing.Size(121, 21);
             this.cmbSearch.TabIndex = 11;
@@ -111,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(-1, 24);
+            this.label4.Location = new System.Drawing.Point(12, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 12;
@@ -162,7 +161,7 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(210, 19);
+            this.btnFilter.Location = new System.Drawing.Point(259, 19);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(49, 23);
             this.btnFilter.TabIndex = 100;
@@ -174,8 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(641, 328);
+            this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.txtPid);
             this.Controls.Add(this.btnSearchClinic);
@@ -191,9 +189,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmViewAppointment";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmViewAppointment";
+            this.Text = "View Appointment";
             this.Load += new System.EventHandler(this.frmViewAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
