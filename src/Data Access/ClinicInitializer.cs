@@ -1,4 +1,5 @@
 ﻿using CIS.Application.Entities;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace CIS.Data.DataAccess
@@ -16,6 +17,15 @@ namespace CIS.Data.DataAccess
             };
 
             context.Users.Add(exampleUser);
+
+            List<Title> titles = new List<Title> 
+            { 
+                new Title { Description = "Mr" },
+                new Title { Description = "Mrs" },
+                new Title { Description = "Miss" },
+            };
+
+            context.Titles.AddRange(titles);
 
             base.Seed(context);
         }

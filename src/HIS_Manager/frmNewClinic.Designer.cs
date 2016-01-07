@@ -215,6 +215,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(197, 247);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -225,8 +226,10 @@
             // 
             // frmNewClinic
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(284, 280);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -249,7 +252,7 @@
             this.Controls.Add(this.lblClinicNumber);
             this.Controls.Add(this.txtClinicNumber);
             this.Name = "frmNewClinic";
-            this.Text = "frmNewClinic";
+            this.Text = "New Clinic";
             this.ResumeLayout(false);
             this.PerformLayout();
 

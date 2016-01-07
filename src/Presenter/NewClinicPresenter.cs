@@ -1,4 +1,6 @@
-﻿using CIS.Presentation.Models;
+﻿using CIS.Application.BusinessComponents;
+using CIS.Presentation.Models;
+using CIS.Presentation.UI.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +11,32 @@ namespace CIS.Presentation.Logic.Presenter
     public class NewClinicPresenter
     {
         private INewClinicView _view;
+        private ClinicBusinessLogic _clinicBl;
 
         public NewClinicPresenter(INewClinicView view)
         {
-            this._view = view;
+            _view = view;
+            _clinicBl = new ClinicBusinessLogic();
         }
 
-        public void Save()
-        { 
-
+        public void Save(NewClinicPresentationModel model)
+        {
+            _clinicBl.AddClinic(model);
         }
-    }
 
-    public interface INewClinicView
-    {
-        void LoadTitles();
-        NewClinicPresentationModel Save();
+        public bool ValidateClinicNumber(string p)
+        {
+            return string.IsNullOrWhiteSpace(p) || p.Any(c => !char.IsNumber(c));
+        }
+
+        public bool ValidateLastName(string p)
+        {
+            return string.IsNullOrWhiteSpace(p) || p.Any(c => !char.IsLetter(c));
+        }
+
+        public NewClinicPresentationModel GetClinicianData()
+        {
+            return _view.GetClinicianData();
+        }
     }
 }

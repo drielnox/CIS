@@ -35,7 +35,7 @@
             this.txtMname = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblPatientId = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,13 +57,11 @@
             // 
             // txtPid
             // 
-            this.txtPid.BackColor = System.Drawing.Color.White;
             this.txtPid.Location = new System.Drawing.Point(105, 12);
             this.txtPid.Name = "txtPid";
             this.txtPid.ReadOnly = true;
             this.txtPid.Size = new System.Drawing.Size(198, 20);
             this.txtPid.TabIndex = 0;
-            this.txtPid.Visible = false;
             // 
             // txtLastName
             // 
@@ -110,15 +108,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label1
+            // lblPatientId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Patient ID";
-            this.label1.Visible = false;
+            this.lblPatientId.AutoSize = true;
+            this.lblPatientId.Location = new System.Drawing.Point(12, 15);
+            this.lblPatientId.Name = "lblPatientId";
+            this.lblPatientId.Size = new System.Drawing.Size(54, 13);
+            this.lblPatientId.TabIndex = 11;
+            this.lblPatientId.Text = "Patient ID";
+            this.lblPatientId.Visible = false;
             // 
             // label2
             // 
@@ -303,7 +301,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPatientId);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtMname);
@@ -328,7 +326,7 @@
         private System.Windows.Forms.TextBox txtMname;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPatientId;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

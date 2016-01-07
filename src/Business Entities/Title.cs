@@ -5,12 +5,9 @@ using System.Text;
 
 namespace CIS.Application.Entities
 {
-    public enum Title
+    public class Title
     {
-        Mr,
-        Mrs,
-        Miss,
-        Ms,
-        Dr
+        public int Identifier { get; set; }
+        public string Description { get; set; }
     }
 }

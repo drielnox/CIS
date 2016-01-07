@@ -294,13 +294,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business Entities\Business Entities.csproj">
-      <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
-      <Name>Business Entities</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Data Access\Data Access.csproj">
       <Project>{8422faf0-0c10-4168-8e9b-440d4e868c08}</Project>
       <Name>Data Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation Models\Presentation Models.csproj">
+      <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
+      <Name>Presentation Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation\UI\View\View.csproj">
+      <Project>{9db3a6e4-1287-43f2-913e-3eecf34f1b9d}</Project>
+      <Name>View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presenter\Presenter.csproj">
+      <Project>{3e9ed676-3e4c-4c29-bc08-d7d856d08cea}</Project>
+      <Name>Presenter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
