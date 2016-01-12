@@ -1,8 +1,6 @@
-﻿using CIS.Application.Entities;
-
-namespace CIS.Presentation.UI.WindowsForms
+﻿namespace CIS.Presentation.UI.WindowsForms
 {
-    partial class frmChangePass
+    partial class frmChangeUserPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -30,62 +28,62 @@ namespace CIS.Presentation.UI.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangePass));
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChangeUserPassword));
+            this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPassConfirm = new System.Windows.Forms.TextBox();
+            this.lblConfirmPassword = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Password";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(12, 15);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(53, 13);
+            this.lblPassword.TabIndex = 15;
+            this.lblPassword.Text = "Password";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(99, 27);
+            this.txtPassword.Location = new System.Drawing.Point(109, 12);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(185, 20);
+            this.txtPassword.Size = new System.Drawing.Size(243, 20);
             this.txtPassword.TabIndex = 14;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
-            // label1
+            // lblConfirmPassword
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Confirm Password";
+            this.lblConfirmPassword.AutoSize = true;
+            this.lblConfirmPassword.Location = new System.Drawing.Point(12, 41);
+            this.lblConfirmPassword.Name = "lblConfirmPassword";
+            this.lblConfirmPassword.Size = new System.Drawing.Size(91, 13);
+            this.lblConfirmPassword.TabIndex = 17;
+            this.lblConfirmPassword.Text = "Confirm Password";
             // 
-            // txtPassConfirm
+            // txtConfirmPassword
             // 
-            this.txtPassConfirm.Location = new System.Drawing.Point(99, 55);
-            this.txtPassConfirm.Name = "txtPassConfirm";
-            this.txtPassConfirm.Size = new System.Drawing.Size(185, 20);
-            this.txtPassConfirm.TabIndex = 16;
-            this.txtPassConfirm.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassConfirm_Validating);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(109, 38);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.Size = new System.Drawing.Size(243, 20);
+            this.txtConfirmPassword.TabIndex = 16;
+            this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassConfirm_Validating);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(209, 90);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(277, 64);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(128, 90);
+            this.btnSave.Location = new System.Drawing.Point(196, 64);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 18;
@@ -93,21 +91,26 @@ namespace CIS.Presentation.UI.WindowsForms
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmChangePass
+            // frmChangePassword
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 125);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(364, 100);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPassConfirm);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblConfirmPassword);
+            this.Controls.Add(this.txtConfirmPassword);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmChangePass";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmChangePassword";
             this.ShowInTaskbar = false;
-            this.Text = "frmChangePass";
+            this.Text = "Change password";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,10 +118,10 @@ namespace CIS.Presentation.UI.WindowsForms
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPassConfirm;
+        private System.Windows.Forms.Label lblConfirmPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
     }

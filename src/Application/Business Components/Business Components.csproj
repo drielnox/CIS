@@ -51,6 +51,7 @@
     <Compile Include="ClinicBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TitleBusinessLogic.cs" />
+    <Compile Include="UserBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Business Entities\Business Entities.csproj">

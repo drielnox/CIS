@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\ChangeUserPasswordViewModel.cs" />
+    <Compile Include="Administration\NewUserViewModel.cs" />
+    <Compile Include="Administration\UsersViewModel.cs" />
+    <Compile Include="Administration\UserViewModel.cs" />
     <Compile Include="ComboTitleModel.cs" />
     <Compile Include="NewClinicPresentationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

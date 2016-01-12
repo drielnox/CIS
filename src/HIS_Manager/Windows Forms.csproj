@@ -97,11 +97,11 @@
     <Compile Include="frmBookAppointment.Designer.cs">
       <DependentUpon>frmBookAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChangePass.cs">
+    <Compile Include="Administration\frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChangePass.Designer.cs">
-      <DependentUpon>frmChangePass.cs</DependentUpon>
+    <Compile Include="Administration\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditClinic.cs">
       <SubType>Form</SubType>
@@ -127,11 +127,11 @@
     <Compile Include="frmViewAppointment.Designer.cs">
       <DependentUpon>frmViewAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmView_Users.cs">
+    <Compile Include="Administration\frmViewUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmView_Users.Designer.cs">
-      <DependentUpon>frmView_Users.cs</DependentUpon>
+    <Compile Include="Administration\frmViewUsers.Designer.cs">
+      <DependentUpon>frmViewUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPatientRecord.cs">
       <SubType>Form</SubType>
@@ -169,10 +169,10 @@
     <Compile Include="frmFullPatientList.Designer.cs">
       <DependentUpon>frmFullPatientList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNewUser.cs">
+    <Compile Include="Administration\frmNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNewUser.Designer.cs">
+    <Compile Include="Administration\frmNewUser.Designer.cs">
       <DependentUpon>frmNewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -185,8 +185,8 @@
       <DependentUpon>frmBookAppointment.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangePass.resx">
-      <DependentUpon>frmChangePass.cs</DependentUpon>
+    <EmbeddedResource Include="Administration\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditClinic.resx">
@@ -204,8 +204,8 @@
       <DependentUpon>frmViewAppointment.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmView_Users.resx">
-      <DependentUpon>frmView_Users.cs</DependentUpon>
+    <EmbeddedResource Include="Administration\frmViewUsers.resx">
+      <DependentUpon>frmViewUsers.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPatientRecord.resx">
@@ -232,7 +232,7 @@
       <DependentUpon>frmFullPatientList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewUser.resx">
+    <EmbeddedResource Include="Administration\frmNewUser.resx">
       <DependentUpon>frmNewUser.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

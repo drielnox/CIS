@@ -7,7 +7,7 @@
     <ProjectGuid>{9DB3A6E4-1287-43F2-913E-3EECF34F1B9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CIS.Presentation.UI.Contractss</RootNamespace>
+    <RootNamespace>CIS.Presentation.UI.Contracts</RootNamespace>
     <AssemblyName>view_contracts</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -35,6 +35,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\IChangeUserPasswordView.cs" />
+    <Compile Include="Administration\INewUserView.cs" />
+    <Compile Include="Administration\IViewUsersView.cs" />
     <Compile Include="INewClinicView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,6 +51,7 @@
       <Name>Presentation Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

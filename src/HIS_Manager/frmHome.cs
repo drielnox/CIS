@@ -45,7 +45,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void newToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmNew_User new_user = new frmNew_User();
+            frmNewUser new_user = new frmNewUser();
             new_user.ShowDialog();
         }
 
