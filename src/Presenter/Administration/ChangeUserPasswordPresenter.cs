@@ -1,5 +1,5 @@
 ﻿using CIS.Application.BusinessComponents;
-using CIS.Presentation.Models.Administration;
+using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
 
 namespace CIS.Presentation.Logic.Presenter.Administration

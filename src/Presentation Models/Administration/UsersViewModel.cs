@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CIS.Presentation.Models.Administration
+namespace CIS.Presentation.Model.Administration
 {
     public class UsersViewModel
     {

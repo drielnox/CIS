@@ -1,5 +1,5 @@
 ﻿using CIS.Application.BusinessComponents;
-using CIS.Presentation.Models;
+using CIS.Presentation.Model;
 using CIS.Presentation.UI.Contracts;
 using System;
 using System.Collections.Generic;
@@ -11,12 +11,12 @@ namespace CIS.Presentation.Logic.Presenter
     public class NewClinicPresenter
     {
         private INewClinicView _view;
-        private ClinicBusinessLogic _clinicBl;
+        private ClinicianBusinessLogic _clinicBl;
 
         public NewClinicPresenter(INewClinicView view)
         {
             _view = view;
-            _clinicBl = new ClinicBusinessLogic();
+            _clinicBl = new ClinicianBusinessLogic();
         }
 
         public void Save(NewClinicPresentationModel model)

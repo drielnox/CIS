@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Models.Administration;
+﻿using CIS.Presentation.Model.Administration;
 using System;
 
 namespace CIS.Application.BusinessComponents

@@ -4,7 +4,6 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using CIS.Data.DataAccess;
-using CIS.Application.Entities;
 
 namespace CIS.Presentation.UI.WindowsForms
 {

@@ -7,7 +7,7 @@
     <ProjectGuid>{9B2955C4-FA1A-4986-A8CA-8DFF88AC5DE6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CIS.Presentation.Models</RootNamespace>
+    <RootNamespace>CIS.Presentation.Model</RootNamespace>
     <AssemblyName>presentation_models</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,8 +44,11 @@
     <Compile Include="Administration\NewUserViewModel.cs" />
     <Compile Include="Administration\UsersViewModel.cs" />
     <Compile Include="Administration\UserViewModel.cs" />
-    <Compile Include="ComboTitleModel.cs" />
-    <Compile Include="NewClinicPresentationModel.cs" />
+    <Compile Include="Clinicians\EditClinicViewModel.cs" />
+    <Compile Include="Common\ComboTitleViewModel.cs" />
+    <Compile Include="LoginViewModel.cs" />
+    <Compile Include="Clinicians\NewClinicPresentationModel.cs" />
+    <Compile Include="Patients\NewPatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

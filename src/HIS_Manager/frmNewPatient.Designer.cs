@@ -312,7 +312,8 @@
             this.Name = "frmNewPatient";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NewPatient";
+            this.Text = "New Patient";
+            this.Load += new System.EventHandler(this.frmNewPatient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

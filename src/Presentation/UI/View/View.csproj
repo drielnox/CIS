@@ -38,7 +38,10 @@
     <Compile Include="Administration\IChangeUserPasswordView.cs" />
     <Compile Include="Administration\INewUserView.cs" />
     <Compile Include="Administration\IViewUsersView.cs" />
-    <Compile Include="INewClinicView.cs" />
+    <Compile Include="Clinicians\IEditClinicView.cs" />
+    <Compile Include="ILoginView.cs" />
+    <Compile Include="Clinicians\INewClinicView.cs" />
+    <Compile Include="Patients\INewPatientView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

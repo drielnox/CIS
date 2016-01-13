@@ -1,21 +1,35 @@
-﻿using System;
+﻿using CIS.Data.DataAccess;
+using CIS.Presentation.Logic.Presenter.Patients;
+using CIS.Presentation.Model.Patients;
+using CIS.Presentation.UI.Contracts.Patients;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using CIS.Data.DataAccess;
-using CIS.Application.Entities;
 
 namespace CIS.Presentation.UI.WindowsForms
 {
-    public partial class frmNewPatient : Form
+    public partial class frmNewPatient : Form, INewPatientView
     {
+        private NewPatientPresenter _presenter;
+
         public frmNewPatient()
         {
             InitializeComponent();
+            _presenter = new NewPatientPresenter(this);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                _presenter.Save();
+            }
+            catch (Exception ex)
+            {
+                    throw;
+            }
+
             var patient = new Patient
             {
                 HospitalNumber = int.Parse(mtbHospitalId.Text),
@@ -70,6 +84,30 @@ namespace CIS.Presentation.UI.WindowsForms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public NewPatientViewModel GetFormData()
+        {
+            return new NewPatientViewModel
+            {
+                HospitalNumber = int.Parse(mtbHospitalId.Text),
+                Title = (Title)Enum.Parse(typeof(Title), cboTitle.Text),
+                LastName = txtLastName.Text,
+                FirstName = txtFirstName.Text,
+                OtherName = txtMname.Text,
+                Gender = (Gender)Enum.Parse(typeof(Gender), cboTitle.Text),
+                BirthDate = dtpBirthDate.Value,
+                Phone = int.Parse(mtbPhone.Text),
+                HomeAddress = txtHomeAdd.Text,
+                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cboMaritalStatus.Text)
+            };
+        }
+
+        private void frmNewPatient_Load(object sender, EventArgs e)
+        {
+            _presenter.LoadTitles();
+            _presenter.LoadGenres();
+            _presenter.LoadMaritalStatuses();
         }
     }
 }

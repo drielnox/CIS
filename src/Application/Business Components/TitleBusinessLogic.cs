@@ -1,5 +1,7 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess;
+using CIS.Presentation.Model;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CIS.Application.BusinessComponents
@@ -12,6 +14,11 @@ namespace CIS.Application.BusinessComponents
             {
                 return context.Titles.Single(x => x.Identifier == p);
             }
+        }
+
+        public IEnumerable<ComboTitleViewModel> GetTitles()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

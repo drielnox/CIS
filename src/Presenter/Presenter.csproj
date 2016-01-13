@@ -39,7 +39,10 @@
     <Compile Include="Administration\ChangeUserPasswordPresenter.cs" />
     <Compile Include="Administration\NewUserPresenter.cs" />
     <Compile Include="Administration\ViewUsersPresenter.cs" />
-    <Compile Include="NewClinicPresenter.cs" />
+    <Compile Include="Clinicians\EditClinicPresenter.cs" />
+    <Compile Include="LoginPresenter.cs" />
+    <Compile Include="Clinicians\NewClinicPresenter.cs" />
+    <Compile Include="Patients\NewPatientPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

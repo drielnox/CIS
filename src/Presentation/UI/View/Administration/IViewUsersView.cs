@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Models.Administration;
+﻿using CIS.Presentation.Model.Administration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

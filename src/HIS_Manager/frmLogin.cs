@@ -1,56 +1,68 @@
-﻿using CIS.Application.Entities;
-using CIS.Data.DataAccess;
+﻿using CIS.Presentation.Logic.Presenter;
+using CIS.Presentation.Model;
+using CIS.Presentation.UI.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace CIS.Presentation.UI.WindowsForms
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : Form, ILoginView
     {
+        private LoginPresenter _preseneter;
+
         public frmLogin()
         {
             InitializeComponent();
+            _preseneter = new LoginPresenter(this);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            List<User> users = new List<User>();
-
-            using (ClinicModel context = new ClinicModel())
+            try
             {
-                users = context.Users
-                    .Where(x => x.Username == txtUsername.Text)
-                    .ToList();
-            }
-
-            if (users.Count == 0)
-            {
-                DialogResult = DialogResult.No;
+                _preseneter.Login();
+                DialogResult = DialogResult.OK;
                 Close();
             }
-            else
+            catch (Exception ex)
             {
-                User user = users.Single(); 
-
-                if (user.Password.Equals(txtPassword.Text))
-                {
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                else
-                {
-                    DialogResult = DialogResult.No;
-                    Close();
-                }
+                MessageBox.Show(this, ex.Message);
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public LoginViewModel GetFormData()
         {
-            DialogResult = DialogResult.Abort;
-            Close();
+            return new LoginViewModel 
+            {
+                Password = txtPassword.Text,
+                Username = txtUsername.Text
+            };
+        }
+
+        private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_preseneter.ValidateUsername(txtUsername.Text))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtUsername_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_preseneter.ValidatePassword(txtPassword.Text))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtPassword_Validated(object sender, EventArgs e)
+        {
+
         }
     }
 }

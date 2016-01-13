@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Models;
+﻿using CIS.Presentation.Model;
 
 namespace CIS.Presentation.UI.Contracts
 {

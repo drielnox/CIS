@@ -1,5 +1,4 @@
-﻿using CIS.Application.Entities;
-using CIS.Data.DataAccess;
+﻿using CIS.Data.DataAccess;
 using System;
 using System.Linq;
 using System.Windows.Forms;

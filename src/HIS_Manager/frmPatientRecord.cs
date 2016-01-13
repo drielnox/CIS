@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using CIS.Application.Entities;
 using CIS.Data.DataAccess;
 
 namespace CIS.Presentation.UI.WindowsForms

@@ -1,5 +1,5 @@
 ﻿using CIS.Presentation.Logic.Presenter.Administration;
-using CIS.Presentation.Models.Administration;
+using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;
 using System.Windows.Forms;
@@ -27,7 +27,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         public NewUserViewModel GetUserData()
         {
-            return new Models.Administration.NewUserViewModel
+            return new Model.Administration.NewUserViewModel
             {
                 StaffId = txtStaffId.Text,
                 FirstName = txtFirstName.Text,

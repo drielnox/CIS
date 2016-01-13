@@ -1,6 +1,6 @@
 ﻿using CIS.Data.DataAccess;
 using CIS.Presentation.Logic.Presenter.Administration;
-using CIS.Presentation.Models.Administration;
+using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;
 using System.Windows.Forms;

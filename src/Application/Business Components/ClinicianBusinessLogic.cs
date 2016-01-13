@@ -1,15 +1,15 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess;
-using CIS.Presentation.Models;
+using CIS.Presentation.Model;
 using System;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class ClinicBusinessLogic
+    public class ClinicianBusinessLogic
     {
         private readonly TitleBusinessLogic _titleBl;
 
-        public ClinicBusinessLogic()
+        public ClinicianBusinessLogic()
         {
             _titleBl = new TitleBusinessLogic();
         }
@@ -37,6 +37,11 @@ namespace CIS.Application.BusinessComponents
                 context.Clinicians.Add(clinic);
                 context.SaveChanges();
             }
+        }
+
+        public void UpdateClinic(Presentation.Model.Clinicians.EditClinicViewModel data)
+        {
+            throw new NotImplementedException();
         }
     }
 }

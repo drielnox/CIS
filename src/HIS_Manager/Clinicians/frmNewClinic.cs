@@ -1,6 +1,6 @@
 ﻿using CIS.Data.DataAccess;
 using CIS.Presentation.Logic.Presenter;
-using CIS.Presentation.Models;
+using CIS.Presentation.Model;
 using CIS.Presentation.UI.Contracts;
 using System;
 using System.ComponentModel;
@@ -68,6 +68,11 @@ namespace CIS.Presentation.UI.WindowsForms
                 Telephone = txtTelephone.Text,
                 Email = txtEmail.Text
             };
+        }
+
+        public int GetSelectedTitle()
+        {
+            return Convert.ToInt32(cboTitle.SelectedValue);
         }
     }
 }

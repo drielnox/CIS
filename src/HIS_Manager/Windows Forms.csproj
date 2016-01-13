@@ -103,22 +103,22 @@
     <Compile Include="Administration\frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditClinic.cs">
+    <Compile Include="Clinicians\frmEditClinic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditClinic.Designer.cs">
+    <Compile Include="Clinicians\frmEditClinic.Designer.cs">
       <DependentUpon>frmEditClinic.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClinicsList.cs">
+    <Compile Include="Clinicians\frmClinicsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClinicsList.Designer.cs">
+    <Compile Include="Clinicians\frmClinicsList.Designer.cs">
       <DependentUpon>frmClinicsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNewClinic.cs">
+    <Compile Include="Clinicians\frmNewClinic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNewClinic.Designer.cs">
+    <Compile Include="Clinicians\frmNewClinic.Designer.cs">
       <DependentUpon>frmNewClinic.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViewAppointment.cs">
@@ -189,15 +189,15 @@
       <DependentUpon>frmChangePassword.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditClinic.resx">
+    <EmbeddedResource Include="Clinicians\frmEditClinic.resx">
       <DependentUpon>frmEditClinic.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClinicsList.resx">
+    <EmbeddedResource Include="Clinicians\frmClinicsList.resx">
       <DependentUpon>frmClinicsList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewClinic.resx">
+    <EmbeddedResource Include="Clinicians\frmNewClinic.resx">
       <DependentUpon>frmNewClinic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewAppointment.resx">
