@@ -11,5 +11,10 @@ namespace CIS.Application.BusinessComponents
         {
             throw new NotImplementedException();
         }
+
+        public Presentation.Model.Patients.PatientsViewModel SearchPatients(Presentation.Model.Patients.SearchPatientViewModel criteria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

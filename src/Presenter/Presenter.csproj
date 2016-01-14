@@ -43,6 +43,7 @@
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="Clinicians\NewClinicPresenter.cs" />
     <Compile Include="Patients\NewPatientPresenter.cs" />
+    <Compile Include="Patients\SearchPatientPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

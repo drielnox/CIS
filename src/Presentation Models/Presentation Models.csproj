@@ -49,6 +49,9 @@
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="Clinicians\NewClinicPresentationModel.cs" />
     <Compile Include="Patients\NewPatientViewModel.cs" />
+    <Compile Include="Patients\PatientsViewModel.cs" />
+    <Compile Include="Patients\PatientViewModel.cs" />
+    <Compile Include="Patients\SearchPatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

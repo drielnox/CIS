@@ -133,16 +133,16 @@
     <Compile Include="Administration\frmViewUsers.Designer.cs">
       <DependentUpon>frmViewUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPatientRecord.cs">
+    <Compile Include="Patients\frmPatientRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPatientRecord.Designer.cs">
+    <Compile Include="Patients\frmPatientRecord.Designer.cs">
       <DependentUpon>frmPatientRecord.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSearchPatient.cs">
+    <Compile Include="Patients\frmSearchPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearchPatient.Designer.cs">
+    <Compile Include="Patients\frmSearchPatient.Designer.cs">
       <DependentUpon>frmSearchPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHome.cs">
@@ -157,10 +157,10 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNewPatient.cs">
+    <Compile Include="Patients\frmNewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNewPatient.Designer.cs">
+    <Compile Include="Patients\frmNewPatient.Designer.cs">
       <DependentUpon>frmNewPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFullPatientList.cs">
@@ -208,11 +208,11 @@
       <DependentUpon>frmViewUsers.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPatientRecord.resx">
+    <EmbeddedResource Include="Patients\frmPatientRecord.resx">
       <DependentUpon>frmPatientRecord.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSearchPatient.resx">
+    <EmbeddedResource Include="Patients\frmSearchPatient.resx">
       <DependentUpon>frmSearchPatient.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -224,7 +224,7 @@
       <DependentUpon>frmLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNewPatient.resx">
+    <EmbeddedResource Include="Patients\frmNewPatient.resx">
       <DependentUpon>frmNewPatient.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

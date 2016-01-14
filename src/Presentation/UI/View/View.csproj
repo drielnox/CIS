@@ -42,6 +42,7 @@
     <Compile Include="ILoginView.cs" />
     <Compile Include="Clinicians\INewClinicView.cs" />
     <Compile Include="Patients\INewPatientView.cs" />
+    <Compile Include="Patients\ISearchPatientView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
