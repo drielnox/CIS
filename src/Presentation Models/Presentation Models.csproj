@@ -50,6 +50,7 @@
     <Compile Include="Common\ComboTitleViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="Clinicians\NewClinicPresentationModel.cs" />
+    <Compile Include="Patients\EditPatientViewModel.cs" />
     <Compile Include="Patients\NewPatientViewModel.cs" />
     <Compile Include="Patients\PatientsViewModel.cs" />
     <Compile Include="Patients\PatientViewModel.cs" />

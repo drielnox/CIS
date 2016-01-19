@@ -133,11 +133,11 @@
     <Compile Include="Administration\frmViewUsers.Designer.cs">
       <DependentUpon>frmViewUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Patients\frmPatientRecord.cs">
+    <Compile Include="Patients\frmEditPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Patients\frmPatientRecord.Designer.cs">
-      <DependentUpon>frmPatientRecord.cs</DependentUpon>
+    <Compile Include="Patients\frmEditPatient.Designer.cs">
+      <DependentUpon>frmEditPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Patients\frmSearchPatient.cs">
       <SubType>Form</SubType>
@@ -208,8 +208,8 @@
       <DependentUpon>frmViewUsers.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Patients\frmPatientRecord.resx">
-      <DependentUpon>frmPatientRecord.cs</DependentUpon>
+    <EmbeddedResource Include="Patients\frmEditPatient.resx">
+      <DependentUpon>frmEditPatient.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Patients\frmSearchPatient.resx">

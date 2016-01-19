@@ -8,53 +8,59 @@ using System.IO;
 using CIS.Data.DataAccess;
 using CIS.Presentation.UI.Contracts.Patients;
 using CIS.Presentation.Logic.Presenter.Patients;
+using CIS.Presentation.Model.Patients;
 
 namespace CIS.Presentation.UI.WindowsForms
 {
-    public partial class frmPatientRecord : Form, IEditPatientView
+    public partial class frmEditPatient : Form, IEditPatientView
     {
-        private DataGridViewRow _patientSelected;
+        private EditPatientViewModel _patientSelected;
         private EditPatientPresenter _presenter;
 
-        public frmPatientRecord()
+        public frmEditPatient()
         {
             InitializeComponent();
             _presenter = new EditPatientPresenter(this);
         }
 
-        public frmPatientRecord(DataGridViewRow patient)
+        public frmEditPatient(EditPatientViewModel patient)
             : this()
         {
             _patientSelected = patient;
         }
 
+        #region Form Events
+
         private void frmPatientRecord_Load(object sender, EventArgs e)
         {
             txtPatImage.Visible = false;
 
-            Load_PatientRecord();
-            Load_ClinicsRecord();
+            _presenter.LoadPatient(_patientSelected);
+
+            LoadClinics();
         }
 
-        private void Load_PatientRecord()
+        #endregion
+
+        public void LoadPatient(EditPatientViewModel patient)
         {
-            txtPid.Text = Convert.ToString(_patientSelected.Cells[0]);
-            txtHospNum.Text = Convert.ToString(_patientSelected.Cells[1]);
-            cmbtitle.Text = Convert.ToString(_patientSelected.Cells[2]);
-            txtLname.Text = Convert.ToString(_patientSelected.Cells[3]);
-            txtFname.Text = Convert.ToString(_patientSelected.Cells[4]);
-            txtMname.Text = Convert.ToString(_patientSelected.Cells[5]);
-            cmbGender.Text = Convert.ToString(_patientSelected.Cells[6]);
-            txtDob.Text = Convert.ToString(_patientSelected.Cells[7]);
-            cmbMStatus.Text = Convert.ToString(_patientSelected.Cells[14]);
-            txtPatConsultant.Text = Convert.ToString(_patientSelected.Cells[15]);
-            txtMPhone.Text = Convert.ToString(_patientSelected.Cells[9]);
+            txtPatientId.Text = Convert.ToString(_patientSelected.Cells[0]);
+            txtHospitalNumber.Text = Convert.ToString(_patientSelected.Cells[1]);
+            cboTitle.Text = Convert.ToString(_patientSelected.Cells[2]);
+            txtLastName.Text = Convert.ToString(_patientSelected.Cells[3]);
+            txtFirstName.Text = Convert.ToString(_patientSelected.Cells[4]);
+            txtMiddleName.Text = Convert.ToString(_patientSelected.Cells[5]);
+            cboGender.Text = Convert.ToString(_patientSelected.Cells[6]);
+            txtBirthdate.Text = Convert.ToString(_patientSelected.Cells[7]);
+            cboMaritalStatus.Text = Convert.ToString(_patientSelected.Cells[14]);
+            txtConsultant.Text = Convert.ToString(_patientSelected.Cells[15]);
+            txtMobilePhone.Text = Convert.ToString(_patientSelected.Cells[9]);
             txtPhone.Text = Convert.ToString(_patientSelected.Cells[8]);
             txtEmail.Text = Convert.ToString(_patientSelected.Cells[10]);
-            txtHAddress.Text = Convert.ToString(_patientSelected.Cells[11]);
+            txtHomeAddress.Text = Convert.ToString(_patientSelected.Cells[11]);
             txtCity.Text = Convert.ToString(_patientSelected.Cells[12]);
             txtState.Text = Convert.ToString(_patientSelected.Cells[13]);
-            txtOAddress.Text = Convert.ToString(_patientSelected.Cells[22]);
+            txtOfficeAddress.Text = Convert.ToString(_patientSelected.Cells[22]);
             txtNat.Text = Convert.ToString(_patientSelected.Cells[16]);
             txtSOrigin.Text = Convert.ToString(_patientSelected.Cells[17]);
             txtTOrigin.Text = Convert.ToString(_patientSelected.Cells[18]);
@@ -74,7 +80,7 @@ namespace CIS.Presentation.UI.WindowsForms
             txtHealthAddr.Text = Convert.ToString(_patientSelected.Cells[34]);
             txtHealthPhone.Text = Convert.ToString(_patientSelected.Cells[35]);
             txtHealthEmail.Text = Convert.ToString(_patientSelected.Cells[36]);
-            picPatImage.Image = LoadImage(Encoding.Default.GetBytes(_patientSelected.Cells[37].ToString()));
+            pbPatientImage.Image = LoadImage(Encoding.Default.GetBytes(_patientSelected.Cells[37].ToString()));
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -83,29 +89,29 @@ namespace CIS.Presentation.UI.WindowsForms
 
             var patient = new Patient()
             {
-                Identifier = int.Parse(txtPid.Text),
-                HospitalNumber = int.Parse(txtHospNum.Text),
-                Title = (Title)Enum.Parse(typeof(Title), cmbtitle.Text),
-                LastName = txtLname.Text,
-                FirstName = txtFname.Text,
-                MiddleName = txtMname.Text,
-                Gender = (Gender)Enum.Parse(typeof(Gender), cmbGender.Text),
-                BirthDate = DateTime.Parse(txtDob.Text),
+                Identifier = int.Parse(txtPatientId.Text),
+                HospitalNumber = int.Parse(txtHospitalNumber.Text),
+                Title = (Title)Enum.Parse(typeof(Title), cboTitle.Text),
+                LastName = txtLastName.Text,
+                FirstName = txtFirstName.Text,
+                MiddleName = txtMiddleName.Text,
+                Gender = (Gender)Enum.Parse(typeof(Gender), cboGender.Text),
+                BirthDate = DateTime.Parse(txtBirthdate.Text),
                 Phone = int.Parse(txtPhone.Text),
-                MobilePhone = int.Parse(txtMPhone.Text),
+                MobilePhone = int.Parse(txtMobilePhone.Text),
                 Email = txtEmail.Text,
-                HomeAddress = txtHAddress.Text,
+                HomeAddress = txtHomeAddress.Text,
                 City = txtCity.Text,
                 State = txtState.Text,
-                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cmbMStatus.Text),
-                PatientConsultant = txtPatConsultant.Text,
+                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cboMaritalStatus.Text),
+                PatientConsultant = txtConsultant.Text,
                 Nationality = txtNat.Text,
                 StateOfOrigin = txtSOrigin.Text,
                 Hometown = txtTOrigin.Text,
                 PlaceOfBirth = txtPoB.Text,
                 Religion = txtReligion.Text,
                 Occupation = txtOccupation.Text,
-                OfficeAddress = txtOAddress.Text,
+                OfficeAddress = txtOfficeAddress.Text,
                 NationalIdType = cmbNIDType.Text,
                 NationalIdNumber = txtNidNumber.Text,
                 NextOfKin = txtNok.Text,
@@ -139,7 +145,7 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             using (ClinicModel context = new ClinicModel())
             {
-                context.Patients.Remove(new Patient() { Identifier = int.Parse(txtPid.Text) });
+                context.Patients.Remove(new Patient() { Identifier = int.Parse(txtPatientId.Text) });
             }
 
             MessageBox.Show("Patient Record Deleted");
@@ -158,7 +164,7 @@ namespace CIS.Presentation.UI.WindowsForms
             {
                 picFile = OpenFD.FileName;
                 txtPatImage.Text = picFile;
-                picPatImage.Image = Image.FromFile(picFile);
+                pbPatientImage.Image = Image.FromFile(picFile);
             }
 
         }
@@ -194,7 +200,7 @@ namespace CIS.Presentation.UI.WindowsForms
         private void LoadReport()
         {
             //load patient's demographics on a textbox control for hardcopy printing
-            richTextBox1.Text = "Patient Record: " + Environment.NewLine + Environment.NewLine + label1.Text + ": " + txtPid.Text + Environment.NewLine + label2.Text + ": " + txtHospNum.Text + Environment.NewLine + label31.Text + ": " + cmbtitle.Text + Environment.NewLine + label3.Text + ": " + txtLname.Text + Environment.NewLine + label4.Text + ": " + txtFname.Text + Environment.NewLine + "Middle Name" + ": " + txtMname.Text + Environment.NewLine + "Gender" + ": " + cmbGender.Text + Environment.NewLine + "Date of Birth" + ": " + txtDob.Text + Environment.NewLine + "Phone" + ": " + txtPhone.Text + Environment.NewLine + "Mobile Phone" + ": " + txtMPhone.Text + Environment.NewLine + "Email" + ": " + txtEmail.Text + Environment.NewLine + "Home Address" + ": " + txtHAddress.Text + Environment.NewLine + "City" + ": " + txtCity.Text + Environment.NewLine + "State" + ": " + txtState.Text + Environment.NewLine + "Marital Status" + ": " + cmbMStatus.Text + Environment.NewLine + "Nationality" + ": " + txtNat.Text + Environment.NewLine + "State of Origin" + ": " + txtSOrigin.Text + Environment.NewLine + "Town of Origin" + ": " + txtTOrigin.Text + Environment.NewLine + "Place of Birth" + ": " + txtPoB.Text + Environment.NewLine + "Religion" + ": " + txtReligion.Text + Environment.NewLine + "Occupation" + ": " + txtOccupation.Text + Environment.NewLine + "Office Address" + ": " + txtOAddress.Text + Environment.NewLine + "National ID Type" + ": " + cmbNIDType.Text + Environment.NewLine + "National ID Number" + ": " + txtNidNumber.Text + Environment.NewLine + "Next of Kin" + ": " + txtNok.Text + Environment.NewLine + "Address" + ": " + txtNoKAddress.Text + Environment.NewLine + "Phone" + ": " + txtNoKPhone.Text + Environment.NewLine + "Email" + ": " + txtNoKEmail.Text + Environment.NewLine + "Relationship" + ": " + cmbNokRelationship.Text;
+            richTextBox1.Text = "Patient Record: " + Environment.NewLine + Environment.NewLine + lblPatientId.Text + ": " + txtPatientId.Text + Environment.NewLine + lblHospitalNumber.Text + ": " + txtHospitalNumber.Text + Environment.NewLine + lblTitle.Text + ": " + cboTitle.Text + Environment.NewLine + lblFamilyName.Text + ": " + txtLastName.Text + Environment.NewLine + lblFirstName.Text + ": " + txtFirstName.Text + Environment.NewLine + "Middle Name" + ": " + txtMiddleName.Text + Environment.NewLine + "Gender" + ": " + cboGender.Text + Environment.NewLine + "Date of Birth" + ": " + txtBirthdate.Text + Environment.NewLine + "Phone" + ": " + txtPhone.Text + Environment.NewLine + "Mobile Phone" + ": " + txtMobilePhone.Text + Environment.NewLine + "Email" + ": " + txtEmail.Text + Environment.NewLine + "Home Address" + ": " + txtHomeAddress.Text + Environment.NewLine + "City" + ": " + txtCity.Text + Environment.NewLine + "State" + ": " + txtState.Text + Environment.NewLine + "Marital Status" + ": " + cboMaritalStatus.Text + Environment.NewLine + "Nationality" + ": " + txtNat.Text + Environment.NewLine + "State of Origin" + ": " + txtSOrigin.Text + Environment.NewLine + "Town of Origin" + ": " + txtTOrigin.Text + Environment.NewLine + "Place of Birth" + ": " + txtPoB.Text + Environment.NewLine + "Religion" + ": " + txtReligion.Text + Environment.NewLine + "Occupation" + ": " + txtOccupation.Text + Environment.NewLine + "Office Address" + ": " + txtOfficeAddress.Text + Environment.NewLine + "National ID Type" + ": " + cmbNIDType.Text + Environment.NewLine + "National ID Number" + ": " + txtNidNumber.Text + Environment.NewLine + "Next of Kin" + ": " + txtNok.Text + Environment.NewLine + "Address" + ": " + txtNoKAddress.Text + Environment.NewLine + "Phone" + ": " + txtNoKPhone.Text + Environment.NewLine + "Email" + ": " + txtNoKEmail.Text + Environment.NewLine + "Relationship" + ": " + cmbNokRelationship.Text;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -245,10 +251,10 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            txtDob.Text = Convert.ToString(dateTimePicker1.Value.AddDays(0).ToString("yyyy/MM/dd"));
+            txtBirthdate.Text = Convert.ToString(dtpBirthdate.Value.AddDays(0).ToString("yyyy/MM/dd"));
         }
 
-        private void Load_ClinicsRecord()
+        private void LoadClinics()
         {
             List<Clinic> clinics = new List<Clinic>();
 
@@ -257,7 +263,7 @@ namespace CIS.Presentation.UI.WindowsForms
                 clinics = context.Clinicians.ToList();
             }
 
-            dgridClinics.DataSource = clinics;
+            dgvClinics.DataSource = clinics;
         }
 
         private void btnLoadClinic_Click(object sender, EventArgs e)
@@ -265,8 +271,8 @@ namespace CIS.Presentation.UI.WindowsForms
             //load preferred clinician into patient's demographics
             try
             {
-                DataGridViewRow dr = dgridClinics.SelectedRows[0];
-                txtPatConsultant.Text = dr.Cells[1].Value.ToString() + " " + dr.Cells[0].Value.ToString();
+                DataGridViewRow dr = dgvClinics.SelectedRows[0];
+                txtConsultant.Text = dr.Cells[1].Value.ToString() + " " + dr.Cells[0].Value.ToString();
                 grpClinics.Visible = false;
             }
             catch (Exception ex)
@@ -295,8 +301,8 @@ namespace CIS.Presentation.UI.WindowsForms
             //displayed list of clinicians to select as the patient's preffered 
             try
             {
-                DataGridViewRow dr = dgridClinics.SelectedRows[0];
-                txtPatConsultant.Text = dr.Cells[1].Value.ToString() + " " + dr.Cells[0].Value.ToString();
+                DataGridViewRow dr = dgvClinics.SelectedRows[0];
+                txtConsultant.Text = dr.Cells[1].Value.ToString() + " " + dr.Cells[0].Value.ToString();
                 grpClinics.Visible = false;
             }
             catch (Exception ex)

@@ -21,7 +21,7 @@ namespace CIS.Presentation.UI.WindowsForms
             if (dgvPatients.SelectedRows.Count > 0)
             {
                 DataGridViewRow dr = dgvPatients.SelectedRows[0];
-                frmPatientRecord frm = new frmPatientRecord(dr);
+                frmEditPatient frm = new frmEditPatient(dr);
                 frm.Show();
             }
         }
@@ -29,7 +29,7 @@ namespace CIS.Presentation.UI.WindowsForms
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             DataGridViewRow dr = dgvPatients.SelectedRows[0];
-            frmPatientRecord frm = new frmPatientRecord(dr);
+            frmEditPatient frm = new frmEditPatient(dr);
             frm.Show();
         }
 

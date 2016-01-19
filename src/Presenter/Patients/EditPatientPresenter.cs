@@ -1,4 +1,4 @@
-﻿
+﻿using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
@@ -10,6 +10,16 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         public EditPatientPresenter(IEditPatientView view)
         {
             this._view = view;
+        }
+
+        public void LoadPatient()
+        {
+            
+        }
+
+        public void LoadPatient(EditPatientViewModel patient)
+        {
+            _view.LoadPatient();
         }
     }
 }
