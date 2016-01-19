@@ -1,8 +1,10 @@
 ﻿using CIS.Data.DataAccess;
 using CIS.Presentation.Logic.Presenter.Patients;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -27,26 +29,7 @@ namespace CIS.Presentation.UI.WindowsForms
             }
             catch (Exception ex)
             {
-                    throw;
-            }
-
-            var patient = new Patient
-            {
-                HospitalNumber = int.Parse(mtbHospitalId.Text),
-                Title = (Title)Enum.Parse(typeof(Title), cboTitle.Text),
-                LastName = txtLastName.Text,
-                FirstName = txtFirstName.Text,
-                OtherName = txtMname.Text,
-                Gender = (Gender)Enum.Parse(typeof(Gender), cboTitle.Text),
-                BirthDate = dtpBirthDate.Value,
-                Phone = int.Parse(mtbPhone.Text),
-                HomeAddress = txtHomeAdd.Text,
-                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cboMaritalStatus.Text)
-            };
-
-            using (ClinicModel model = new ClinicModel())
-            {
-                model.Patients.Add(patient);
+                throw;
             }
 
             MessageBox.Show("New Patient Registered");
@@ -90,16 +73,16 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             return new NewPatientViewModel
             {
-                HospitalNumber = int.Parse(mtbHospitalId.Text),
-                Title = (Title)Enum.Parse(typeof(Title), cboTitle.Text),
+                HospitalNumber = mtbHospitalId.Text,
+                Title = Convert.ToInt32(cboTitle.SelectedValue),
                 LastName = txtLastName.Text,
                 FirstName = txtFirstName.Text,
                 OtherName = txtMname.Text,
-                Gender = (Gender)Enum.Parse(typeof(Gender), cboTitle.Text),
+                Gender = Convert.ToInt32(cboTitle.SelectedValue),
                 BirthDate = dtpBirthDate.Value,
-                Phone = int.Parse(mtbPhone.Text),
+                Phone = mtbPhone.Text,
                 HomeAddress = txtHomeAdd.Text,
-                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cboMaritalStatus.Text)
+                MaritalStatus = Convert.ToInt32(cboMaritalStatus.SelectedValue)
             };
         }
 
@@ -108,6 +91,28 @@ namespace CIS.Presentation.UI.WindowsForms
             _presenter.LoadTitles();
             _presenter.LoadGenres();
             _presenter.LoadMaritalStatuses();
+        }
+
+        public void LoadTitles(IEnumerable<ComboTitleViewModel> titles)
+        {
+            cboTitle.DataSource = titles.ToList();
+            cboTitle.DisplayMember = "Description";
+            cboTitle.ValueMember = "Identifier";
+        }
+
+
+        public void LoadGenres(IEnumerable<ComboGenreViewModel> genres)
+        {
+            cboGender.DataSource = genres.ToList();
+            cboGender.DisplayMember = "Description";
+            cboGender.ValueMember = "Identifier";
+        }
+
+        public void LoadMaritalStatuses(IEnumerable<ComboMaritalStatusViewModel> maritalStatuses)
+        {
+            cboMaritalStatus.DataSource = maritalStatuses.ToList();
+            cboMaritalStatus.DisplayMember = "Description";
+            cboMaritalStatus.ValueMember = "Identifier";
         }
     }
 }

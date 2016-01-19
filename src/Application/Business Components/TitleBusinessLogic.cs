@@ -1,6 +1,6 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess;
-using CIS.Presentation.Model;
+using CIS.Presentation.Model.Common;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,7 +18,16 @@ namespace CIS.Application.BusinessComponents
 
         public IEnumerable<ComboTitleViewModel> GetTitles()
         {
-            throw new System.NotImplementedException();
+            using (var context = new ClinicModel())
+            {
+                return context.Titles
+                    .Select(x => new ComboTitleViewModel 
+                    { 
+                        Identifier = x.Identifier,
+                        Description = x.Description
+                    })
+                    .ToList();
+            }
         }
     }
 }

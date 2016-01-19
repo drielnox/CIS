@@ -45,6 +45,8 @@
     <Compile Include="Administration\UsersViewModel.cs" />
     <Compile Include="Administration\UserViewModel.cs" />
     <Compile Include="Clinicians\EditClinicViewModel.cs" />
+    <Compile Include="Common\ComboGenreViewModel.cs" />
+    <Compile Include="Common\ComboMaritalStatusViewModel.cs" />
     <Compile Include="Common\ComboTitleViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="Clinicians\NewClinicPresentationModel.cs" />

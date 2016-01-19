@@ -6,16 +6,20 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using CIS.Data.DataAccess;
+using CIS.Presentation.UI.Contracts.Patients;
+using CIS.Presentation.Logic.Presenter.Patients;
 
 namespace CIS.Presentation.UI.WindowsForms
 {
-    public partial class frmPatientRecord : Form
+    public partial class frmPatientRecord : Form, IEditPatientView
     {
         private DataGridViewRow _patientSelected;
+        private EditPatientPresenter _presenter;
 
         public frmPatientRecord()
         {
             InitializeComponent();
+            _presenter = new EditPatientPresenter(this);
         }
 
         public frmPatientRecord(DataGridViewRow patient)

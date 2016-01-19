@@ -1,6 +1,6 @@
 ﻿using CIS.Presentation.Logic.Presenter.Clinicians;
-using CIS.Presentation.Model;
 using CIS.Presentation.Model.Clinicians;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts.Clinicians;
 using System;
 using System.Collections.Generic;

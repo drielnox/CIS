@@ -12,6 +12,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         public SearchPatientPresenter(ISearchPatientView view)
         {
             _view = view;
+            _logic = new PatientBusinessLogic();
         }
 
         public void SearchPatient()

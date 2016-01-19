@@ -42,6 +42,7 @@
     <Compile Include="Clinicians\EditClinicPresenter.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="Clinicians\NewClinicPresenter.cs" />
+    <Compile Include="Patients\EditPatientPresenter.cs" />
     <Compile Include="Patients\NewPatientPresenter.cs" />
     <Compile Include="Patients\SearchPatientPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +60,9 @@
       <Project>{9db3a6e4-1287-43f2-913e-3eecf34f1b9d}</Project>
       <Name>View</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

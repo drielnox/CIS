@@ -1,8 +1,8 @@
-﻿namespace CIS.Presentation.Model
+﻿namespace CIS.Presentation.Model.Common
 {
-    public struct ComboTitleViewModel
+    public class ComboTitleViewModel
     {
-        public int Identifier;
-        public string Description;
+        public int Identifier { get; set; }
+        public string Description { get; set; }
     }
 }
