@@ -9,6 +9,7 @@ using CIS.Data.DataAccess;
 using CIS.Presentation.UI.Contracts.Patients;
 using CIS.Presentation.Logic.Presenter.Patients;
 using CIS.Presentation.Model.Patients;
+using CIS.Presentation.Model.Common;
 
 namespace CIS.Presentation.UI.WindowsForms
 {
@@ -35,6 +36,12 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             txtPatImage.Visible = false;
 
+            _presenter.LoadTitles();
+            _presenter.LoadGenders();
+            _presenter.LoadMaritalStatus();
+            _presenter.LoadNationalIdentificationTypes();
+            _presenter.LoadKinRelationships();
+
             _presenter.LoadPatient(_patientSelected);
 
             LoadClinics();
@@ -44,89 +51,87 @@ namespace CIS.Presentation.UI.WindowsForms
 
         public void LoadPatient(EditPatientViewModel patient)
         {
-            txtPatientId.Text = Convert.ToString(_patientSelected.Cells[0]);
-            txtHospitalNumber.Text = Convert.ToString(_patientSelected.Cells[1]);
-            cboTitle.Text = Convert.ToString(_patientSelected.Cells[2]);
-            txtLastName.Text = Convert.ToString(_patientSelected.Cells[3]);
-            txtFirstName.Text = Convert.ToString(_patientSelected.Cells[4]);
-            txtMiddleName.Text = Convert.ToString(_patientSelected.Cells[5]);
-            cboGender.Text = Convert.ToString(_patientSelected.Cells[6]);
-            txtBirthdate.Text = Convert.ToString(_patientSelected.Cells[7]);
-            cboMaritalStatus.Text = Convert.ToString(_patientSelected.Cells[14]);
-            txtConsultant.Text = Convert.ToString(_patientSelected.Cells[15]);
-            txtMobilePhone.Text = Convert.ToString(_patientSelected.Cells[9]);
-            txtPhone.Text = Convert.ToString(_patientSelected.Cells[8]);
-            txtEmail.Text = Convert.ToString(_patientSelected.Cells[10]);
-            txtHomeAddress.Text = Convert.ToString(_patientSelected.Cells[11]);
-            txtCity.Text = Convert.ToString(_patientSelected.Cells[12]);
-            txtState.Text = Convert.ToString(_patientSelected.Cells[13]);
-            txtOfficeAddress.Text = Convert.ToString(_patientSelected.Cells[22]);
-            txtNat.Text = Convert.ToString(_patientSelected.Cells[16]);
-            txtSOrigin.Text = Convert.ToString(_patientSelected.Cells[17]);
-            txtTOrigin.Text = Convert.ToString(_patientSelected.Cells[18]);
-            txtPoB.Text = Convert.ToString(_patientSelected.Cells[19]);
-            txtReligion.Text = Convert.ToString(_patientSelected.Cells[20]);
-            txtOccupation.Text = Convert.ToString(_patientSelected.Cells[21]);
-            cmbNIDType.Text = Convert.ToString(_patientSelected.Cells[24]);
-            txtNidNumber.Text = Convert.ToString(_patientSelected.Cells[25]);
-            txtNok.Text = Convert.ToString(_patientSelected.Cells[26]);
-            txtNoKAddress.Text = Convert.ToString(_patientSelected.Cells[27]);
-            txtNoKPhone.Text = Convert.ToString(_patientSelected.Cells[28]);
-            txtNoKEmail.Text = Convert.ToString(_patientSelected.Cells[29]);
-            cmbNokRelationship.Text = Convert.ToString(_patientSelected.Cells[30]);
-            txtFather.Text = Convert.ToString(_patientSelected.Cells[31]);
-            txtMother.Text = Convert.ToString(_patientSelected.Cells[32]);
-            txtHealthIns.Text = Convert.ToString(_patientSelected.Cells[33]);
-            txtHealthAddr.Text = Convert.ToString(_patientSelected.Cells[34]);
-            txtHealthPhone.Text = Convert.ToString(_patientSelected.Cells[35]);
-            txtHealthEmail.Text = Convert.ToString(_patientSelected.Cells[36]);
-            pbPatientImage.Image = LoadImage(Encoding.Default.GetBytes(_patientSelected.Cells[37].ToString()));
+            txtPatientId.Text = patient.Identifier;
+            txtHospitalNumber.Text = patient.HospitalNumber;
+            cboTitle.SelectedValue = patient.Title;
+            txtLastName.Text = patient.LastName;
+            txtFirstName.Text = patient.FirstName;
+            txtMiddleName.Text = patient.MiddleName;
+            cboGender.SelectedValue = patient.Genre;
+            dtpBirthdate.Value = patient.Birthdate;
+            cboMaritalStatus.SelectedValue = patient.MaritalStatus;
+            txtConsultant.Text = patient.Consultant;
+            txtMobilePhone.Text = patient.MobilePhone;
+            txtPhone.Text = patient.Phone;
+            txtEmail.Text = patient.Email;
+            txtHomeAddress.Text = patient.HomeAddress;
+            txtCity.Text = patient.City;
+            txtState.Text = patient.State;
+            txtOfficeAddress.Text = patient.WorkAddress;
+            txtNationality.Text = patient.Nationality;
+            txtStateOfOrigin.Text = patient.StateOfOrigin;
+            txtTownOfOrigin.Text = patient.TownOfOrigin;
+            txtPlaceOfBirth.Text = patient.PlaceOfBirth;
+            txtReligion.Text = patient.Religion;
+            txtOccupation.Text = patient.Occupation;
+            cboNationalIdType.SelectedValue = patient.NationalIdType;
+            txtNationalIdNumber.Text = patient.NationalIdNumber;
+            txtNameOfKin.Text = patient.NextOfKin;
+            txtNameOfKinAddress.Text = patient.NextOfKinAddress;
+            txtNameOfKinPhone.Text = patient.NextOfKinPhone;
+            txtNameOfKinEmail.Text = patient.NextOfKinEmail;
+            cboNameOfKinRelationship.SelectedValue = patient.NextOfKinRelationship;
+            txtFatherName.Text = patient.FatherName;
+            txtMotherName.Text = patient.MotherName;
+            txtHealthInsurance.Text = patient.HealthInsuranceProvider;
+            txtHealthInsuranceAddress.Text = patient.HealthInsuranceProviderAddress;
+            txtHealthInsurancePhone.Text = patient.HealthInsuranceProviderPhone;
+            txtHealthInsuranceEmail.Text = patient.HealthInsuranceProviderEmail;
+            pbPatientImage.Image = LoadImage(Encoding.Default.GetBytes(patient.Photo));
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            txtDateAmend.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-
-            var patient = new Patient()
+            var patient = new EditPatientViewModel()
             {
-                Identifier = int.Parse(txtPatientId.Text),
-                HospitalNumber = int.Parse(txtHospitalNumber.Text),
-                Title = (Title)Enum.Parse(typeof(Title), cboTitle.Text),
+                Identifier = txtPatientId.Text,
+                HospitalNumber = txtHospitalNumber.Text,
+                Title = Convert.ToInt32(cboTitle.SelectedValue),
                 LastName = txtLastName.Text,
                 FirstName = txtFirstName.Text,
                 MiddleName = txtMiddleName.Text,
-                Gender = (Gender)Enum.Parse(typeof(Gender), cboGender.Text),
-                BirthDate = DateTime.Parse(txtBirthdate.Text),
-                Phone = int.Parse(txtPhone.Text),
-                MobilePhone = int.Parse(txtMobilePhone.Text),
+                Genre = Convert.ToInt32(cboGender.SelectedValue),
+                Birthdate = dtpBirthdate.Value,
+                Phone = txtPhone.Text,
+                MobilePhone = txtMobilePhone.Text,
                 Email = txtEmail.Text,
                 HomeAddress = txtHomeAddress.Text,
                 City = txtCity.Text,
                 State = txtState.Text,
-                MaritalStatus = (MaritalStatus)Enum.Parse(typeof(MaritalStatus), cboMaritalStatus.Text),
-                PatientConsultant = txtConsultant.Text,
-                Nationality = txtNat.Text,
-                StateOfOrigin = txtSOrigin.Text,
-                Hometown = txtTOrigin.Text,
-                PlaceOfBirth = txtPoB.Text,
+                MaritalStatus = Convert.ToInt32(cboMaritalStatus.SelectedValue),
+                Consultant = txtConsultant.Text,
+                Nationality = txtNationality.Text,
+                StateOfOrigin = txtStateOfOrigin.Text,
+                TownOfOrigin = txtTownOfOrigin.Text,
+                PlaceOfBirth = txtPlaceOfBirth.Text,
                 Religion = txtReligion.Text,
                 Occupation = txtOccupation.Text,
-                OfficeAddress = txtOfficeAddress.Text,
-                NationalIdType = cmbNIDType.Text,
-                NationalIdNumber = txtNidNumber.Text,
-                NextOfKin = txtNok.Text,
-                AddressNextOfKin = txtNoKAddress.Text,
-                PhoneNextOfKin = int.Parse(txtNoKPhone.Text),
-                EmailNextOfKin = txtNoKEmail.Text,
-                NextOfKinRelationship = cmbNokRelationship.Text,
-                NameOfFather = txtFather.Text,
-                NameOfMother = txtMother.Text,
-                HealthInsuranceProvider = txtHealthIns.Text,
-                AddressHealthInsuranceProvider = txtHealthAddr.Text,
-                PhoneHealthInsuranceProvider = int.Parse(txtHealthPhone.Text),
-                EmailHealthInsuranceProvider = txtHealthEmail.Text,
-                DateAmended = txtDateAmend.Text,
-                Photo = GetBytesFromImage()
+                WorkAddress = txtOfficeAddress.Text,
+                NationalIdType = Convert.ToInt32(cboNationalIdType.SelectedValue),
+                NationalIdNumber = txtNationalIdNumber.Text,
+                NextOfKin = txtNameOfKin.Text,
+                NextOfKinAddress = txtNameOfKinAddress.Text,
+                NextOfKinPhone = txtNameOfKinPhone.Text,
+                NextOfKinEmail = txtNameOfKinEmail.Text,
+                NextOfKinRelationship = Convert.ToInt32(cboNameOfKinRelationship.SelectedValue),
+                FatherName = txtFatherName.Text,
+                MotherName = txtMotherName.Text,
+                HealthInsuranceProvider = txtHealthInsurance.Text,
+                HealthInsuranceProviderAddress = txtHealthInsuranceAddress.Text,
+                HealthInsuranceProviderPhone = txtHealthInsurancePhone.Text,
+                HealthInsuranceProviderEmail = txtHealthInsuranceEmail.Text,
+                DateAmended = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                Photo = GetBytesFromImage().ToString();
             };
 
             using (ClinicModel context = new ClinicModel())
@@ -200,7 +205,7 @@ namespace CIS.Presentation.UI.WindowsForms
         private void LoadReport()
         {
             //load patient's demographics on a textbox control for hardcopy printing
-            richTextBox1.Text = "Patient Record: " + Environment.NewLine + Environment.NewLine + lblPatientId.Text + ": " + txtPatientId.Text + Environment.NewLine + lblHospitalNumber.Text + ": " + txtHospitalNumber.Text + Environment.NewLine + lblTitle.Text + ": " + cboTitle.Text + Environment.NewLine + lblFamilyName.Text + ": " + txtLastName.Text + Environment.NewLine + lblFirstName.Text + ": " + txtFirstName.Text + Environment.NewLine + "Middle Name" + ": " + txtMiddleName.Text + Environment.NewLine + "Gender" + ": " + cboGender.Text + Environment.NewLine + "Date of Birth" + ": " + txtBirthdate.Text + Environment.NewLine + "Phone" + ": " + txtPhone.Text + Environment.NewLine + "Mobile Phone" + ": " + txtMobilePhone.Text + Environment.NewLine + "Email" + ": " + txtEmail.Text + Environment.NewLine + "Home Address" + ": " + txtHomeAddress.Text + Environment.NewLine + "City" + ": " + txtCity.Text + Environment.NewLine + "State" + ": " + txtState.Text + Environment.NewLine + "Marital Status" + ": " + cboMaritalStatus.Text + Environment.NewLine + "Nationality" + ": " + txtNat.Text + Environment.NewLine + "State of Origin" + ": " + txtSOrigin.Text + Environment.NewLine + "Town of Origin" + ": " + txtTOrigin.Text + Environment.NewLine + "Place of Birth" + ": " + txtPoB.Text + Environment.NewLine + "Religion" + ": " + txtReligion.Text + Environment.NewLine + "Occupation" + ": " + txtOccupation.Text + Environment.NewLine + "Office Address" + ": " + txtOfficeAddress.Text + Environment.NewLine + "National ID Type" + ": " + cmbNIDType.Text + Environment.NewLine + "National ID Number" + ": " + txtNidNumber.Text + Environment.NewLine + "Next of Kin" + ": " + txtNok.Text + Environment.NewLine + "Address" + ": " + txtNoKAddress.Text + Environment.NewLine + "Phone" + ": " + txtNoKPhone.Text + Environment.NewLine + "Email" + ": " + txtNoKEmail.Text + Environment.NewLine + "Relationship" + ": " + cmbNokRelationship.Text;
+            richTextBox1.Text = "Patient Record: " + Environment.NewLine + Environment.NewLine + lblPatientId.Text + ": " + txtPatientId.Text + Environment.NewLine + lblHospitalNumber.Text + ": " + txtHospitalNumber.Text + Environment.NewLine + lblTitle.Text + ": " + cboTitle.Text + Environment.NewLine + lblFamilyName.Text + ": " + txtLastName.Text + Environment.NewLine + lblFirstName.Text + ": " + txtFirstName.Text + Environment.NewLine + "Middle Name" + ": " + txtMiddleName.Text + Environment.NewLine + "Gender" + ": " + cboGender.Text + Environment.NewLine + "Date of Birth" + ": " + txtBirthdate.Text + Environment.NewLine + "Phone" + ": " + txtPhone.Text + Environment.NewLine + "Mobile Phone" + ": " + txtMobilePhone.Text + Environment.NewLine + "Email" + ": " + txtEmail.Text + Environment.NewLine + "Home Address" + ": " + txtHomeAddress.Text + Environment.NewLine + "City" + ": " + txtCity.Text + Environment.NewLine + "State" + ": " + txtState.Text + Environment.NewLine + "Marital Status" + ": " + cboMaritalStatus.Text + Environment.NewLine + "Nationality" + ": " + txtNationality.Text + Environment.NewLine + "State of Origin" + ": " + txtStateOfOrigin.Text + Environment.NewLine + "Town of Origin" + ": " + txtTownOfOrigin.Text + Environment.NewLine + "Place of Birth" + ": " + txtPlaceOfBirth.Text + Environment.NewLine + "Religion" + ": " + txtReligion.Text + Environment.NewLine + "Occupation" + ": " + txtOccupation.Text + Environment.NewLine + "Office Address" + ": " + txtOfficeAddress.Text + Environment.NewLine + "National ID Type" + ": " + cboNationalIdType.Text + Environment.NewLine + "National ID Number" + ": " + txtNationalIdNumber.Text + Environment.NewLine + "Next of Kin" + ": " + txtNameOfKin.Text + Environment.NewLine + "Address" + ": " + txtNameOfKinAddress.Text + Environment.NewLine + "Phone" + ": " + txtNameOfKinPhone.Text + Environment.NewLine + "Email" + ": " + txtNameOfKinEmail.Text + Environment.NewLine + "Relationship" + ": " + cboNameOfKinRelationship.Text;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -309,6 +314,41 @@ namespace CIS.Presentation.UI.WindowsForms
             {
                 MessageBox.Show(ex.Message, "Search Clinics");
             }
+        }
+
+        public void LoadTitles(IEnumerable<ComboTitleViewModel> titles)
+        {
+            cboTitle.DataSource = titles.ToList();
+            cboTitle.DisplayMember = "Description";
+            cboTitle.ValueMember = "Identifier";
+        }
+
+        public void LoadGenres(IEnumerable<ComboGenreViewModel> genrers)
+        {
+            cboGender.DataSource = genrers.ToList();
+            cboGender.DisplayMember = "Description";
+            cboGender.ValueMember = "Identifier";
+        }
+
+        public void LoadMaritalStatuses(IEnumerable<ComboMaritalStatusViewModel> maritalStatuses)
+        {
+            cboMaritalStatus.DataSource = maritalStatuses.ToList();
+            cboMaritalStatus.DisplayMember = "Description";
+            cboMaritalStatus.ValueMember = "Identifier";
+        }
+
+        public void LoadNationalIdTypes(IEnumerable<ComboNationalIdTypesViewModel> nationalIdTypes)
+        {
+            cboNationalIdType.DataSource = nationalIdTypes.ToList();
+            cboNationalIdType.DisplayMember = "Description";
+            cboNationalIdType.ValueMember = "Identifier";
+        }
+
+        public void LoadKinRelationships(IEnumerable<ComboKinRelationshipViewModel> relatioships)
+        {
+            cboNameOfKinRelationship.DataSource = relatioships.ToList();
+            cboNameOfKinRelationship.DisplayMember = "Description";
+            cboNameOfKinRelationship.ValueMember = "Identifier";
         }
     }
 }

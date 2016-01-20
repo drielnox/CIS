@@ -64,52 +64,50 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtMobilePhone = new System.Windows.Forms.TextBox();
-            this.txtBirthdate = new System.Windows.Forms.TextBox();
             this.txtMiddleName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtHospitalNumber = new System.Windows.Forms.TextBox();
             this.txtPatientId = new System.Windows.Forms.TextBox();
             this.tpAdditional = new System.Windows.Forms.TabPage();
-            this.cmbNokRelationship = new System.Windows.Forms.ComboBox();
-            this.cmbNIDType = new System.Windows.Forms.ComboBox();
-            this.txtDateAmend = new System.Windows.Forms.TextBox();
+            this.cboNameOfKinRelationship = new System.Windows.Forms.ComboBox();
+            this.cboNationalIdType = new System.Windows.Forms.ComboBox();
             this.txtReligion = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.txtHealthEmail = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.txtHealthAddr = new System.Windows.Forms.TextBox();
-            this.txtHealthPhone = new System.Windows.Forms.TextBox();
-            this.txtHealthIns = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.txtMother = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtFather = new System.Windows.Forms.TextBox();
-            this.txtNoKEmail = new System.Windows.Forms.TextBox();
-            this.txtNoKPhone = new System.Windows.Forms.TextBox();
-            this.txtNoKAddress = new System.Windows.Forms.TextBox();
-            this.txtNok = new System.Windows.Forms.TextBox();
-            this.txtNidNumber = new System.Windows.Forms.TextBox();
+            this.lblReligion = new System.Windows.Forms.Label();
+            this.txtHealthInsuranceEmail = new System.Windows.Forms.TextBox();
+            this.lblHealthInsuranceEmail = new System.Windows.Forms.Label();
+            this.txtHealthInsuranceAddress = new System.Windows.Forms.TextBox();
+            this.txtHealthInsurancePhone = new System.Windows.Forms.TextBox();
+            this.txtHealthInsurance = new System.Windows.Forms.TextBox();
+            this.lblHealthInsurancePhone = new System.Windows.Forms.Label();
+            this.lblHealthInsuranceAddress = new System.Windows.Forms.Label();
+            this.lblHealthInsurance = new System.Windows.Forms.Label();
+            this.txtMotherName = new System.Windows.Forms.TextBox();
+            this.lblMotherName = new System.Windows.Forms.Label();
+            this.txtFatherName = new System.Windows.Forms.TextBox();
+            this.txtNameOfKinEmail = new System.Windows.Forms.TextBox();
+            this.txtNameOfKinPhone = new System.Windows.Forms.TextBox();
+            this.txtNameOfKinAddress = new System.Windows.Forms.TextBox();
+            this.txtNameOfKin = new System.Windows.Forms.TextBox();
+            this.txtNationalIdNumber = new System.Windows.Forms.TextBox();
             this.txtOccupation = new System.Windows.Forms.TextBox();
-            this.txtPoB = new System.Windows.Forms.TextBox();
-            this.txtTOrigin = new System.Windows.Forms.TextBox();
-            this.txtSOrigin = new System.Windows.Forms.TextBox();
-            this.txtNat = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.txtPlaceOfBirth = new System.Windows.Forms.TextBox();
+            this.txtTownOfOrigin = new System.Windows.Forms.TextBox();
+            this.txtStateOfOrigin = new System.Windows.Forms.TextBox();
+            this.txtNationality = new System.Windows.Forms.TextBox();
+            this.lblFatherName = new System.Windows.Forms.Label();
+            this.lblNameOfKinRelationship = new System.Windows.Forms.Label();
+            this.lblNameOfKinEmail = new System.Windows.Forms.Label();
+            this.lblNameOfKinPhone = new System.Windows.Forms.Label();
+            this.lblNameOfKinAddress = new System.Windows.Forms.Label();
+            this.lblNameOfKin = new System.Windows.Forms.Label();
+            this.lblNationalIdNumber = new System.Windows.Forms.Label();
+            this.lblNationalIdType = new System.Windows.Forms.Label();
+            this.lblOccupation = new System.Windows.Forms.Label();
+            this.lblPlaceOfBirth = new System.Windows.Forms.Label();
+            this.lblTownOfOrigin = new System.Windows.Forms.Label();
+            this.lblStateOfOrigin = new System.Windows.Forms.Label();
+            this.lblNacionality = new System.Windows.Forms.Label();
             this.grpClinics = new System.Windows.Forms.GroupBox();
             this.lblClinicians = new System.Windows.Forms.Label();
             this.btnCancelClinic = new System.Windows.Forms.Button();
@@ -176,7 +174,6 @@
             this.tpPersonal.Controls.Add(this.txtEmail);
             this.tpPersonal.Controls.Add(this.txtPhone);
             this.tpPersonal.Controls.Add(this.txtMobilePhone);
-            this.tpPersonal.Controls.Add(this.txtBirthdate);
             this.tpPersonal.Controls.Add(this.txtMiddleName);
             this.tpPersonal.Controls.Add(this.txtFirstName);
             this.tpPersonal.Controls.Add(this.txtLastName);
@@ -258,9 +255,9 @@
             // 
             // dtpBirthdate
             // 
-            this.dtpBirthdate.Location = new System.Drawing.Point(292, 259);
+            this.dtpBirthdate.Location = new System.Drawing.Point(118, 259);
             this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(20, 20);
+            this.dtpBirthdate.Size = new System.Drawing.Size(194, 20);
             this.dtpBirthdate.TabIndex = 80;
             this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -486,13 +483,6 @@
             this.txtMobilePhone.Size = new System.Drawing.Size(194, 20);
             this.txtMobilePhone.TabIndex = 8;
             // 
-            // txtBirthdate
-            // 
-            this.txtBirthdate.Location = new System.Drawing.Point(118, 259);
-            this.txtBirthdate.Name = "txtBirthdate";
-            this.txtBirthdate.Size = new System.Drawing.Size(170, 20);
-            this.txtBirthdate.TabIndex = 7;
-            // 
             // txtMiddleName
             // 
             this.txtMiddleName.Location = new System.Drawing.Point(118, 189);
@@ -538,45 +528,44 @@
             // tpAdditional
             // 
             this.tpAdditional.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tpAdditional.Controls.Add(this.cmbNokRelationship);
-            this.tpAdditional.Controls.Add(this.cmbNIDType);
-            this.tpAdditional.Controls.Add(this.txtDateAmend);
+            this.tpAdditional.Controls.Add(this.cboNameOfKinRelationship);
+            this.tpAdditional.Controls.Add(this.cboNationalIdType);
             this.tpAdditional.Controls.Add(this.txtReligion);
-            this.tpAdditional.Controls.Add(this.label30);
-            this.tpAdditional.Controls.Add(this.txtHealthEmail);
-            this.tpAdditional.Controls.Add(this.label32);
-            this.tpAdditional.Controls.Add(this.txtHealthAddr);
-            this.tpAdditional.Controls.Add(this.txtHealthPhone);
-            this.tpAdditional.Controls.Add(this.txtHealthIns);
-            this.tpAdditional.Controls.Add(this.label33);
-            this.tpAdditional.Controls.Add(this.label34);
-            this.tpAdditional.Controls.Add(this.label35);
-            this.tpAdditional.Controls.Add(this.txtMother);
-            this.tpAdditional.Controls.Add(this.label29);
-            this.tpAdditional.Controls.Add(this.txtFather);
-            this.tpAdditional.Controls.Add(this.txtNoKEmail);
-            this.tpAdditional.Controls.Add(this.txtNoKPhone);
-            this.tpAdditional.Controls.Add(this.txtNoKAddress);
-            this.tpAdditional.Controls.Add(this.txtNok);
-            this.tpAdditional.Controls.Add(this.txtNidNumber);
+            this.tpAdditional.Controls.Add(this.lblReligion);
+            this.tpAdditional.Controls.Add(this.txtHealthInsuranceEmail);
+            this.tpAdditional.Controls.Add(this.lblHealthInsuranceEmail);
+            this.tpAdditional.Controls.Add(this.txtHealthInsuranceAddress);
+            this.tpAdditional.Controls.Add(this.txtHealthInsurancePhone);
+            this.tpAdditional.Controls.Add(this.txtHealthInsurance);
+            this.tpAdditional.Controls.Add(this.lblHealthInsurancePhone);
+            this.tpAdditional.Controls.Add(this.lblHealthInsuranceAddress);
+            this.tpAdditional.Controls.Add(this.lblHealthInsurance);
+            this.tpAdditional.Controls.Add(this.txtMotherName);
+            this.tpAdditional.Controls.Add(this.lblMotherName);
+            this.tpAdditional.Controls.Add(this.txtFatherName);
+            this.tpAdditional.Controls.Add(this.txtNameOfKinEmail);
+            this.tpAdditional.Controls.Add(this.txtNameOfKinPhone);
+            this.tpAdditional.Controls.Add(this.txtNameOfKinAddress);
+            this.tpAdditional.Controls.Add(this.txtNameOfKin);
+            this.tpAdditional.Controls.Add(this.txtNationalIdNumber);
             this.tpAdditional.Controls.Add(this.txtOccupation);
-            this.tpAdditional.Controls.Add(this.txtPoB);
-            this.tpAdditional.Controls.Add(this.txtTOrigin);
-            this.tpAdditional.Controls.Add(this.txtSOrigin);
-            this.tpAdditional.Controls.Add(this.txtNat);
-            this.tpAdditional.Controls.Add(this.label14);
-            this.tpAdditional.Controls.Add(this.label15);
-            this.tpAdditional.Controls.Add(this.label16);
-            this.tpAdditional.Controls.Add(this.label17);
-            this.tpAdditional.Controls.Add(this.label18);
-            this.tpAdditional.Controls.Add(this.label19);
-            this.tpAdditional.Controls.Add(this.label20);
-            this.tpAdditional.Controls.Add(this.label21);
-            this.tpAdditional.Controls.Add(this.label22);
-            this.tpAdditional.Controls.Add(this.label23);
-            this.tpAdditional.Controls.Add(this.label24);
-            this.tpAdditional.Controls.Add(this.label25);
-            this.tpAdditional.Controls.Add(this.label26);
+            this.tpAdditional.Controls.Add(this.txtPlaceOfBirth);
+            this.tpAdditional.Controls.Add(this.txtTownOfOrigin);
+            this.tpAdditional.Controls.Add(this.txtStateOfOrigin);
+            this.tpAdditional.Controls.Add(this.txtNationality);
+            this.tpAdditional.Controls.Add(this.lblFatherName);
+            this.tpAdditional.Controls.Add(this.lblNameOfKinRelationship);
+            this.tpAdditional.Controls.Add(this.lblNameOfKinEmail);
+            this.tpAdditional.Controls.Add(this.lblNameOfKinPhone);
+            this.tpAdditional.Controls.Add(this.lblNameOfKinAddress);
+            this.tpAdditional.Controls.Add(this.lblNameOfKin);
+            this.tpAdditional.Controls.Add(this.lblNationalIdNumber);
+            this.tpAdditional.Controls.Add(this.lblNationalIdType);
+            this.tpAdditional.Controls.Add(this.lblOccupation);
+            this.tpAdditional.Controls.Add(this.lblPlaceOfBirth);
+            this.tpAdditional.Controls.Add(this.lblTownOfOrigin);
+            this.tpAdditional.Controls.Add(this.lblStateOfOrigin);
+            this.tpAdditional.Controls.Add(this.lblNacionality);
             this.tpAdditional.Location = new System.Drawing.Point(4, 22);
             this.tpAdditional.Name = "tpAdditional";
             this.tpAdditional.Padding = new System.Windows.Forms.Padding(3);
@@ -584,11 +573,11 @@
             this.tpAdditional.TabIndex = 1;
             this.tpAdditional.Text = "Additional Detail";
             // 
-            // cmbNokRelationship
+            // cboNameOfKinRelationship
             // 
-            this.cmbNokRelationship.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbNokRelationship.FormattingEnabled = true;
-            this.cmbNokRelationship.Items.AddRange(new object[] {
+            this.cboNameOfKinRelationship.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboNameOfKinRelationship.FormattingEnabled = true;
+            this.cboNameOfKinRelationship.Items.AddRange(new object[] {
             "Sister",
             "Brother",
             "Mother",
@@ -599,32 +588,23 @@
             "Uncle",
             "Cousin",
             "Friend"});
-            this.cmbNokRelationship.Location = new System.Drawing.Point(452, 77);
-            this.cmbNokRelationship.Name = "cmbNokRelationship";
-            this.cmbNokRelationship.Size = new System.Drawing.Size(194, 21);
-            this.cmbNokRelationship.TabIndex = 88;
+            this.cboNameOfKinRelationship.Location = new System.Drawing.Point(452, 77);
+            this.cboNameOfKinRelationship.Name = "cboNameOfKinRelationship";
+            this.cboNameOfKinRelationship.Size = new System.Drawing.Size(194, 21);
+            this.cboNameOfKinRelationship.TabIndex = 88;
             // 
-            // cmbNIDType
+            // cboNationalIdType
             // 
-            this.cmbNIDType.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbNIDType.FormattingEnabled = true;
-            this.cmbNIDType.Items.AddRange(new object[] {
+            this.cboNationalIdType.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cboNationalIdType.FormattingEnabled = true;
+            this.cboNationalIdType.Items.AddRange(new object[] {
             "National ID Card",
             "Driver\'s Licence",
             "Intl. Passport"});
-            this.cmbNIDType.Location = new System.Drawing.Point(116, 199);
-            this.cmbNIDType.Name = "cmbNIDType";
-            this.cmbNIDType.Size = new System.Drawing.Size(194, 21);
-            this.cmbNIDType.TabIndex = 87;
-            // 
-            // txtDateAmend
-            // 
-            this.txtDateAmend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDateAmend.Location = new System.Drawing.Point(650, 321);
-            this.txtDateAmend.Name = "txtDateAmend";
-            this.txtDateAmend.Size = new System.Drawing.Size(185, 20);
-            this.txtDateAmend.TabIndex = 86;
-            this.txtDateAmend.Visible = false;
+            this.cboNationalIdType.Location = new System.Drawing.Point(116, 199);
+            this.cboNationalIdType.Name = "cboNationalIdType";
+            this.cboNationalIdType.Size = new System.Drawing.Size(194, 21);
+            this.cboNationalIdType.TabIndex = 87;
             // 
             // txtReligion
             // 
@@ -634,149 +614,149 @@
             this.txtReligion.Size = new System.Drawing.Size(194, 20);
             this.txtReligion.TabIndex = 85;
             // 
-            // label30
+            // lblReligion
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(27, 140);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(45, 13);
-            this.label30.TabIndex = 84;
-            this.label30.Text = "Religion";
+            this.lblReligion.AutoSize = true;
+            this.lblReligion.Location = new System.Drawing.Point(27, 140);
+            this.lblReligion.Name = "lblReligion";
+            this.lblReligion.Size = new System.Drawing.Size(45, 13);
+            this.lblReligion.TabIndex = 84;
+            this.lblReligion.Text = "Religion";
             // 
-            // txtHealthEmail
+            // txtHealthInsuranceEmail
             // 
-            this.txtHealthEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHealthEmail.Location = new System.Drawing.Point(452, 292);
-            this.txtHealthEmail.Name = "txtHealthEmail";
-            this.txtHealthEmail.Size = new System.Drawing.Size(194, 20);
-            this.txtHealthEmail.TabIndex = 83;
+            this.txtHealthInsuranceEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHealthInsuranceEmail.Location = new System.Drawing.Point(452, 292);
+            this.txtHealthInsuranceEmail.Name = "txtHealthInsuranceEmail";
+            this.txtHealthInsuranceEmail.Size = new System.Drawing.Size(194, 20);
+            this.txtHealthInsuranceEmail.TabIndex = 83;
             // 
-            // label32
+            // lblHealthInsuranceEmail
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(337, 298);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(32, 13);
-            this.label32.TabIndex = 82;
-            this.label32.Text = "Email";
+            this.lblHealthInsuranceEmail.AutoSize = true;
+            this.lblHealthInsuranceEmail.Location = new System.Drawing.Point(337, 298);
+            this.lblHealthInsuranceEmail.Name = "lblHealthInsuranceEmail";
+            this.lblHealthInsuranceEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblHealthInsuranceEmail.TabIndex = 82;
+            this.lblHealthInsuranceEmail.Text = "Email";
             // 
-            // txtHealthAddr
+            // txtHealthInsuranceAddress
             // 
-            this.txtHealthAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHealthAddr.Location = new System.Drawing.Point(452, 205);
-            this.txtHealthAddr.Multiline = true;
-            this.txtHealthAddr.Name = "txtHealthAddr";
-            this.txtHealthAddr.Size = new System.Drawing.Size(194, 43);
-            this.txtHealthAddr.TabIndex = 81;
+            this.txtHealthInsuranceAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHealthInsuranceAddress.Location = new System.Drawing.Point(452, 205);
+            this.txtHealthInsuranceAddress.Multiline = true;
+            this.txtHealthInsuranceAddress.Name = "txtHealthInsuranceAddress";
+            this.txtHealthInsuranceAddress.Size = new System.Drawing.Size(194, 43);
+            this.txtHealthInsuranceAddress.TabIndex = 81;
             // 
-            // txtHealthPhone
+            // txtHealthInsurancePhone
             // 
-            this.txtHealthPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHealthPhone.Location = new System.Drawing.Point(452, 260);
-            this.txtHealthPhone.Name = "txtHealthPhone";
-            this.txtHealthPhone.Size = new System.Drawing.Size(194, 20);
-            this.txtHealthPhone.TabIndex = 80;
+            this.txtHealthInsurancePhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHealthInsurancePhone.Location = new System.Drawing.Point(452, 260);
+            this.txtHealthInsurancePhone.Name = "txtHealthInsurancePhone";
+            this.txtHealthInsurancePhone.Size = new System.Drawing.Size(194, 20);
+            this.txtHealthInsurancePhone.TabIndex = 80;
             // 
-            // txtHealthIns
+            // txtHealthInsurance
             // 
-            this.txtHealthIns.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtHealthIns.Location = new System.Drawing.Point(452, 173);
-            this.txtHealthIns.Name = "txtHealthIns";
-            this.txtHealthIns.Size = new System.Drawing.Size(194, 20);
-            this.txtHealthIns.TabIndex = 79;
+            this.txtHealthInsurance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtHealthInsurance.Location = new System.Drawing.Point(452, 173);
+            this.txtHealthInsurance.Name = "txtHealthInsurance";
+            this.txtHealthInsurance.Size = new System.Drawing.Size(194, 20);
+            this.txtHealthInsurance.TabIndex = 79;
             // 
-            // label33
+            // lblHealthInsurancePhone
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(337, 265);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(38, 13);
-            this.label33.TabIndex = 78;
-            this.label33.Text = "Phone";
+            this.lblHealthInsurancePhone.AutoSize = true;
+            this.lblHealthInsurancePhone.Location = new System.Drawing.Point(337, 265);
+            this.lblHealthInsurancePhone.Name = "lblHealthInsurancePhone";
+            this.lblHealthInsurancePhone.Size = new System.Drawing.Size(38, 13);
+            this.lblHealthInsurancePhone.TabIndex = 78;
+            this.lblHealthInsurancePhone.Text = "Phone";
             // 
-            // label34
+            // lblHealthInsuranceAddress
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(337, 207);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(111, 13);
-            this.label34.TabIndex = 77;
-            this.label34.Text = "Address of Health Ins.";
+            this.lblHealthInsuranceAddress.AutoSize = true;
+            this.lblHealthInsuranceAddress.Location = new System.Drawing.Point(337, 207);
+            this.lblHealthInsuranceAddress.Name = "lblHealthInsuranceAddress";
+            this.lblHealthInsuranceAddress.Size = new System.Drawing.Size(111, 13);
+            this.lblHealthInsuranceAddress.TabIndex = 77;
+            this.lblHealthInsuranceAddress.Text = "Address of Health Ins.";
             // 
-            // label35
+            // lblHealthInsurance
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(337, 174);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(88, 13);
-            this.label35.TabIndex = 76;
-            this.label35.Text = "Health Insurance";
+            this.lblHealthInsurance.AutoSize = true;
+            this.lblHealthInsurance.Location = new System.Drawing.Point(337, 174);
+            this.lblHealthInsurance.Name = "lblHealthInsurance";
+            this.lblHealthInsurance.Size = new System.Drawing.Size(88, 13);
+            this.lblHealthInsurance.TabIndex = 76;
+            this.lblHealthInsurance.Text = "Health Insurance";
             // 
-            // txtMother
+            // txtMotherName
             // 
-            this.txtMother.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMother.Location = new System.Drawing.Point(452, 141);
-            this.txtMother.Name = "txtMother";
-            this.txtMother.Size = new System.Drawing.Size(194, 20);
-            this.txtMother.TabIndex = 74;
+            this.txtMotherName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMotherName.Location = new System.Drawing.Point(452, 141);
+            this.txtMotherName.Name = "txtMotherName";
+            this.txtMotherName.Size = new System.Drawing.Size(194, 20);
+            this.txtMotherName.TabIndex = 74;
             // 
-            // label29
+            // lblMotherName
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(337, 141);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(78, 13);
-            this.label29.TabIndex = 73;
-            this.label29.Text = "Mother\'s Name";
+            this.lblMotherName.AutoSize = true;
+            this.lblMotherName.Location = new System.Drawing.Point(337, 141);
+            this.lblMotherName.Name = "lblMotherName";
+            this.lblMotherName.Size = new System.Drawing.Size(78, 13);
+            this.lblMotherName.TabIndex = 73;
+            this.lblMotherName.Text = "Mother\'s Name";
             // 
-            // txtFather
+            // txtFatherName
             // 
-            this.txtFather.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFather.Location = new System.Drawing.Point(452, 109);
-            this.txtFather.Name = "txtFather";
-            this.txtFather.Size = new System.Drawing.Size(194, 20);
-            this.txtFather.TabIndex = 71;
+            this.txtFatherName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFatherName.Location = new System.Drawing.Point(452, 109);
+            this.txtFatherName.Name = "txtFatherName";
+            this.txtFatherName.Size = new System.Drawing.Size(194, 20);
+            this.txtFatherName.TabIndex = 71;
             // 
-            // txtNoKEmail
+            // txtNameOfKinEmail
             // 
-            this.txtNoKEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoKEmail.Location = new System.Drawing.Point(452, 45);
-            this.txtNoKEmail.Name = "txtNoKEmail";
-            this.txtNoKEmail.Size = new System.Drawing.Size(194, 20);
-            this.txtNoKEmail.TabIndex = 70;
+            this.txtNameOfKinEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNameOfKinEmail.Location = new System.Drawing.Point(452, 45);
+            this.txtNameOfKinEmail.Name = "txtNameOfKinEmail";
+            this.txtNameOfKinEmail.Size = new System.Drawing.Size(194, 20);
+            this.txtNameOfKinEmail.TabIndex = 70;
             // 
-            // txtNoKPhone
+            // txtNameOfKinPhone
             // 
-            this.txtNoKPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoKPhone.Location = new System.Drawing.Point(452, 13);
-            this.txtNoKPhone.Name = "txtNoKPhone";
-            this.txtNoKPhone.Size = new System.Drawing.Size(194, 20);
-            this.txtNoKPhone.TabIndex = 69;
+            this.txtNameOfKinPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNameOfKinPhone.Location = new System.Drawing.Point(452, 13);
+            this.txtNameOfKinPhone.Name = "txtNameOfKinPhone";
+            this.txtNameOfKinPhone.Size = new System.Drawing.Size(194, 20);
+            this.txtNameOfKinPhone.TabIndex = 69;
             // 
-            // txtNoKAddress
+            // txtNameOfKinAddress
             // 
-            this.txtNoKAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNoKAddress.Location = new System.Drawing.Point(116, 292);
-            this.txtNoKAddress.Multiline = true;
-            this.txtNoKAddress.Name = "txtNoKAddress";
-            this.txtNoKAddress.Size = new System.Drawing.Size(194, 43);
-            this.txtNoKAddress.TabIndex = 68;
+            this.txtNameOfKinAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNameOfKinAddress.Location = new System.Drawing.Point(116, 292);
+            this.txtNameOfKinAddress.Multiline = true;
+            this.txtNameOfKinAddress.Name = "txtNameOfKinAddress";
+            this.txtNameOfKinAddress.Size = new System.Drawing.Size(194, 43);
+            this.txtNameOfKinAddress.TabIndex = 68;
             // 
-            // txtNok
+            // txtNameOfKin
             // 
-            this.txtNok.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNok.Location = new System.Drawing.Point(116, 261);
-            this.txtNok.Name = "txtNok";
-            this.txtNok.Size = new System.Drawing.Size(194, 20);
-            this.txtNok.TabIndex = 67;
+            this.txtNameOfKin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNameOfKin.Location = new System.Drawing.Point(116, 261);
+            this.txtNameOfKin.Name = "txtNameOfKin";
+            this.txtNameOfKin.Size = new System.Drawing.Size(194, 20);
+            this.txtNameOfKin.TabIndex = 67;
             // 
-            // txtNidNumber
+            // txtNationalIdNumber
             // 
-            this.txtNidNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNidNumber.Location = new System.Drawing.Point(116, 230);
-            this.txtNidNumber.Name = "txtNidNumber";
-            this.txtNidNumber.Size = new System.Drawing.Size(194, 20);
-            this.txtNidNumber.TabIndex = 66;
+            this.txtNationalIdNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNationalIdNumber.Location = new System.Drawing.Point(116, 230);
+            this.txtNationalIdNumber.Name = "txtNationalIdNumber";
+            this.txtNationalIdNumber.Size = new System.Drawing.Size(194, 20);
+            this.txtNationalIdNumber.TabIndex = 66;
             // 
             // txtOccupation
             // 
@@ -786,154 +766,154 @@
             this.txtOccupation.Size = new System.Drawing.Size(194, 20);
             this.txtOccupation.TabIndex = 64;
             // 
-            // txtPoB
+            // txtPlaceOfBirth
             // 
-            this.txtPoB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoB.Location = new System.Drawing.Point(116, 106);
-            this.txtPoB.Name = "txtPoB";
-            this.txtPoB.Size = new System.Drawing.Size(194, 20);
-            this.txtPoB.TabIndex = 63;
+            this.txtPlaceOfBirth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPlaceOfBirth.Location = new System.Drawing.Point(116, 106);
+            this.txtPlaceOfBirth.Name = "txtPlaceOfBirth";
+            this.txtPlaceOfBirth.Size = new System.Drawing.Size(194, 20);
+            this.txtPlaceOfBirth.TabIndex = 63;
             // 
-            // txtTOrigin
+            // txtTownOfOrigin
             // 
-            this.txtTOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTOrigin.Location = new System.Drawing.Point(116, 75);
-            this.txtTOrigin.Name = "txtTOrigin";
-            this.txtTOrigin.Size = new System.Drawing.Size(194, 20);
-            this.txtTOrigin.TabIndex = 62;
+            this.txtTownOfOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTownOfOrigin.Location = new System.Drawing.Point(116, 75);
+            this.txtTownOfOrigin.Name = "txtTownOfOrigin";
+            this.txtTownOfOrigin.Size = new System.Drawing.Size(194, 20);
+            this.txtTownOfOrigin.TabIndex = 62;
             // 
-            // txtSOrigin
+            // txtStateOfOrigin
             // 
-            this.txtSOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSOrigin.Location = new System.Drawing.Point(116, 44);
-            this.txtSOrigin.Name = "txtSOrigin";
-            this.txtSOrigin.Size = new System.Drawing.Size(194, 20);
-            this.txtSOrigin.TabIndex = 61;
+            this.txtStateOfOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStateOfOrigin.Location = new System.Drawing.Point(116, 44);
+            this.txtStateOfOrigin.Name = "txtStateOfOrigin";
+            this.txtStateOfOrigin.Size = new System.Drawing.Size(194, 20);
+            this.txtStateOfOrigin.TabIndex = 61;
             // 
-            // txtNat
+            // txtNationality
             // 
-            this.txtNat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNat.Location = new System.Drawing.Point(116, 13);
-            this.txtNat.Name = "txtNat";
-            this.txtNat.Size = new System.Drawing.Size(194, 20);
-            this.txtNat.TabIndex = 60;
+            this.txtNationality.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNationality.Location = new System.Drawing.Point(116, 13);
+            this.txtNationality.Name = "txtNationality";
+            this.txtNationality.Size = new System.Drawing.Size(194, 20);
+            this.txtNationality.TabIndex = 60;
             // 
-            // label14
+            // lblFatherName
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(337, 113);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 13);
-            this.label14.TabIndex = 57;
-            this.label14.Text = "Father\'s Name";
+            this.lblFatherName.AutoSize = true;
+            this.lblFatherName.Location = new System.Drawing.Point(337, 113);
+            this.lblFatherName.Name = "lblFatherName";
+            this.lblFatherName.Size = new System.Drawing.Size(75, 13);
+            this.lblFatherName.TabIndex = 57;
+            this.lblFatherName.Text = "Father\'s Name";
             // 
-            // label15
+            // lblNameOfKinRelationship
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(337, 80);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(91, 13);
-            this.label15.TabIndex = 56;
-            this.label15.Text = "Nok_Relationship";
+            this.lblNameOfKinRelationship.AutoSize = true;
+            this.lblNameOfKinRelationship.Location = new System.Drawing.Point(337, 80);
+            this.lblNameOfKinRelationship.Name = "lblNameOfKinRelationship";
+            this.lblNameOfKinRelationship.Size = new System.Drawing.Size(91, 13);
+            this.lblNameOfKinRelationship.TabIndex = 56;
+            this.lblNameOfKinRelationship.Text = "Nok_Relationship";
             // 
-            // label16
+            // lblNameOfKinEmail
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(337, 47);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
-            this.label16.TabIndex = 55;
-            this.label16.Text = "Nok_Email";
+            this.lblNameOfKinEmail.AutoSize = true;
+            this.lblNameOfKinEmail.Location = new System.Drawing.Point(337, 47);
+            this.lblNameOfKinEmail.Name = "lblNameOfKinEmail";
+            this.lblNameOfKinEmail.Size = new System.Drawing.Size(58, 13);
+            this.lblNameOfKinEmail.TabIndex = 55;
+            this.lblNameOfKinEmail.Text = "Nok_Email";
             // 
-            // label17
+            // lblNameOfKinPhone
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(337, 14);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 13);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Nok_Phone";
+            this.lblNameOfKinPhone.AutoSize = true;
+            this.lblNameOfKinPhone.Location = new System.Drawing.Point(337, 14);
+            this.lblNameOfKinPhone.Name = "lblNameOfKinPhone";
+            this.lblNameOfKinPhone.Size = new System.Drawing.Size(64, 13);
+            this.lblNameOfKinPhone.TabIndex = 54;
+            this.lblNameOfKinPhone.Text = "Nok_Phone";
             // 
-            // label18
+            // lblNameOfKinAddress
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(27, 295);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 13);
-            this.label18.TabIndex = 53;
-            this.label18.Text = "NoK Address";
+            this.lblNameOfKinAddress.AutoSize = true;
+            this.lblNameOfKinAddress.Location = new System.Drawing.Point(27, 295);
+            this.lblNameOfKinAddress.Name = "lblNameOfKinAddress";
+            this.lblNameOfKinAddress.Size = new System.Drawing.Size(69, 13);
+            this.lblNameOfKinAddress.TabIndex = 53;
+            this.lblNameOfKinAddress.Text = "NoK Address";
             // 
-            // label19
+            // lblNameOfKin
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(27, 264);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(59, 13);
-            this.label19.TabIndex = 52;
-            this.label19.Text = "Next of Kin";
+            this.lblNameOfKin.AutoSize = true;
+            this.lblNameOfKin.Location = new System.Drawing.Point(27, 264);
+            this.lblNameOfKin.Name = "lblNameOfKin";
+            this.lblNameOfKin.Size = new System.Drawing.Size(59, 13);
+            this.lblNameOfKin.TabIndex = 52;
+            this.lblNameOfKin.Text = "Next of Kin";
             // 
-            // label20
+            // lblNationalIdNumber
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(27, 233);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(58, 13);
-            this.label20.TabIndex = 51;
-            this.label20.Text = "ID Number";
+            this.lblNationalIdNumber.AutoSize = true;
+            this.lblNationalIdNumber.Location = new System.Drawing.Point(27, 233);
+            this.lblNationalIdNumber.Name = "lblNationalIdNumber";
+            this.lblNationalIdNumber.Size = new System.Drawing.Size(58, 13);
+            this.lblNationalIdNumber.TabIndex = 51;
+            this.lblNationalIdNumber.Text = "ID Number";
             // 
-            // label21
+            // lblNationalIdType
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(27, 202);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 13);
-            this.label21.TabIndex = 50;
-            this.label21.Text = "National ID Type";
+            this.lblNationalIdType.AutoSize = true;
+            this.lblNationalIdType.Location = new System.Drawing.Point(27, 202);
+            this.lblNationalIdType.Name = "lblNationalIdType";
+            this.lblNationalIdType.Size = new System.Drawing.Size(87, 13);
+            this.lblNationalIdType.TabIndex = 50;
+            this.lblNationalIdType.Text = "National ID Type";
             // 
-            // label22
+            // lblOccupation
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(27, 171);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(62, 13);
-            this.label22.TabIndex = 49;
-            this.label22.Text = "Occupation";
+            this.lblOccupation.AutoSize = true;
+            this.lblOccupation.Location = new System.Drawing.Point(27, 171);
+            this.lblOccupation.Name = "lblOccupation";
+            this.lblOccupation.Size = new System.Drawing.Size(62, 13);
+            this.lblOccupation.TabIndex = 49;
+            this.lblOccupation.Text = "Occupation";
             // 
-            // label23
+            // lblPlaceOfBirth
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(27, 109);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(70, 13);
-            this.label23.TabIndex = 48;
-            this.label23.Text = "Place of Birth";
+            this.lblPlaceOfBirth.AutoSize = true;
+            this.lblPlaceOfBirth.Location = new System.Drawing.Point(27, 109);
+            this.lblPlaceOfBirth.Name = "lblPlaceOfBirth";
+            this.lblPlaceOfBirth.Size = new System.Drawing.Size(70, 13);
+            this.lblPlaceOfBirth.TabIndex = 48;
+            this.lblPlaceOfBirth.Text = "Place of Birth";
             // 
-            // label24
+            // lblTownOfOrigin
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(27, 78);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(76, 13);
-            this.label24.TabIndex = 47;
-            this.label24.Text = "Town of Origin";
+            this.lblTownOfOrigin.AutoSize = true;
+            this.lblTownOfOrigin.Location = new System.Drawing.Point(27, 78);
+            this.lblTownOfOrigin.Name = "lblTownOfOrigin";
+            this.lblTownOfOrigin.Size = new System.Drawing.Size(76, 13);
+            this.lblTownOfOrigin.TabIndex = 47;
+            this.lblTownOfOrigin.Text = "Town of Origin";
             // 
-            // label25
+            // lblStateOfOrigin
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(27, 47);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(74, 13);
-            this.label25.TabIndex = 46;
-            this.label25.Text = "State of Origin";
+            this.lblStateOfOrigin.AutoSize = true;
+            this.lblStateOfOrigin.Location = new System.Drawing.Point(27, 47);
+            this.lblStateOfOrigin.Name = "lblStateOfOrigin";
+            this.lblStateOfOrigin.Size = new System.Drawing.Size(74, 13);
+            this.lblStateOfOrigin.TabIndex = 46;
+            this.lblStateOfOrigin.Text = "State of Origin";
             // 
-            // label26
+            // lblNacionality
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(27, 16);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(56, 13);
-            this.label26.TabIndex = 45;
-            this.label26.Text = "Nationality";
+            this.lblNacionality.AutoSize = true;
+            this.lblNacionality.Location = new System.Drawing.Point(27, 16);
+            this.lblNacionality.Name = "lblNacionality";
+            this.lblNacionality.Size = new System.Drawing.Size(56, 13);
+            this.lblNacionality.TabIndex = 45;
+            this.lblNacionality.Text = "Nationality";
             // 
             // grpClinics
             // 
@@ -1094,7 +1074,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtMobilePhone;
-        private System.Windows.Forms.TextBox txtBirthdate;
         private System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
@@ -1113,61 +1092,60 @@
         private System.Windows.Forms.Label lblFamilyName;
         private System.Windows.Forms.Label lblHospitalNumber;
         private System.Windows.Forms.Label lblPatientId;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtNoKEmail;
-        private System.Windows.Forms.TextBox txtNoKPhone;
-        private System.Windows.Forms.TextBox txtNoKAddress;
-        private System.Windows.Forms.TextBox txtNok;
-        private System.Windows.Forms.TextBox txtNidNumber;
+        private System.Windows.Forms.Label lblFatherName;
+        private System.Windows.Forms.Label lblNameOfKinRelationship;
+        private System.Windows.Forms.Label lblNameOfKinEmail;
+        private System.Windows.Forms.Label lblNameOfKinPhone;
+        private System.Windows.Forms.Label lblNameOfKinAddress;
+        private System.Windows.Forms.Label lblNameOfKin;
+        private System.Windows.Forms.Label lblNationalIdNumber;
+        private System.Windows.Forms.Label lblNationalIdType;
+        private System.Windows.Forms.Label lblOccupation;
+        private System.Windows.Forms.Label lblPlaceOfBirth;
+        private System.Windows.Forms.Label lblTownOfOrigin;
+        private System.Windows.Forms.Label lblStateOfOrigin;
+        private System.Windows.Forms.Label lblNacionality;
+        private System.Windows.Forms.TextBox txtNameOfKinEmail;
+        private System.Windows.Forms.TextBox txtNameOfKinPhone;
+        private System.Windows.Forms.TextBox txtNameOfKinAddress;
+        private System.Windows.Forms.TextBox txtNameOfKin;
+        private System.Windows.Forms.TextBox txtNationalIdNumber;
         private System.Windows.Forms.TextBox txtOccupation;
-        private System.Windows.Forms.TextBox txtPoB;
-        private System.Windows.Forms.TextBox txtTOrigin;
-        private System.Windows.Forms.TextBox txtSOrigin;
-        private System.Windows.Forms.TextBox txtNat;
+        private System.Windows.Forms.TextBox txtPlaceOfBirth;
+        private System.Windows.Forms.TextBox txtTownOfOrigin;
+        private System.Windows.Forms.TextBox txtStateOfOrigin;
+        private System.Windows.Forms.TextBox txtNationality;
         private System.Windows.Forms.TextBox txtOfficeAddress;
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.Label lblCity;
-        private System.Windows.Forms.TextBox txtFather;
-        private System.Windows.Forms.TextBox txtMother;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtFatherName;
+        private System.Windows.Forms.TextBox txtMotherName;
+        private System.Windows.Forms.Label lblMotherName;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtHealthEmail;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txtHealthAddr;
-        private System.Windows.Forms.TextBox txtHealthPhone;
-        private System.Windows.Forms.TextBox txtHealthIns;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txtHealthInsuranceEmail;
+        private System.Windows.Forms.Label lblHealthInsuranceEmail;
+        private System.Windows.Forms.TextBox txtHealthInsuranceAddress;
+        private System.Windows.Forms.TextBox txtHealthInsurancePhone;
+        private System.Windows.Forms.TextBox txtHealthInsurance;
+        private System.Windows.Forms.Label lblHealthInsurancePhone;
+        private System.Windows.Forms.Label lblHealthInsuranceAddress;
+        private System.Windows.Forms.Label lblHealthInsurance;
         private System.Windows.Forms.TextBox txtReligion;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblReligion;
         private System.Windows.Forms.OpenFileDialog OpenFD;
         private System.Windows.Forms.TextBox txtPatImage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.TextBox txtDateAmend;
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
         private System.Windows.Forms.ComboBox cboTitle;
         private System.Windows.Forms.ComboBox cboGender;
         private System.Windows.Forms.ComboBox cboMaritalStatus;
-        private System.Windows.Forms.ComboBox cmbNIDType;
-        private System.Windows.Forms.ComboBox cmbNokRelationship;
+        private System.Windows.Forms.ComboBox cboNationalIdType;
+        private System.Windows.Forms.ComboBox cboNameOfKinRelationship;
         private System.Windows.Forms.Label lblConsultant;
         private System.Windows.Forms.TextBox txtConsultant;
         private System.Windows.Forms.GroupBox grpClinics;

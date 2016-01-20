@@ -50,7 +50,9 @@
   <ItemGroup>
     <Compile Include="ClinicianBusinessLogic.cs" />
     <Compile Include="GenreBusinessLogic.cs" />
+    <Compile Include="KinRelationshipBusinessLogic.cs" />
     <Compile Include="MaritalStatusBusinessLogic.cs" />
+    <Compile Include="NationalIdentificationTypeBusinessLogic.cs" />
     <Compile Include="PatientBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TitleBusinessLogic.cs" />
