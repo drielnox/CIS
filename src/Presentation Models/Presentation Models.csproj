@@ -44,6 +44,8 @@
     <Compile Include="Administration\NewUserViewModel.cs" />
     <Compile Include="Administration\UsersViewModel.cs" />
     <Compile Include="Administration\UserViewModel.cs" />
+    <Compile Include="Appointment\BookAppointmentViewModel.cs" />
+    <Compile Include="Appointment\PatientOfBookAppointmentViewModel.cs" />
     <Compile Include="Clinicians\EditClinicViewModel.cs" />
     <Compile Include="Common\ComboGenreViewModel.cs" />
     <Compile Include="Common\ComboKinRelationshipViewModel.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Common\ComboTitleViewModel.cs" />
     <Compile Include="LoginViewModel.cs" />
     <Compile Include="Clinicians\NewClinicPresentationModel.cs" />
+    <Compile Include="Common\ClinicListViewModel.cs" />
     <Compile Include="Patients\EditPatientViewModel.cs" />
     <Compile Include="Patients\NewPatientViewModel.cs" />
     <Compile Include="Patients\PatientsViewModel.cs" />

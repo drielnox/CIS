@@ -20,7 +20,7 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             if (dgvPatients.SelectedRows.Count > 0)
             {
-                DataGridViewRow dr = dgvPatients.SelectedRows[0];
+                var dr = dgvPatients.SelectedRows[0].Tag as EditPatientViewModel;
                 frmEditPatient frm = new frmEditPatient(dr);
                 frm.Show();
             }
@@ -28,7 +28,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            DataGridViewRow dr = dgvPatients.SelectedRows[0];
+            var dr = dgvPatients.SelectedRows[0].Tag as EditPatientViewModel;
             frmEditPatient frm = new frmEditPatient(dr);
             frm.Show();
         }

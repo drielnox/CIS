@@ -18,5 +18,13 @@ namespace CIS.Presentation.UI.Contracts.Patients
         void LoadNationalIdTypes(IEnumerable<ComboNationalIdTypesViewModel> nationalIdTypes);
 
         void LoadKinRelationships(IEnumerable<ComboKinRelationshipViewModel> relatioships);
+
+        void LoadClinics(IEnumerable<ClinicListViewModel> clinicians);
+
+        EditPatientViewModel GetPatient();
+
+        int GetCurrentPatientId();
+
+        void SetReport(string report);
     }
 }

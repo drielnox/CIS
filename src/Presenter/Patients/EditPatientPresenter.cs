@@ -1,6 +1,7 @@
 ﻿using CIS.Application.BusinessComponents;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
+using System.Collections.Generic;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
@@ -12,6 +13,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         private MaritalStatusBusinessLogic _maritalStatusLogic;
         private NationalIdentificationTypeBusinessLogic _nationalIdTypeLogic;
         private KinRelationshipBusinessLogic _kinRelationshipLogic;
+        private PatientBusinessLogic _patientLogic;
+        private ClinicianBusinessLogic _clinicLogic;
 
         public EditPatientPresenter(IEditPatientView view)
         {
@@ -21,6 +24,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
             _maritalStatusLogic = new MaritalStatusBusinessLogic();
             _nationalIdTypeLogic = new NationalIdentificationTypeBusinessLogic();
             _kinRelationshipLogic = new KinRelationshipBusinessLogic();
+            _patientLogic = new PatientBusinessLogic();
+            _clinicLogic = new ClinicianBusinessLogic();
         }
 
         public void LoadPatient(EditPatientViewModel patient)
@@ -56,6 +61,31 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         {
             var relatioships = _kinRelationshipLogic.GetKinRelations();
             _view.LoadKinRelationships(relatioships);
+        }
+
+        public void Save()
+        {
+            EditPatientViewModel patient = _view.GetPatient();
+            _patientLogic.UpdatePatient(patient);
+        }
+
+        public void DeletePatient()
+        {
+            int patientId = _view.GetCurrentPatientId();
+            _patientLogic.DeletePatient(patientId);
+        }
+
+        public void LoadReport()
+        {
+            EditPatientViewModel patient = _patientLogic.GetPatient();
+            string report = patient.ToString();
+            _view.SetReport(report);
+        }
+
+        public void LoadClinics()
+        {
+            var clinicians = _clinicLogic.GetClinicians();
+            _view.LoadClinics(clinicians);
         }
     }
 }

@@ -259,7 +259,6 @@
             this.dtpBirthdate.Name = "dtpBirthdate";
             this.dtpBirthdate.Size = new System.Drawing.Size(194, 20);
             this.dtpBirthdate.TabIndex = 80;
-            this.dtpBirthdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txtPatImage
             // 

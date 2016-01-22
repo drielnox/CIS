@@ -1,5 +1,4 @@
-﻿using CIS.Data.DataAccess;
-using CIS.Presentation.Logic.Presenter;
+﻿using CIS.Presentation.Logic.Presenter;
 using CIS.Presentation.Model;
 using CIS.Presentation.UI.Contracts;
 using System;

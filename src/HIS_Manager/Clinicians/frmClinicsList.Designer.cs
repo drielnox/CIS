@@ -42,7 +42,6 @@
             this.dgvClinicians.AllowUserToAddRows = false;
             this.dgvClinicians.AllowUserToDeleteRows = false;
             this.dgvClinicians.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvClinicians.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dgvClinicians.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClinicians.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClinicians.Location = new System.Drawing.Point(12, 12);

@@ -11,7 +11,6 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             InitializeComponent();
         }
-        string connectionString;
 
         SqlConnection con;
         SqlDataAdapter adap;

@@ -37,8 +37,10 @@
   <ItemGroup>
     <Compile Include="Administration\IChangeUserPasswordView.cs" />
     <Compile Include="Administration\INewUserView.cs" />
+    <Compile Include="Administration\IViewCliniciansView.cs" />
     <Compile Include="Administration\IViewUsersView.cs" />
     <Compile Include="Clinicians\IEditClinicView.cs" />
+    <Compile Include="Appointment\IBookAppointmentView.cs" />
     <Compile Include="ILoginView.cs" />
     <Compile Include="Clinicians\INewClinicView.cs" />
     <Compile Include="Patients\IEditPatientView.cs" />

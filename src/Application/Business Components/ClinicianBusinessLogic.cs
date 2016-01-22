@@ -1,7 +1,10 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess;
 using CIS.Presentation.Model;
+using CIS.Presentation.Model.Common;
+using CIS.Presentation.Model.Patients;
 using System;
+using System.Collections.Generic;
 
 namespace CIS.Application.BusinessComponents
 {
@@ -40,6 +43,11 @@ namespace CIS.Application.BusinessComponents
         }
 
         public void UpdateClinic(Presentation.Model.Clinicians.EditClinicViewModel data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ClinicListViewModel> GetClinicians()
         {
             throw new NotImplementedException();
         }

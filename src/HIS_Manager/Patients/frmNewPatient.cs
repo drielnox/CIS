@@ -1,5 +1,4 @@
-﻿using CIS.Data.DataAccess;
-using CIS.Presentation.Logic.Presenter.Patients;
+﻿using CIS.Presentation.Logic.Presenter.Patients;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
@@ -23,14 +22,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                _presenter.Save();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            _presenter.Save();
 
             MessageBox.Show("New Patient Registered");
 

@@ -18,7 +18,6 @@ namespace CIS.Presentation.UI.WindowsForms
         }
 
         //declaration of variables to be used within the program
-        string connectionString;
         SqlConnection con;
         SqlDataAdapter adap;
         DataSet ds1;
