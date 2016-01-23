@@ -41,7 +41,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (_preseneter.ValidateUsername(txtUsername.Text))
+            if (!_preseneter.ValidateUsername(txtUsername.Text))
             {
                 e.Cancel = true;
             }
@@ -54,7 +54,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (_preseneter.ValidatePassword(txtPassword.Text))
+            if (!_preseneter.ValidatePassword(txtPassword.Text))
             {
                 e.Cancel = true;
             }

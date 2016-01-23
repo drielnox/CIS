@@ -30,19 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmViewAppointment));
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbSearch = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtApptDate = new System.Windows.Forms.TextBox();
-            this.btnSearchClinic = new System.Windows.Forms.Button();
-            this.txtPatConsultant = new System.Windows.Forms.TextBox();
-            this.txtPid = new System.Windows.Forms.TextBox();
+            this.dgvAppointment = new System.Windows.Forms.DataGridView();
+            this.lblAppointmentDate = new System.Windows.Forms.Label();
+            this.lblClinician = new System.Windows.Forms.Label();
+            this.lblPatientId = new System.Windows.Forms.Label();
+            this.dtpAppointmentDate = new System.Windows.Forms.DateTimePicker();
+            this.txtConsultant = new System.Windows.Forms.TextBox();
+            this.txtPatientId = new System.Windows.Forms.TextBox();
             this.btnFilter = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointment)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -55,113 +51,74 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // dataGridView1
+            // dgvAppointment
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 87);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(600, 193);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvAppointment.AllowUserToAddRows = false;
+            this.dgvAppointment.AllowUserToDeleteRows = false;
+            this.dgvAppointment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAppointment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvAppointment.Location = new System.Drawing.Point(12, 67);
+            this.dgvAppointment.MultiSelect = false;
+            this.dgvAppointment.Name = "dgvAppointment";
+            this.dgvAppointment.ReadOnly = true;
+            this.dgvAppointment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAppointment.Size = new System.Drawing.Size(600, 213);
+            this.dgvAppointment.TabIndex = 6;
             // 
-            // label1
+            // lblAppointmentDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-1, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Date:";
+            this.lblAppointmentDate.AutoSize = true;
+            this.lblAppointmentDate.Location = new System.Drawing.Point(211, 15);
+            this.lblAppointmentDate.Name = "lblAppointmentDate";
+            this.lblAppointmentDate.Size = new System.Drawing.Size(33, 13);
+            this.lblAppointmentDate.TabIndex = 8;
+            this.lblAppointmentDate.Text = "Date:";
             // 
-            // label2
+            // lblClinician
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(207, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Clinician:";
+            this.lblClinician.AutoSize = true;
+            this.lblClinician.Location = new System.Drawing.Point(408, 14);
+            this.lblClinician.Name = "lblClinician";
+            this.lblClinician.Size = new System.Drawing.Size(49, 13);
+            this.lblClinician.TabIndex = 9;
+            this.lblClinician.Text = "Clinician:";
             // 
-            // label3
+            // lblPatientId
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(475, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Patient ID:";
+            this.lblPatientId.AutoSize = true;
+            this.lblPatientId.Location = new System.Drawing.Point(12, 14);
+            this.lblPatientId.Name = "lblPatientId";
+            this.lblPatientId.Size = new System.Drawing.Size(57, 13);
+            this.lblPatientId.TabIndex = 10;
+            this.lblPatientId.Text = "Patient ID:";
             // 
-            // cmbSearch
+            // dtpAppointmentDate
             // 
-            this.cmbSearch.FormattingEnabled = true;
-            this.cmbSearch.Items.AddRange(new object[] {
-            "Appointment Date",
-            "Clinician",
-            "Patient"});
-            this.cmbSearch.Location = new System.Drawing.Point(100, 21);
-            this.cmbSearch.Name = "cmbSearch";
-            this.cmbSearch.Size = new System.Drawing.Size(121, 21);
-            this.cmbSearch.TabIndex = 11;
+            this.dtpAppointmentDate.Checked = false;
+            this.dtpAppointmentDate.Location = new System.Drawing.Point(250, 12);
+            this.dtpAppointmentDate.Name = "dtpAppointmentDate";
+            this.dtpAppointmentDate.ShowCheckBox = true;
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(152, 20);
+            this.dtpAppointmentDate.TabIndex = 96;
             // 
-            // label4
+            // txtConsultant
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Search By:";
+            this.txtConsultant.Location = new System.Drawing.Point(463, 12);
+            this.txtConsultant.Name = "txtConsultant";
+            this.txtConsultant.Size = new System.Drawing.Size(149, 20);
+            this.txtConsultant.TabIndex = 97;
             // 
-            // dateTimePicker1
+            // txtPatientId
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(170, 55);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(20, 20);
-            this.dateTimePicker1.TabIndex = 96;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // txtApptDate
-            // 
-            this.txtApptDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtApptDate.Location = new System.Drawing.Point(35, 55);
-            this.txtApptDate.Name = "txtApptDate";
-            this.txtApptDate.Size = new System.Drawing.Size(129, 20);
-            this.txtApptDate.TabIndex = 95;
-            // 
-            // btnSearchClinic
-            // 
-            this.btnSearchClinic.Location = new System.Drawing.Point(403, 55);
-            this.btnSearchClinic.Name = "btnSearchClinic";
-            this.btnSearchClinic.Size = new System.Drawing.Size(49, 23);
-            this.btnSearchClinic.TabIndex = 98;
-            this.btnSearchClinic.Text = "Search";
-            this.btnSearchClinic.UseVisualStyleBackColor = true;
-            // 
-            // txtPatConsultant
-            // 
-            this.txtPatConsultant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPatConsultant.Location = new System.Drawing.Point(259, 55);
-            this.txtPatConsultant.Name = "txtPatConsultant";
-            this.txtPatConsultant.Size = new System.Drawing.Size(138, 20);
-            this.txtPatConsultant.TabIndex = 97;
-            // 
-            // txtPid
-            // 
-            this.txtPid.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txtPid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPid.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPid.Location = new System.Drawing.Point(535, 58);
-            this.txtPid.Name = "txtPid";
-            this.txtPid.Size = new System.Drawing.Size(94, 20);
-            this.txtPid.TabIndex = 99;
+            this.txtPatientId.Location = new System.Drawing.Point(75, 12);
+            this.txtPatientId.Name = "txtPatientId";
+            this.txtPatientId.Size = new System.Drawing.Size(130, 20);
+            this.txtPatientId.TabIndex = 99;
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(259, 19);
+            this.btnFilter.Location = new System.Drawing.Point(563, 38);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(49, 23);
             this.btnFilter.TabIndex = 100;
@@ -175,24 +132,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 321);
             this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.txtPid);
-            this.Controls.Add(this.btnSearchClinic);
-            this.Controls.Add(this.txtPatConsultant);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.txtApptDate);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbSearch);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPatientId);
+            this.Controls.Add(this.txtConsultant);
+            this.Controls.Add(this.dtpAppointmentDate);
+            this.Controls.Add(this.lblPatientId);
+            this.Controls.Add(this.lblClinician);
+            this.Controls.Add(this.lblAppointmentDate);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvAppointment);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmViewAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Appointment";
             this.Load += new System.EventHandler(this.frmViewAppointment_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAppointment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,17 +154,13 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbSearch;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox txtApptDate;
-        private System.Windows.Forms.Button btnSearchClinic;
-        private System.Windows.Forms.TextBox txtPatConsultant;
-        private System.Windows.Forms.TextBox txtPid;
+        private System.Windows.Forms.DataGridView dgvAppointment;
+        private System.Windows.Forms.Label lblAppointmentDate;
+        private System.Windows.Forms.Label lblClinician;
+        private System.Windows.Forms.Label lblPatientId;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
+        private System.Windows.Forms.TextBox txtConsultant;
+        private System.Windows.Forms.TextBox txtPatientId;
         private System.Windows.Forms.Button btnFilter;
     }
 }

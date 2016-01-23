@@ -39,6 +39,7 @@
     <Compile Include="Administration\INewUserView.cs" />
     <Compile Include="Administration\IViewCliniciansView.cs" />
     <Compile Include="Administration\IViewUsersView.cs" />
+    <Compile Include="Appointment\IViewAppointmentView.cs" />
     <Compile Include="Clinicians\IEditClinicView.cs" />
     <Compile Include="Appointment\IBookAppointmentView.cs" />
     <Compile Include="ILoginView.cs" />

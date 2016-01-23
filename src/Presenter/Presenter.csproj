@@ -41,6 +41,7 @@
     <Compile Include="Administration\ViewCliniciansPresenter.cs" />
     <Compile Include="Administration\ViewUsersPresenter.cs" />
     <Compile Include="Appointment\BookAppointmentPresenter.cs" />
+    <Compile Include="Appointment\ViewAppointmentPresenter.cs" />
     <Compile Include="Clinicians\EditClinicPresenter.cs" />
     <Compile Include="LoginPresenter.cs" />
     <Compile Include="Clinicians\NewClinicPresenter.cs" />
