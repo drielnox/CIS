@@ -1,5 +1,6 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess;
+using CIS.Data.DataAccess.UnitOfWork;
 using CIS.Presentation.Model;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
@@ -10,16 +11,16 @@ namespace CIS.Application.BusinessComponents
 {
     public class ClinicianBusinessLogic
     {
-        private readonly TitleBusinessLogic _titleBl;
-
+        private readonly IUnitOfWork _unitOfWork;
+        
         public ClinicianBusinessLogic()
         {
-            _titleBl = new TitleBusinessLogic();
+            _unitOfWork = new UnitOfWork();
         }
 
         public void AddClinic(NewClinicPresentationModel model)
         {
-            var title = _titleBl.GetById(model.Title);
+            var title = _unitOfWork.TitleRepository.GetById(model.Title);
 
             var clinic = new Clinic
             {
@@ -35,11 +36,8 @@ namespace CIS.Application.BusinessComponents
                 Title = title
             };
 
-            using (var context = new ClinicModel())
-            {
-                context.Clinicians.Add(clinic);
-                context.SaveChanges();
-            }
+            _unitOfWork.ClinicianRepository.Add(clinic);
+            _unitOfWork.Save();
         }
 
         public void UpdateClinic(Presentation.Model.Clinicians.EditClinicViewModel data)

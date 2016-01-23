@@ -1,15 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace CIS.Application.Entities
 {
-    public enum MaritalStatus
+    public class MaritalStatus
     {
-        Single,
-        Married,
-        Divorced,
-        Widowed
+        public readonly MaritalStatus SINGLE = new MaritalStatus(1, "Single");
+        public readonly MaritalStatus MARRIED = new MaritalStatus(2, "Married");
+        public readonly MaritalStatus DIVORCED = new MaritalStatus(3, "Divorced");
+        public readonly MaritalStatus WIDOWED = new MaritalStatus(4, "Widowed");
+
+        public int Identifier { get; protected set; }
+        public string Description { get; protected set; }
+
+        public MaritalStatus(int identifier, string description)
+        {
+            Identifier = identifier;
+            Description = description;
+        }
     }
 }
