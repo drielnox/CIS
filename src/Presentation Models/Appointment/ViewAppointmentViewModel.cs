@@ -9,7 +9,7 @@ namespace CIS.Presentation.Model.Appointment
         public string ClinicianName { get; set; }
         public DateTime AppointmentDate { get; set; }
         public int PatientId { get; set; }
-        public string HospitalNumber { get; set; }
+        public int HospitalNumber { get; set; }
         public string PatientName { get; set; }
         public string Purpose { get; set; }
     }

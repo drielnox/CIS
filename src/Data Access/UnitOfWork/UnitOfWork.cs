@@ -11,6 +11,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
         private IGenderRepository _genderRepository;
         private IMaritalStatusRepository _maritalStatusRepository;
         private IClinicianRepository _clinicianRepository;
+        private IAppointmentRepository _appointmentRepository;
 
         public ITitleRepository TitleRepository
         {
@@ -45,6 +46,15 @@ namespace CIS.Data.DataAccess.UnitOfWork
             { 
                 return _clinicianRepository ??
                     (_clinicianRepository = new ClinicianRepository(_context));
+            }
+        }
+
+        public IAppointmentRepository AppointmentRepository
+        {
+            get 
+            {
+                return _appointmentRepository ??
+                    (_appointmentRepository = new AppointmentRepository(_context));
             }
         }
 
