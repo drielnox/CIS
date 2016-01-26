@@ -17,60 +17,119 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void btnViewUsers_Click(object sender, EventArgs e)
         {
-            //load up the "View Users" module
-            frmViewUsers viewUsers = new frmViewUsers();
-            viewUsers.ShowDialog();
-
+            try
+            {
+                frmViewUsers viewUsers = new frmViewUsers();
+                viewUsers.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnPatientList_Click(object sender, EventArgs e)
         {
-            //load up the "Register New Patient" module
-            frmFullPatientList full = new frmFullPatientList();
-            full.ShowDialog();
-
+            try
+            {
+                frmFullPatientList full = new frmFullPatientList();
+                full.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewPatient register = new frmNewPatient();
-            register.ShowDialog();
+            try
+            {
+                frmNewPatient register = new frmNewPatient();
+                register.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSearchPatient search = new frmSearchPatient();
-            search.ShowDialog();
+            try
+            {
+                frmSearchPatient search = new frmSearchPatient();
+                search.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void newToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmNewUser new_user = new frmNewUser();
-            new_user.ShowDialog();
+            try
+            {
+                frmNewUser new_user = new frmNewUser();
+                new_user.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmNewClinic clinic1 = new frmNewClinic();
-            clinic1.ShowDialog();
+            try
+            {
+                frmNewClinic clinic1 = new frmNewClinic();
+                clinic1.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void searchToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmClinicsList clinic2 = new frmClinicsList();
-            clinic2.ShowDialog();
+            try
+            {
+                frmClinicsList clinic2 = new frmClinicsList();
+                clinic2.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAbout About = new frmAbout();
-            About.ShowDialog();
+            try
+            {
+                frmAbout About = new frmAbout();
+                About.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void searchToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            frmViewUsers frm = new frmViewUsers();
-            frm.ShowDialog();
+            try
+            {
+                frmViewUsers frm = new frmViewUsers();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)

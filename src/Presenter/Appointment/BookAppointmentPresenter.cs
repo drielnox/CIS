@@ -1,14 +1,12 @@
 ﻿using CIS.Application.BusinessComponents;
 using CIS.Presentation.Model.Appointment;
-using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace CIS.Presentation.Logic.Presenter.Appointment
 {
-    public class BookAppointmentPresenter
+    public class BookAppointmentPresenter : IDisposable
     {
         private IBookAppointmentView _view;
         private AppointmentBusinessLogic _appointmentLogic;
@@ -47,6 +45,25 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
             string patientId = _view.GetPatientId();
 
             return string.IsNullOrWhiteSpace(patientId) || patientId.Any(c => !char.IsNumber(c));
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _appointmentLogic.Dispose();
+                _appointmentLogic = null;
+                _clinicianLogic.Dispose();
+                _clinicianLogic = null;
+                _patientLogic.Dispose();
+                _patientLogic = null;
+            }
         }
     }
 }

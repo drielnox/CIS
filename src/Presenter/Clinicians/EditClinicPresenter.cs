@@ -1,12 +1,11 @@
 ﻿using CIS.Application.BusinessComponents;
-using CIS.Presentation.Model;
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.UI.Contracts.Clinicians;
-using System.Collections.Generic;
+using System;
 
 namespace CIS.Presentation.Logic.Presenter.Clinicians
 {
-    public class EditClinicPresenter
+    public class EditClinicPresenter : IDisposable
     {
         private IEditClinicView _view;
         private TitleBusinessLogic _titleLogic;
@@ -34,6 +33,23 @@ namespace CIS.Presentation.Logic.Presenter.Clinicians
         {
             EditClinicViewModel data = _view.GetFormData();
             _clinicianLogic.UpdateClinic(data);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _titleLogic.Dispose();
+                _titleLogic = null;
+                _clinicianLogic.Dispose();
+                _clinicianLogic = null;
+            }
         }
     }
 }

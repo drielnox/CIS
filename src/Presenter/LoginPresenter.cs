@@ -1,7 +1,5 @@
 ﻿using CIS.Presentation.Model;
 using CIS.Presentation.UI.Contracts;
-using System;
-using System.Collections.Generic;
 
 namespace CIS.Presentation.Logic.Presenter
 {

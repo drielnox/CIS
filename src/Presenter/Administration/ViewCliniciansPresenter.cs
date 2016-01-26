@@ -2,10 +2,11 @@
 using CIS.Application.BusinessComponents;
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.UI.Contracts.Administration;
+using System;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
-    public class ViewCliniciansPresenter
+    public class ViewCliniciansPresenter : IDisposable
     {
         private IViewCliniciansView _view;
         private ClinicianBusinessLogic _clinicianLogic;
@@ -26,6 +27,21 @@ namespace CIS.Presentation.Logic.Presenter.Administration
         {
             EditClinicViewModel clinic = _view.GetClinic();
             _view.ShowEditClinicForm(clinic);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _clinicianLogic.Dispose();
+                _clinicianLogic = null;
+            }
         }
     }
 }

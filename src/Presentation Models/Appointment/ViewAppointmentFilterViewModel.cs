@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace CIS.Presentation.Model.Appointment
 {
     public class ViewAppointmentFilterViewModel

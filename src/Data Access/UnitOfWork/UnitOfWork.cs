@@ -5,13 +5,23 @@ namespace CIS.Data.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ClinicModel _context = new ClinicModel();
+        private ClinicModel _context;
         
         private ITitleRepository _titleRepository;
         private IGenderRepository _genderRepository;
         private IMaritalStatusRepository _maritalStatusRepository;
         private IClinicianRepository _clinicianRepository;
         private IAppointmentRepository _appointmentRepository;
+
+        public UnitOfWork()
+        {
+            _context = new ClinicModel();
+        }
+
+        ~UnitOfWork()
+        {
+            Dispose(false);
+        }
 
         public ITitleRepository TitleRepository
         {
@@ -65,9 +75,19 @@ namespace CIS.Data.DataAccess.UnitOfWork
 
         public void Dispose()
         {
-            if (_context != null)
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                _context.Dispose();
+                if (_context != null)
+                {
+                    _context.Dispose();
+                    _context = null;
+                }
             }
         }
     }

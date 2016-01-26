@@ -3,13 +3,12 @@ using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class GenreBusinessLogic
+    public class GenreBusinessLogic : IDisposable
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
         public GenreBusinessLogic()
         {
@@ -20,11 +19,26 @@ namespace CIS.Application.BusinessComponents
         {
             return _unitOfWork.GenreRepository
                 .GetAll()
-                .Select(x => new ComboGenreViewModel 
-                { 
+                .Select(x => new ComboGenreViewModel
+                {
                     Identifier = x.Identifier,
                     Description = x.Description
                 });
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _unitOfWork = null;
+            }
         }
     }
 }

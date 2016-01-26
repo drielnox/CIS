@@ -1,14 +1,15 @@
 ﻿using CIS.Application.Entities;
 using CIS.Data.DataAccess.UnitOfWork;
 using CIS.Presentation.Model.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class TitleBusinessLogic
+    public class TitleBusinessLogic : IDisposable
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
         public TitleBusinessLogic()
         {
@@ -29,6 +30,21 @@ namespace CIS.Application.BusinessComponents
                     Identifier = x.Identifier,
                     Description = x.Description
                 });
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _unitOfWork = null;
+            }
         }
     }
 }

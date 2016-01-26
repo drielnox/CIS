@@ -2,13 +2,11 @@
 using CIS.Presentation.Model;
 using CIS.Presentation.UI.Contracts;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CIS.Presentation.Logic.Presenter
 {
-    public class NewClinicPresenter
+    public class NewClinicPresenter : IDisposable
     {
         private INewClinicView _view;
         private ClinicianBusinessLogic _clinicBl;
@@ -37,6 +35,21 @@ namespace CIS.Presentation.Logic.Presenter
         public NewClinicPresentationModel GetClinicianData()
         {
             return _view.GetClinicianData();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _clinicBl.Dispose();
+                _clinicBl = null;
+            }
         }
     }
 }

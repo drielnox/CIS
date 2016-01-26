@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CIS.Presentation.UI.WindowsForms.Properties {
-    using System;
-    
-    
+namespace CIS.Presentation.UI.WindowsForms.Properties
+{
+
+
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>

@@ -2,14 +2,15 @@
 using CIS.Application.Entities;
 using CIS.Data.DataAccess.UnitOfWork;
 using CIS.Presentation.Model.Appointment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class AppointmentBusinessLogic
+    public class AppointmentBusinessLogic : IDisposable
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
         public AppointmentBusinessLogic()
         {
@@ -43,6 +44,21 @@ namespace CIS.Application.BusinessComponents
                     PatientName = x.PatientName,
                     Purpose = x.Purpose
                 });
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _unitOfWork = null;
+            }
         }
     }
 }

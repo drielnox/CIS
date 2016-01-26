@@ -1,10 +1,11 @@
 ﻿using CIS.Application.BusinessComponents;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
+using System;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
-    public class SearchPatientPresenter
+    public class SearchPatientPresenter : IDisposable
     {
         private ISearchPatientView _view;
         private PatientBusinessLogic _logic;
@@ -25,6 +26,21 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         public void ShowPatientData()
         {
             PatientViewModel patient = _view.GetSelectedPatient();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _logic.Dispose();
+                _logic = null;
+            }
         }
     }
 }

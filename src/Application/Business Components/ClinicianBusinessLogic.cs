@@ -8,9 +8,9 @@ using System.Collections.Generic;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class ClinicianBusinessLogic
+    public class ClinicianBusinessLogic : IDisposable
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
         
         public ClinicianBusinessLogic()
         {
@@ -47,6 +47,21 @@ namespace CIS.Application.BusinessComponents
         public IEnumerable<ClinicListViewModel> GetClinicians()
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _unitOfWork = null;
+            }
         }
     }
 }

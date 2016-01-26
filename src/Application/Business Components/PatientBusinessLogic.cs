@@ -1,14 +1,19 @@
-﻿using CIS.Presentation.Model.Appointment;
+﻿using CIS.Data.DataAccess.UnitOfWork;
+using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.Model.Patients;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CIS.Application.BusinessComponents
 {
-    public class PatientBusinessLogic
+    public class PatientBusinessLogic : IDisposable
     {
+        private IUnitOfWork _unitOfWork;
+
+        public PatientBusinessLogic()
+        {
+            _unitOfWork = new UnitOfWork();
+        }
+
         public void AddPatient(NewPatientViewModel data)
         {
             throw new NotImplementedException();
@@ -37,6 +42,21 @@ namespace CIS.Application.BusinessComponents
         public PatientOfBookAppointmentViewModel GetPatientForBookAppointment(int patientId)
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _unitOfWork.Dispose();
+                _unitOfWork = null;
+            }
         }
     }
 }
