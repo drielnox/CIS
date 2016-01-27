@@ -25,5 +25,7 @@
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Appointment> Appointments { get; set; }
         public virtual DbSet<Title> Titles { get; set; }
+        public virtual DbSet<MaritalStatus> MaritalStatuses { get; set; }
+        public virtual DbSet<Gender> Genders { get; set; }
     }
 }

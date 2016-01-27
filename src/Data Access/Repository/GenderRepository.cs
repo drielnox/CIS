@@ -1,4 +1,9 @@
 ﻿
+using CIS.Application.Entities;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+
 namespace CIS.Data.DataAccess.Repository
 {
     public class GenderRepository : IGenderRepository
@@ -10,29 +15,33 @@ namespace CIS.Data.DataAccess.Repository
             _context = context;
         }
 
-        public int Add(Application.Entities.Gender entity)
+        public int Add(Gender entity)
         {
-            throw new System.NotImplementedException();
+            _context.Genders.Add(entity);
+            return entity.Identifier;
         }
 
-        public void Modify(Application.Entities.Gender entity)
+        public void Modify(Gender entity)
         {
-            throw new System.NotImplementedException();
+            _context.Genders.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Application.Entities.Gender entity)
+        public void Remove(Gender entity)
         {
-            throw new System.NotImplementedException();
+            _context.Genders.Remove(entity);
         }
 
-        public Application.Entities.Gender GetById(int Id)
+        public Gender GetById(int Id)
         {
-            throw new System.NotImplementedException();
+            return _context.Genders
+                .Single(x => x.Identifier == Id);
         }
 
-        public System.Collections.Generic.IEnumerable<Application.Entities.Gender> GetAll()
+        public IEnumerable<Gender> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.Genders
+                .AsEnumerable();
         }
     }
 }

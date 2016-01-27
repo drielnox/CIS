@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CIS.Application.Entities;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace CIS.Data.DataAccess.Repository
 {
@@ -11,29 +13,33 @@ namespace CIS.Data.DataAccess.Repository
         {
             _context = context;
         }
-        public int Add(Application.Entities.Clinic entity)
+        public int Add(Clinic entity)
         {
-            throw new NotImplementedException();
+            _context.Clinicians.Add(entity);
+            return entity.Identifier;
         }
 
-        public void Modify(Application.Entities.Clinic entity)
+        public void Modify(Clinic entity)
         {
-            throw new NotImplementedException();
+            _context.Clinicians.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Application.Entities.Clinic entity)
+        public void Remove(Clinic entity)
         {
-            throw new NotImplementedException();
+            _context.Clinicians.Remove(entity);
         }
 
-        public Application.Entities.Clinic GetById(int Id)
+        public Clinic GetById(int Id)
         {
-            throw new NotImplementedException();
+            return _context.Clinicians
+                .Single(x => x.Identifier == Id);
         }
 
-        public IEnumerable<Application.Entities.Clinic> GetAll()
+        public IEnumerable<Clinic> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Clinicians
+                .AsEnumerable();
         }
     }
 }

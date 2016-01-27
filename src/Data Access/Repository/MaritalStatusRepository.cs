@@ -1,4 +1,9 @@
 ﻿
+using CIS.Application.Entities;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+
 namespace CIS.Data.DataAccess.Repository
 {
     public class MaritalStatusRepository : IMaritalStatusRepository
@@ -10,29 +15,33 @@ namespace CIS.Data.DataAccess.Repository
             _context = context;
         }
 
-        public int Add(Application.Entities.MaritalStatus entity)
+        public int Add(MaritalStatus entity)
         {
-            throw new System.NotImplementedException();
+            _context.MaritalStatuses.Add(entity);
+            return entity.Identifier;
         }
 
-        public void Modify(Application.Entities.MaritalStatus entity)
+        public void Modify(MaritalStatus entity)
         {
-            throw new System.NotImplementedException();
+            _context.MaritalStatuses.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Application.Entities.MaritalStatus entity)
+        public void Remove(MaritalStatus entity)
         {
-            throw new System.NotImplementedException();
+            _context.MaritalStatuses.Remove(entity);
         }
 
-        public Application.Entities.MaritalStatus GetById(int Id)
+        public MaritalStatus GetById(int Id)
         {
-            throw new System.NotImplementedException();
+            return _context.MaritalStatuses
+                .Single(x => x.Identifier == Id);
         }
 
-        public System.Collections.Generic.IEnumerable<Application.Entities.MaritalStatus> GetAll()
+        public IEnumerable<MaritalStatus> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.MaritalStatuses
+                .AsEnumerable();
         }
     }
 }

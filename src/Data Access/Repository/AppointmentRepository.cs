@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CIS.Application.Entities;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace CIS.Data.DataAccess.Repository
 {
@@ -11,29 +13,33 @@ namespace CIS.Data.DataAccess.Repository
         {
             _context = context;
         }
-        public int Add(Application.Entities.Appointment entity)
+        public int Add(Appointment entity)
         {
-            throw new NotImplementedException();
+            _context.Appointments.Add(entity);
+            return entity.Identifier;
         }
 
-        public void Modify(Application.Entities.Appointment entity)
+        public void Modify(Appointment entity)
         {
-            throw new NotImplementedException();
+            _context.Appointments.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Application.Entities.Appointment entity)
+        public void Remove(Appointment entity)
         {
-            throw new NotImplementedException();
+            _context.Appointments.Remove(entity);
         }
 
-        public Application.Entities.Appointment GetById(int Id)
+        public Appointment GetById(int Id)
         {
-            throw new NotImplementedException();
+            return _context.Appointments
+                .Single(x => x.Identifier == Id);
         }
 
-        public IEnumerable<Application.Entities.Appointment> GetAll()
+        public IEnumerable<Appointment> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Appointments
+                .AsEnumerable();
         }
     }
 }

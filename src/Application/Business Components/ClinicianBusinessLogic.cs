@@ -4,6 +4,7 @@ using CIS.Presentation.Model;
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.Model.Common;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace CIS.Application.BusinessComponents
@@ -11,7 +12,7 @@ namespace CIS.Application.BusinessComponents
     public class ClinicianBusinessLogic : IDisposable
     {
         private IUnitOfWork _unitOfWork;
-        
+
         public ClinicianBusinessLogic()
         {
             _unitOfWork = new UnitOfWork();
@@ -41,12 +42,22 @@ namespace CIS.Application.BusinessComponents
 
         public void UpdateClinic(EditClinicViewModel data)
         {
-            
+            // TODO: falta implementar.
+            var clinic = new Clinic { };
+
+            _unitOfWork.ClinicianRepository.Modify(clinic);
         }
 
         public IEnumerable<ClinicListViewModel> GetClinicians()
         {
-            throw new NotImplementedException();
+            return _unitOfWork.ClinicianRepository
+                .GetAll()
+                .Select(x => new ClinicListViewModel
+                {
+                    Identifier = x.Identifier,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName
+                });
         }
 
         public void Dispose()

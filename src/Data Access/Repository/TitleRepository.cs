@@ -1,4 +1,9 @@
 ﻿
+using CIS.Application.Entities;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+
 namespace CIS.Data.DataAccess.Repository
 {
     class TitleRepository : ITitleRepository
@@ -10,29 +15,34 @@ namespace CIS.Data.DataAccess.Repository
             _context = context;
         }
 
-        public int Add(Application.Entities.Title entity)
+        public int Add(Title entity)
         {
-            throw new System.NotImplementedException();
+            _context.Titles.Add(entity);
+            return entity.Identifier;
         }
 
-        public void Modify(Application.Entities.Title entity)
+        public void Modify(Title entity)
         {
-            throw new System.NotImplementedException();
+            _context.Titles.Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Application.Entities.Title entity)
+        public void Remove(Title entity)
         {
-            throw new System.NotImplementedException();
+            _context.Titles
+                .Remove(entity);
         }
 
-        public Application.Entities.Title GetById(int Id)
+        public Title GetById(int Id)
         {
-            throw new System.NotImplementedException();
+            return _context.Titles
+                .Single(x => x.Identifier == Id);
         }
 
-        public System.Collections.Generic.IEnumerable<Application.Entities.Title> GetAll()
+        public IEnumerable<Title> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _context.Titles
+                .AsEnumerable();
         }
     }
 }
