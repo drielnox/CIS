@@ -39,7 +39,8 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Clinic> GetAll()
         {
             return _context.Clinicians
-                .AsEnumerable();
+                // .AsEnumerable();
+                .ToList();
         }
     }
 }

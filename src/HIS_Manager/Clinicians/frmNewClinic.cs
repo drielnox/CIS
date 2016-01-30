@@ -1,7 +1,10 @@
 ﻿using CIS.Presentation.Logic.Presenter;
 using CIS.Presentation.Model;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -27,11 +30,6 @@ namespace CIS.Presentation.UI.WindowsForms
             Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void txtClinicNumber_Validating(object sender, CancelEventArgs e)
         {
             if (_presenter.ValidateClinicNumber(txtClinicNumber.Text))
@@ -48,9 +46,11 @@ namespace CIS.Presentation.UI.WindowsForms
             }
         }
 
-        public void LoadTitles()
+        public void LoadTitles(IEnumerable<ComboTitleViewModel> titles)
         {
-            throw new NotImplementedException();
+            cboTitle.DataSource = titles.ToList();
+            cboTitle.ValueMember = "Identifier";
+            cboTitle.DisplayMember = "Description";
         }
 
         public NewClinicPresentationModel GetClinicianData()
@@ -72,6 +72,11 @@ namespace CIS.Presentation.UI.WindowsForms
         public int GetSelectedTitle()
         {
             return Convert.ToInt32(cboTitle.SelectedValue);
+        }
+
+        private void frmNewClinic_Load(object sender, EventArgs e)
+        {
+            _presenter.LoadTitles();
         }
     }
 }

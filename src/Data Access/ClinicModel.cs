@@ -12,7 +12,7 @@
         // Si desea tener como destino una base de datos y/o un proveedor de base de datos diferente, 
         // modifique la cadena de conexión 'ClinicModel'  en el archivo de configuración de la aplicación.
         public ClinicModel()
-            : base("name=ClinicModel")
+            : base("ClinicModel")
         {
             Database.SetInitializer(new ClinicInitializer());
         }

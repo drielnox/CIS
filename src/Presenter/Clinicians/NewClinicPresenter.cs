@@ -10,16 +10,19 @@ namespace CIS.Presentation.Logic.Presenter
     {
         private INewClinicView _view;
         private ClinicianBusinessLogic _clinicBl;
+        private TitleBusinessLogic _titleLogic;
 
         public NewClinicPresenter(INewClinicView view)
         {
             _view = view;
             _clinicBl = new ClinicianBusinessLogic();
+            _titleLogic = new TitleBusinessLogic();
         }
 
-        public void Save(NewClinicPresentationModel model)
+        public void LoadTitles()
         {
-            _clinicBl.AddClinic(model);
+            var titles = _titleLogic.GetTitles();
+            _view.LoadTitles(titles);
         }
 
         public bool ValidateClinicNumber(string p)
@@ -35,6 +38,11 @@ namespace CIS.Presentation.Logic.Presenter
         public NewClinicPresentationModel GetClinicianData()
         {
             return _view.GetClinicianData();
+        }
+
+        public void Save(NewClinicPresentationModel model)
+        {
+            _clinicBl.AddClinic(model);
         }
 
         public void Dispose()

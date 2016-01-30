@@ -222,7 +222,6 @@
             this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmNewClinic
             // 
@@ -253,6 +252,7 @@
             this.Controls.Add(this.txtClinicNumber);
             this.Name = "frmNewClinic";
             this.Text = "New Clinic";
+            this.Load += new System.EventHandler(this.frmNewClinic_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

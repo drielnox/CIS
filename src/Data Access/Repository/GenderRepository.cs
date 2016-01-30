@@ -41,7 +41,8 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Gender> GetAll()
         {
             return _context.Genders
-                .AsEnumerable();
+                // .AsEnumerable();
+                .ToList();
         }
     }
 }

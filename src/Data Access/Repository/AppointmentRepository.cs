@@ -39,7 +39,8 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Appointment> GetAll()
         {
             return _context.Appointments
-                .AsEnumerable();
+                // .AsEnumerable();
+                .ToList();
         }
     }
 }
