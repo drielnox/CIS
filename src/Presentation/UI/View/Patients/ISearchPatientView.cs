@@ -17,7 +17,5 @@ namespace CIS.Presentation.UI.Contracts.Patients
         string GetLastName();
 
         string GetFirstName();
-
-        bool RequestValidatePatientId();
     }
 }

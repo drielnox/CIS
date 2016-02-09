@@ -2,6 +2,7 @@
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
+using System.Linq;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
@@ -31,30 +32,29 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         public bool ValidatePatientId()
         {
             string value = _view.GetPatientId();
-            return string.IsNullOrWhiteSpace(value);
+            return string.IsNullOrWhiteSpace(value) 
+                || value.Any(c => char.IsNumber(c));
         }
 
         public bool ValidateHospitalNumber()
         {
             string value = _view.GetHospitalNumber();
-            return string.IsNullOrWhiteSpace(value);
+            return string.IsNullOrWhiteSpace(value)
+                || value.Any(c => char.IsNumber(c));
         }
 
         public bool ValidateLastName()
         {
             string value = _view.GetLastName();
-            return string.IsNullOrWhiteSpace(value);
+            return string.IsNullOrWhiteSpace(value)
+                || value.Any(c => char.IsLetter(c) || char.IsSeparator(c));
         }
 
         public bool ValidateFirstName()
         {
             string value = _view.GetFirstName();
-            return string.IsNullOrWhiteSpace(value);
-        }
-
-        public void ValidateSearchFields()
-        {
-            bool asd = _view.RequestValidatePatientId();
+            return string.IsNullOrWhiteSpace(value)
+                || value.Any(c => char.IsNumber(c) || char.IsSeparator(c));
         }
 
         public void Dispose()

@@ -134,7 +134,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
         }
     }
 }

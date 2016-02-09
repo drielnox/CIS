@@ -38,7 +38,6 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            _presenter.ValidateSearchFields();
             _presenter.SearchPatient();
         }
 
@@ -51,7 +50,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtPatientId_Validating(object sender, CancelEventArgs e)
         {
-            if (_presenter.ValidatePatientId())
+            if (!_presenter.ValidatePatientId())
             {
                 e.Cancel = true;
             }
@@ -59,7 +58,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtHospitalNumber_Validating(object sender, CancelEventArgs e)
         {
-            if (_presenter.ValidateHospitalNumber())
+            if (!_presenter.ValidateHospitalNumber())
             {
                 e.Cancel = true;
             }
@@ -67,7 +66,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtLastName_Validating(object sender, CancelEventArgs e)
         {
-            if (_presenter.ValidateLastName())
+            if (!_presenter.ValidateLastName())
             {
                 e.Cancel = true;
             }
@@ -75,19 +74,14 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void txtFirstName_Validating(object sender, CancelEventArgs e)
         {
-            if (_presenter.ValidateFirstName())
+            if (!_presenter.ValidateFirstName())
             {
                 e.Cancel = true;
             }
         }
 
         #endregion
-
-        public bool RequestValidatePatientId()
-        {
-            return true;
-        }
-
+        
         #endregion
 
         #region Private Methods
@@ -156,7 +150,5 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             return txtFirstName.Text;
         }
-
-
     }
 }

@@ -110,7 +110,6 @@
             // 
             // txtFirstName
             // 
-            this.txtFirstName.CausesValidation = false;
             this.txtFirstName.Location = new System.Drawing.Point(318, 39);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(139, 20);
@@ -119,7 +118,6 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.CausesValidation = false;
             this.txtLastName.Location = new System.Drawing.Point(318, 12);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(139, 20);
@@ -128,7 +126,6 @@
             // 
             // txtHospitalNumber
             // 
-            this.txtHospitalNumber.CausesValidation = false;
             this.txtHospitalNumber.Location = new System.Drawing.Point(101, 38);
             this.txtHospitalNumber.Name = "txtHospitalNumber";
             this.txtHospitalNumber.Size = new System.Drawing.Size(148, 20);
@@ -137,7 +134,6 @@
             // 
             // txtPatientId
             // 
-            this.txtPatientId.CausesValidation = false;
             this.txtPatientId.Location = new System.Drawing.Point(101, 12);
             this.txtPatientId.Name = "txtPatientId";
             this.txtPatientId.Size = new System.Drawing.Size(148, 20);
