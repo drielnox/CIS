@@ -2,6 +2,7 @@
 using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.Model.Patients;
 using System;
+using System.Linq;
 
 namespace CIS.Application.BusinessComponents
 {
@@ -21,7 +22,23 @@ namespace CIS.Application.BusinessComponents
 
         public PatientsViewModel SearchPatients(SearchPatientViewModel criteria)
         {
-            throw new NotImplementedException();
+            var patients = _unitOfWork.PatientRepository
+                .GetAll()
+                .Where(x => x.Identifier == int.Parse(criteria.PatientId))
+                .Where(x => x.FirstName == criteria.FirstName)
+                .Where(x => x.LastName == criteria.LastName)
+                .Where(x => x.HospitalNumber == int.Parse(criteria.HospitalNumber))
+                .Select(x => new PatientViewModel 
+                { 
+                     Identifier = x.Identifier.ToString(),
+                     FirstName = x.FirstName,
+                     LastName = x.LastName
+                });
+
+            return new PatientsViewModel
+            {
+                Patients = patients
+            };
         }
 
         public void UpdatePatient(EditPatientViewModel patient)

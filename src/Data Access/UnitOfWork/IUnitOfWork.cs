@@ -16,6 +16,8 @@ namespace CIS.Data.DataAccess.UnitOfWork
 
         IAppointmentRepository AppointmentRepository { get; }
 
+        IPatientRepository PatientRepository { get; }
+
         void Save();
     }
 }

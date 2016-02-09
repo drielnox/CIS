@@ -2,6 +2,7 @@
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace CIS.Presentation.UI.WindowsForms
@@ -15,6 +16,8 @@ namespace CIS.Presentation.UI.WindowsForms
             InitializeComponent();
             _presenter = new SearchPatientPresenter(this);
         }
+
+        #region Form Events
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
@@ -35,8 +38,74 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            _presenter.ValidateSearchFields();
             _presenter.SearchPatient();
         }
+
+        private void lvPatients_DoubleClick(object sender, EventArgs e)
+        {
+            _presenter.ShowPatientData();
+        }
+
+        #region Validations
+
+        private void txtPatientId_Validating(object sender, CancelEventArgs e)
+        {
+            if (_presenter.ValidatePatientId())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtHospitalNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (_presenter.ValidateHospitalNumber())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtLastName_Validating(object sender, CancelEventArgs e)
+        {
+            if (_presenter.ValidateLastName())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        {
+            if (_presenter.ValidateFirstName())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        #endregion
+
+        public bool RequestValidatePatientId()
+        {
+            return true;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void AddPatientToGrid(PatientViewModel patient)
+        {
+            var listItem = new ListViewItem(new string[]
+                {
+                    patient.Identifier,
+                    patient.FirstName,
+                    patient.LastName
+                });
+            listItem.Tag = patient;
+
+            lvPatients.Items.Add(listItem);
+        }
+
+        #endregion
 
         public SearchPatientViewModel GetSearchCriteria()
         {
@@ -57,24 +126,6 @@ namespace CIS.Presentation.UI.WindowsForms
             }
         }
 
-        private void AddPatientToGrid(PatientViewModel patient)
-        {
-            var listItem = new ListViewItem(new string[]
-                {
-                    patient.Identifier,
-                    patient.FirstName,
-                    patient.LastName
-                });
-            listItem.Tag = patient;
-
-            lvPatients.Items.Add(listItem);
-        }
-
-        private void lvPatients_DoubleClick(object sender, EventArgs e)
-        {
-            _presenter.ShowPatientData();
-        }
-
         public PatientViewModel GetSelectedPatient()
         {
             if (lvPatients.SelectedItems.Count > 0)
@@ -85,5 +136,27 @@ namespace CIS.Presentation.UI.WindowsForms
 
             return null;
         }
+
+        public string GetPatientId()
+        {
+            return txtPatientId.Text;
+        }
+
+        public string GetHospitalNumber()
+        {
+            return txtHospitalNumber.Text;
+        }
+
+        public string GetLastName()
+        {
+            return txtLastName.Text;
+        }
+
+        public string GetFirstName()
+        {
+            return txtFirstName.Text;
+        }
+
+
     }
 }

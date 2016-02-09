@@ -12,6 +12,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
         private IMaritalStatusRepository _maritalStatusRepository;
         private IClinicianRepository _clinicianRepository;
         private IAppointmentRepository _appointmentRepository;
+        private IPatientRepository _patientRepository;
 
         public UnitOfWork()
         {
@@ -65,6 +66,15 @@ namespace CIS.Data.DataAccess.UnitOfWork
             {
                 return _appointmentRepository ??
                     (_appointmentRepository = new AppointmentRepository(_context));
+            }
+        }
+
+        public IPatientRepository PatientRepository 
+        {
+            get
+            { 
+                return _patientRepository ??
+                    (_patientRepository = new PatientRepository(_context));
             }
         }
 

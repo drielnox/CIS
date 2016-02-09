@@ -28,6 +28,35 @@ namespace CIS.Presentation.Logic.Presenter.Patients
             PatientViewModel patient = _view.GetSelectedPatient();
         }
 
+        public bool ValidatePatientId()
+        {
+            string value = _view.GetPatientId();
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+        public bool ValidateHospitalNumber()
+        {
+            string value = _view.GetHospitalNumber();
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+        public bool ValidateLastName()
+        {
+            string value = _view.GetLastName();
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+        public bool ValidateFirstName()
+        {
+            string value = _view.GetFirstName();
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+        public void ValidateSearchFields()
+        {
+            bool asd = _view.RequestValidatePatientId();
+        }
+
         public void Dispose()
         {
             Dispose(true);

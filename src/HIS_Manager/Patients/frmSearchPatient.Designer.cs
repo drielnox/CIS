@@ -110,31 +110,39 @@
             // 
             // txtFirstName
             // 
+            this.txtFirstName.CausesValidation = false;
             this.txtFirstName.Location = new System.Drawing.Point(318, 39);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(139, 20);
             this.txtFirstName.TabIndex = 3;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating);
             // 
             // txtLastName
             // 
+            this.txtLastName.CausesValidation = false;
             this.txtLastName.Location = new System.Drawing.Point(318, 12);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(139, 20);
             this.txtLastName.TabIndex = 2;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // txtHospitalNumber
             // 
+            this.txtHospitalNumber.CausesValidation = false;
             this.txtHospitalNumber.Location = new System.Drawing.Point(101, 38);
             this.txtHospitalNumber.Name = "txtHospitalNumber";
             this.txtHospitalNumber.Size = new System.Drawing.Size(148, 20);
             this.txtHospitalNumber.TabIndex = 1;
+            this.txtHospitalNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtHospitalNumber_Validating);
             // 
             // txtPatientId
             // 
+            this.txtPatientId.CausesValidation = false;
             this.txtPatientId.Location = new System.Drawing.Point(101, 12);
             this.txtPatientId.Name = "txtPatientId";
             this.txtPatientId.Size = new System.Drawing.Size(148, 20);
             this.txtPatientId.TabIndex = 0;
+            this.txtPatientId.Validating += new System.ComponentModel.CancelEventHandler(this.txtPatientId_Validating);
             // 
             // btnCancel
             // 
