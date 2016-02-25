@@ -1,9 +1,11 @@
 ﻿using CIS.Application.BusinessComponents;
+using CIS.Application.Façade;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
@@ -15,6 +17,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         private GenreBusinessLogic _genreLogic;
         private MaritalStatusBusinessLogic _maritalStatusLogic;
 
+        ChannelFactory<IApplicationFaçade> _facade;
+
         public NewPatientPresenter(INewPatientView view)
         {
             _view = view;
@@ -22,6 +26,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
             _titleLogic = new TitleBusinessLogic();
             _genreLogic = new GenreBusinessLogic();
             _maritalStatusLogic = new MaritalStatusBusinessLogic();
+
+            _facade = new ChannelFactory<IApplicationFaçade>("ApplicationEndPoint");
         }
 
         public void Save()
@@ -38,8 +44,14 @@ namespace CIS.Presentation.Logic.Presenter.Patients
 
         public void LoadGenres()
         {
-            IEnumerable<ComboGenreViewModel> genres = _genreLogic.GetGenres();
-            _view.LoadGenres(genres);
+            using(var proxy = _facade.CreateChannel())
+            {
+                IEnumerable<ComboGenreViewModel> genres = proxy.Genre.GetGenres();
+                _view.LoadGenres(genres);
+            }
+
+            //IEnumerable<ComboGenreViewModel> genres = _genreLogic.GetGenres();
+            //_view.LoadGenres(genres);
         }
 
         public void LoadMaritalStatuses()

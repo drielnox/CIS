@@ -1,23 +1,50 @@
 ﻿
 using CIS.Data.DataAccess.Repository;
 using System;
+using System.ServiceModel;
 
 namespace CIS.Data.DataAccess.UnitOfWork
 {
+    [ServiceContract]
     public interface IUnitOfWork : IDisposable
     {
-        ITitleRepository TitleRepository { get; }
+        ITitleRepository TitleRepository
+        {
+            [OperationContract]
+            get;
+        }
 
-        IGenderRepository GenreRepository { get; }
+        IGenderRepository GenreRepository
+        {
+            [OperationContract]
+            get;
+        }
 
-        IMaritalStatusRepository MaritalStatusRepository { get; }
+        IMaritalStatusRepository MaritalStatusRepository
+        {
+            [OperationContract]
+            get;
+        }
 
-        IClinicianRepository ClinicianRepository { get; }
+        IClinicianRepository ClinicianRepository
+        {
+            [OperationContract]
+            get;
+        }
 
-        IAppointmentRepository AppointmentRepository { get; }
+        IAppointmentRepository AppointmentRepository
+        {
+            [OperationContract]
+            get;
+        }
 
-        IPatientRepository PatientRepository { get; }
+        IPatientRepository PatientRepository
+        {
+            [OperationContract]
+            get;
+        }
 
+        [OperationContract]
         void Save();
     }
 }

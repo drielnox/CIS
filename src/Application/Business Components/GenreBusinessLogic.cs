@@ -3,27 +3,51 @@ using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace CIS.Application.BusinessComponents
 {
     public class GenreBusinessLogic : IDisposable
     {
-        private IUnitOfWork _unitOfWork;
+        //private IUnitOfWork _unitOfWork;
+        private ChannelFactory<IUnitOfWork> _factory;
 
         public GenreBusinessLogic()
         {
-            _unitOfWork = new UnitOfWork();
+            _factory = CreateFactory();
+
+            //_unitOfWork = new UnitOfWork();
         }
 
         public IEnumerable<ComboGenreViewModel> GetGenres()
         {
-            return _unitOfWork.GenreRepository
-                .GetAll()
-                .Select(x => new ComboGenreViewModel
+            try
+            {
+                using (var proxy = _factory.CreateChannel())
                 {
-                    Identifier = x.Identifier,
-                    Description = x.Description
-                });
+                    return proxy.GenreRepository
+                        .GetAll()
+                        .Select(x => new ComboGenreViewModel
+                        {
+                            Identifier = x.Identifier,
+                            Description = x.Description
+                        });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            
+
+            //return _unitOfWork.GenreRepository
+            //    .GetAll()
+            //    .Select(x => new ComboGenreViewModel
+            //    {
+            //        Identifier = x.Identifier,
+            //        Description = x.Description
+            //    });
         }
 
         public void Dispose()
@@ -36,8 +60,20 @@ namespace CIS.Application.BusinessComponents
         {
             if (disposing)
             {
-                _unitOfWork.Dispose();
-                _unitOfWork = null;
+                //_unitOfWork.Dispose();
+                //_unitOfWork = null;
+            }
+        }
+
+        private ChannelFactory<IUnitOfWork> CreateFactory()
+        {
+            try
+            {
+                return new ChannelFactory<IUnitOfWork>("UnitOfWorkEndPoint");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

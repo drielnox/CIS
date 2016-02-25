@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\ChangeUserPasswordPresenter.cs" />
@@ -55,6 +56,10 @@
       <Project>{07b20ca2-4025-4032-9caa-9c5fd771ebbf}</Project>
       <Name>Business Components</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Application\Service Façade\Service Façade.csproj">
+      <Project>{f4d44ffd-4423-4d78-9ee0-17346d2bd2e9}</Project>
+      <Name>Service Façade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>
@@ -66,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,8 +1,10 @@
 ﻿using CIS.Data.DataAccess.Repository;
 using System;
+using System.Runtime.Serialization;
 
 namespace CIS.Data.DataAccess.UnitOfWork
 {
+    [DataContract]
     public class UnitOfWork : IUnitOfWork
     {
         private ClinicModel _context;
@@ -24,6 +26,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             Dispose(false);
         }
 
+        [DataMember]
         public ITitleRepository TitleRepository
         {
             get 
@@ -33,6 +36,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             }
         }
 
+        [DataMember]
         public IGenderRepository GenreRepository
         {
             get 
@@ -42,6 +46,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             }
         }
 
+        [DataMember]
         public IMaritalStatusRepository MaritalStatusRepository
         {
             get 
@@ -51,6 +56,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             }
         }
 
+        [DataMember]
         public IClinicianRepository ClinicianRepository
         {
             get 
@@ -60,6 +66,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             }
         }
 
+        [DataMember]
         public IAppointmentRepository AppointmentRepository
         {
             get 
@@ -69,6 +76,7 @@ namespace CIS.Data.DataAccess.UnitOfWork
             }
         }
 
+        [DataMember]
         public IPatientRepository PatientRepository 
         {
             get

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace CIS.Data.DataAccess.Repository
 {
@@ -13,6 +15,7 @@ namespace CIS.Data.DataAccess.Repository
         {
             _context = context;
         }
+
         public int Add(Appointment entity)
         {
             _context.Appointments.Add(entity);
