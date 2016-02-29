@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationFaçade.cs" />
-    <Compile Include="ApplicationServiceHost.cs" />
     <Compile Include="IApplicationFaçade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

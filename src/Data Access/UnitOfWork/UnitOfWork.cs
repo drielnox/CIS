@@ -1,10 +1,12 @@
 ﻿using CIS.Data.DataAccess.Repository;
 using System;
 using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace CIS.Data.DataAccess.UnitOfWork
 {
     [DataContract]
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class UnitOfWork : IUnitOfWork
     {
         private ClinicModel _context;

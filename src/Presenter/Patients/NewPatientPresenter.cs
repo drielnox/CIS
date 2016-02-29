@@ -24,7 +24,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
             _view = view;
             _logic = new PatientBusinessLogic();
             _titleLogic = new TitleBusinessLogic();
-            _genreLogic = new GenreBusinessLogic();
+            // _genreLogic = new GenreBusinessLogic();
             _maritalStatusLogic = new MaritalStatusBusinessLogic();
 
             _facade = new ChannelFactory<IApplicationFaçade>("ApplicationEndPoint");

@@ -3,9 +3,11 @@ using CIS.Application.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace CIS.Data.DataAccess.Repository
 {
+    [DataContract]
     public class GenderRepository : IGenderRepository
     {
         private ClinicModel _context;
