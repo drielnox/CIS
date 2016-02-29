@@ -11,15 +11,27 @@ namespace CIS.Data.Façade
     {
         static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof(UnitOfWork)))
+            try
             {
-                host.Open();
+                using (DataServiceHost host = new DataServiceHost(typeof(UnitOfWork)))
+                {
+                    host.Opening += new EventHandler((o, e) => Console.WriteLine("Opening"));
+                    host.Opened += new EventHandler((o, e) => Console.WriteLine("Opened"));
+                    host.Closing += new EventHandler((o, e) => Console.WriteLine("Closing"));
+                    host.Closed += new EventHandler((o, e) => Console.WriteLine("Closed"));
+                    host.UnknownMessageReceived += new EventHandler<UnknownMessageReceivedEventArgs>((o, e) => Console.WriteLine("UnknownMessageReceived: {0}", e.Message));
+                    host.Faulted += new EventHandler((o, e) => Console.WriteLine("Faulted"));
 
-                Console.WriteLine("Server open...");
+                    host.Open();
 
-                Console.ReadLine();
+                    Console.ReadLine();
 
-                host.Close();
+                    host.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
