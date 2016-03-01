@@ -57,7 +57,7 @@
     <Compile Include="GenderTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Business Entities\Business Entities.csproj">
+    <ProjectReference Include="..\..\..\src\Application\Business Entities\Business Entities.csproj">
       <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
       <Name>Business Entities</Name>
     </ProjectReference>

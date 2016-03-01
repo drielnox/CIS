@@ -52,19 +52,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Application\Business Components\Business Components.csproj">
+    <ProjectReference Include="..\..\..\Application\Business Components\Business Components.csproj">
       <Project>{07b20ca2-4025-4032-9caa-9c5fd771ebbf}</Project>
       <Name>Business Components</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Application\Service Façade\Service Façade.csproj">
+    <ProjectReference Include="..\..\..\Application\Service Façade\Service Façade.csproj">
       <Project>{f4d44ffd-4423-4d78-9ee0-17346d2bd2e9}</Project>
       <Name>Service Façade</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Presentation Models\Presentation Models.csproj">
+    <ProjectReference Include="..\..\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Presentation\UI\View\View.csproj">
+    <ProjectReference Include="..\..\UI\View\View.csproj">
       <Project>{9db3a6e4-1287-43f2-913e-3eecf34f1b9d}</Project>
       <Name>View</Name>
     </ProjectReference>

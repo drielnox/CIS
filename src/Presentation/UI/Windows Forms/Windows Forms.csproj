@@ -281,15 +281,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Presentation Models\Presentation Models.csproj">
+    <ProjectReference Include="..\..\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Presentation\UI\View\View.csproj">
+    <ProjectReference Include="..\View\View.csproj">
       <Project>{9db3a6e4-1287-43f2-913e-3eecf34f1b9d}</Project>
       <Name>View</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Presenter\Presenter.csproj">
+    <ProjectReference Include="..\..\Logic\Presenter\Presenter.csproj">
       <Project>{3e9ed676-3e4c-4c29-bc08-d7d856d08cea}</Project>
       <Name>Presenter</Name>
     </ProjectReference>

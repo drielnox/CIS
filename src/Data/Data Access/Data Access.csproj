@@ -126,12 +126,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business Entities\Business Entities.csproj">
+    <ProjectReference Include="..\..\Application\Business Entities\Business Entities.csproj">
       <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
       <Name>Business Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

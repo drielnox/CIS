@@ -52,7 +52,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data Access\Data Access.csproj">
+    <ProjectReference Include="..\Data Access\Data Access.csproj">
       <Project>{8422faf0-0c10-4168-8e9b-440d4e868c08}</Project>
       <Name>Data Access</Name>
     </ProjectReference>
