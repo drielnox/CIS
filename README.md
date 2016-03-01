@@ -15,15 +15,19 @@ npm install
 npm test
 
 ## Requeriments
-TBD
+- EntityFramework 6.1.3
+- SQL Express, the lastest version if is possible.
 
-## License
-MIT
-
-## Versions
-TBD
+## Contact
+If you have questions, suggestions, encounter any problem, please join our IRC channel and ask!
+```
+irc.freenode.net #opensource-cis
+```
 
 ## Contribution
 Feel free to [file issues](https://github.com/drielnox/clinical-information-system/issues) and submit [pull requests](https://github.com/drielnox/clinical-information-system/pulls) — contributions are welcome.
 
 If you submit a pull request, please be sure to add or update corresponding test cases, and ensure that `mstest` continues to pass.
+
+## License
+MIT
