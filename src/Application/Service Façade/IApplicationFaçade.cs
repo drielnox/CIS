@@ -15,5 +15,11 @@ namespace CIS.Application.Façade
             [OperationContract]
             get;
         }
+
+        TitleBusinessLogic Title
+        {
+            [OperationContract]
+            get;
+        }
     }
 }

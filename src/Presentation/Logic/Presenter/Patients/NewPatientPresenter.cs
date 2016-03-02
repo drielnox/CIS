@@ -17,13 +17,13 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         private GenreBusinessLogic _genreLogic;
         private MaritalStatusBusinessLogic _maritalStatusLogic;
 
-        ChannelFactory<IApplicationFaçade> _facade;
+        private ChannelFactory<IApplicationFaçade> _facade;
 
         public NewPatientPresenter(INewPatientView view)
         {
             _view = view;
             _logic = new PatientBusinessLogic();
-            _titleLogic = new TitleBusinessLogic();
+            // _titleLogic = new TitleBusinessLogic();
             // _genreLogic = new GenreBusinessLogic();
             _maritalStatusLogic = new MaritalStatusBusinessLogic();
 
@@ -38,8 +38,11 @@ namespace CIS.Presentation.Logic.Presenter.Patients
 
         public void LoadTitles()
         {
-            IEnumerable<ComboTitleViewModel> titles = _titleLogic.GetTitles();
-            _view.LoadTitles(titles);
+            using (var proxy = _facade.CreateChannel())
+            {
+                IEnumerable<ComboTitleViewModel> titles = proxy.Title.GetTitles();
+                _view.LoadTitles(titles);
+            }
         }
 
         public void LoadGenres()
@@ -49,9 +52,6 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 IEnumerable<ComboGenreViewModel> genres = proxy.Genre.GetGenres();
                 _view.LoadGenres(genres);
             }
-
-            //IEnumerable<ComboGenreViewModel> genres = _genreLogic.GetGenres();
-            //_view.LoadGenres(genres);
         }
 
         public void LoadMaritalStatuses()

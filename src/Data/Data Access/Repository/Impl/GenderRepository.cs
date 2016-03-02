@@ -3,11 +3,9 @@ using CIS.Application.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace CIS.Data.DataAccess.Repository
 {
-    [DataContract]
     public class GenderRepository : IGenderRepository
     {
         private ClinicModel _context;
@@ -43,8 +41,7 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Gender> GetAll()
         {
             return _context.Genders
-                // .AsEnumerable();
-                .ToList();
+                .AsEnumerable();
         }
     }
 }

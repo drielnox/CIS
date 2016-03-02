@@ -42,8 +42,7 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Title> GetAll()
         {
             return _context.Titles
-                // .AsEnumerable();
-                .ToList();
+                .AsEnumerable();
         }
     }
 }

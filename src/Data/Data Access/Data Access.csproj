@@ -60,9 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,21 +76,21 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repository\AppointmentRepository.cs" />
+    <Compile Include="Repository\Impl\AppointmentRepository.cs" />
     <Compile Include="Repository\IAppointmentRepository.cs" />
     <Compile Include="Repository\IPatientRepository.cs" />
     <Compile Include="Repository\IReadOnlyRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\ITitleRepository.cs" />
-    <Compile Include="Repository\PatientRepository.cs" />
-    <Compile Include="Repository\TitleRepository.cs" />
+    <Compile Include="Repository\Impl\PatientRepository.cs" />
+    <Compile Include="Repository\Impl\TitleRepository.cs" />
     <Compile Include="Repository\IGenderRepository.cs" />
-    <Compile Include="Repository\GenderRepository.cs" />
+    <Compile Include="Repository\Impl\GenderRepository.cs" />
     <Compile Include="Repository\IMaritalStatusRepository.cs" />
     <Compile Include="Repository\IClinicianRepository.cs" />
-    <Compile Include="Repository\ClinicianRepository.cs" />
+    <Compile Include="Repository\Impl\ClinicianRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="Repository\MaritalStatusRepository.cs" />
+    <Compile Include="Repository\Impl\MaritalStatusRepository.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

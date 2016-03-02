@@ -41,8 +41,7 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<MaritalStatus> GetAll()
         {
             return _context.MaritalStatuses
-                // .AsEnumerable();
-                .ToList();
+                .AsEnumerable();
         }
     }
 }

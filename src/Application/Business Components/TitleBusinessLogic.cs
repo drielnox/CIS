@@ -4,32 +4,53 @@ using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace CIS.Application.BusinessComponents
 {
     public class TitleBusinessLogic : IDisposable
     {
-        private IUnitOfWork _unitOfWork;
+        private ChannelFactory<IUnitOfWork> _factory;
 
         public TitleBusinessLogic()
         {
-            _unitOfWork = new UnitOfWork();
+            _factory = new ChannelFactory<IUnitOfWork>("UnitOfWorkEndPoint");
         }
 
         internal Title GetById(int p)
         {
-            return _unitOfWork.TitleRepository.GetById(p);
+            try
+            {
+                using (var proxy = _factory.CreateChannel())
+                {
+                    return proxy.TitleRepository.GetById(p);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public IEnumerable<ComboTitleViewModel> GetTitles()
         {
-            return _unitOfWork.TitleRepository
-                .GetAll()
-                .Select(x => new ComboTitleViewModel
+            try
+            {
+                using (var proxy = _factory.CreateChannel())
                 {
-                    Identifier = x.Identifier,
-                    Description = x.Description
-                });
+                    return proxy.TitleRepository
+                            .GetAll()
+                            .Select(x => new ComboTitleViewModel
+                            {
+                                Identifier = x.Identifier,
+                                Description = x.Description
+                            });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void Dispose()
@@ -42,8 +63,10 @@ namespace CIS.Application.BusinessComponents
         {
             if (disposing)
             {
-                _unitOfWork.Dispose();
-                _unitOfWork = null;
+                if (_factory != null)
+                {
+                    _factory = null;
+                }
             }
         }
     }

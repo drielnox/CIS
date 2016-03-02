@@ -11,15 +11,22 @@ namespace CIS.Application.Façade
     internal class ApplicationFaçade : IApplicationFaçade
     {
         private GenreBusinessLogic _genre;
+        private TitleBusinessLogic _title;
 
         public ApplicationFaçade()
         {
             _genre = new GenreBusinessLogic();
+            _title = new TitleBusinessLogic();
         }
 
         public GenreBusinessLogic Genre
         {
             get { return _genre; }
+        }
+
+        public TitleBusinessLogic Title
+        {
+            get { return _title; }
         }
 
         public void Dispose()
@@ -32,11 +39,17 @@ namespace CIS.Application.Façade
         {
             if (disposing)
             {
-                //if (_context != null)
-                //{
-                //    _context.Dispose();
-                //    _context = null;
-                //}
+                if (_genre != null)
+                {
+                    _genre.Dispose();
+                    _genre = null;
+                }
+
+                if (_title != null)
+                {
+                    _title.Dispose();
+                    _title = null;
+                }
             }
         }
     }

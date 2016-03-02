@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
 
 namespace CIS.Data.DataAccess.Repository
 {
@@ -42,8 +40,7 @@ namespace CIS.Data.DataAccess.Repository
         public IEnumerable<Appointment> GetAll()
         {
             return _context.Appointments
-                // .AsEnumerable();
-                .ToList();
+                .AsEnumerable();
         }
     }
 }

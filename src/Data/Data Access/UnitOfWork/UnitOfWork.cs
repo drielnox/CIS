@@ -1,16 +1,12 @@
 ﻿using CIS.Data.DataAccess.Repository;
 using System;
-using System.Runtime.Serialization;
-using System.ServiceModel;
 
 namespace CIS.Data.DataAccess.UnitOfWork
 {
-    [DataContract]
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class UnitOfWork : IUnitOfWork
     {
         private ClinicModel _context;
-        
+
         private ITitleRepository _titleRepository;
         private IGenderRepository _genderRepository;
         private IMaritalStatusRepository _maritalStatusRepository;
@@ -28,61 +24,55 @@ namespace CIS.Data.DataAccess.UnitOfWork
             Dispose(false);
         }
 
-        [DataMember]
         public ITitleRepository TitleRepository
         {
-            get 
-            { 
+            get
+            {
                 return _titleRepository ??
                     (_titleRepository = new TitleRepository(_context));
             }
         }
 
-        [DataMember]
         public IGenderRepository GenreRepository
         {
-            get 
+            get
             {
                 return _genderRepository ??
                     (_genderRepository = new GenderRepository(_context));
             }
         }
 
-        [DataMember]
         public IMaritalStatusRepository MaritalStatusRepository
         {
-            get 
-            { 
+            get
+            {
                 return _maritalStatusRepository ??
-                    (_maritalStatusRepository = new MaritalStatusRepository(_context)); 
+                    (_maritalStatusRepository = new MaritalStatusRepository(_context));
             }
         }
 
-        [DataMember]
         public IClinicianRepository ClinicianRepository
         {
-            get 
-            { 
+            get
+            {
                 return _clinicianRepository ??
                     (_clinicianRepository = new ClinicianRepository(_context));
             }
         }
 
-        [DataMember]
         public IAppointmentRepository AppointmentRepository
         {
-            get 
+            get
             {
                 return _appointmentRepository ??
                     (_appointmentRepository = new AppointmentRepository(_context));
             }
         }
 
-        [DataMember]
-        public IPatientRepository PatientRepository 
+        public IPatientRepository PatientRepository
         {
             get
-            { 
+            {
                 return _patientRepository ??
                     (_patientRepository = new PatientRepository(_context));
             }

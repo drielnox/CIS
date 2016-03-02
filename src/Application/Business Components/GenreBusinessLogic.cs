@@ -14,7 +14,7 @@ namespace CIS.Application.BusinessComponents
 
         public GenreBusinessLogic()
         {
-            _factory = CreateFactory();
+            _factory = new ChannelFactory<IUnitOfWork>("UnitOfWorkEndPoint");
 
             //_unitOfWork = new UnitOfWork();
         }
@@ -39,8 +39,6 @@ namespace CIS.Application.BusinessComponents
                 throw ex;
             }
 
-            
-
             //return _unitOfWork.GenreRepository
             //    .GetAll()
             //    .Select(x => new ComboGenreViewModel
@@ -62,18 +60,6 @@ namespace CIS.Application.BusinessComponents
             {
                 //_unitOfWork.Dispose();
                 //_unitOfWork = null;
-            }
-        }
-
-        private ChannelFactory<IUnitOfWork> CreateFactory()
-        {
-            try
-            {
-                return new ChannelFactory<IUnitOfWork>("UnitOfWorkEndPoint");
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
         }
     }

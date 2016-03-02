@@ -80,7 +80,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void frmNewPatient_Load(object sender, EventArgs e)
         {
-            // _presenter.LoadTitles();
+            _presenter.LoadTitles();
             _presenter.LoadGenres();
             _presenter.LoadMaritalStatuses();
         }
