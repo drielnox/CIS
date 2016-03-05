@@ -1,10 +1,12 @@
-﻿using CIS.Data.DataFaçade.UnitOfWork;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
+using System.Text;
 
-namespace CIS.Data.DataFaçade
+namespace CIS.Data.Service.Host
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -26,10 +28,29 @@ namespace CIS.Data.DataFaçade
                     host.Close();
                 }
             }
+            catch (TimeoutException tex)
+            {
+                Console.WriteLine(tex.Message);
+            }
+            catch (CommunicationObjectFaultedException cofex)
+            {
+                Console.WriteLine(cofex.Message);
+            }
+            catch (ObjectDisposedException odex)
+            {
+                Console.WriteLine(odex.Message);
+            }
+            catch (InvalidOperationException ioex)
+            {
+                Console.WriteLine(ioex.Message);
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw ex;
+            }
+            finally
+            {
+                Console.ReadLine();
             }
         }
     }

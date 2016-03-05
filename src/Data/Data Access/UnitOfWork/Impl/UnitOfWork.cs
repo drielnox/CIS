@@ -1,7 +1,8 @@
 ﻿using CIS.Data.DataAccess.Repository;
+using CIS.Data.DataAccess.Repository.Impl;
 using System;
 
-namespace CIS.Data.DataAccess.UnitOfWork
+namespace CIS.Data.DataAccess.UnitOfWork.Impl
 {
     public class UnitOfWork : IUnitOfWork
     {

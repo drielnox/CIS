@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace CIS.Data.DataAccess.Repository
+namespace CIS.Data.DataAccess.Repository.Impl
 {
     class TitleRepository : ITitleRepository
     {

@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8D733C9-CB7E-45CC-A584-9B3E6F2B59F9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{2D0F646A-5121-4087-930F-5C2DB01D89FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CIS.Data.DataFaçade</RootNamespace>
-    <AssemblyName>Data Façade</AssemblyName>
+    <RootNamespace>CIS.Application.Service.Contract</RootNamespace>
+    <AssemblyName>appServiceContract</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,14 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>CIS.Data.DataFaçade.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,31 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IAppointmentRepositoryService.cs" />
-    <Compile Include="Repository\IClinicianRepositoryService.cs" />
-    <Compile Include="Repository\IGenderRepositoryService.cs" />
-    <Compile Include="Repository\IMaritalStatusRepositoryService.cs" />
-    <Compile Include="Repository\IPatientRepositoryService.cs" />
-    <Compile Include="Repository\ITitleRepositoryService.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWorkService.cs" />
-    <Compile Include="UnitOfWork\UnitOfWorkService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Application\Business Entities\Business Entities.csproj">
-      <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
-      <Name>Business Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Data Access\Data Access.csproj">
-      <Project>{8422faf0-0c10-4168-8e9b-440d4e868c08}</Project>
-      <Name>Data Access</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
