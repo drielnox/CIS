@@ -1,6 +1,7 @@
 ﻿namespace CIS.Data.DataAccess
 {
-    using Application.Entities;
+    using CIS.Data.DataAccess.Mapping;
+    using CIS.Data.Entities;
     using System.Data.Entity;
 
     public class ClinicModel : DbContext
@@ -27,5 +28,12 @@
         public virtual DbSet<Title> Titles { get; set; }
         public virtual DbSet<MaritalStatus> MaritalStatuses { get; set; }
         public virtual DbSet<Gender> Genders { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add<ClinicTable>(new ClinicConfiguration());
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

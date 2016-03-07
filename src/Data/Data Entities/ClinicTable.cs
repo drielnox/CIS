@@ -11,7 +11,7 @@ namespace CIS.Data.Entities
         [DataMember]
         public string InternalCode { get; set; }
         [DataMember]
-        public TitleTable Title { get; set; }
+        public string Title { get; set; }
         [DataMember]
         public string LastName { get; set; }
         [DataMember]
