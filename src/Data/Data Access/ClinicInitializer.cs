@@ -9,7 +9,58 @@ namespace CIS.Data.DataAccess
     {
         protected override void Seed(ClinicModel context)
         {
-            var listAppointment = new List<AppointmentTable>() 
+            var clinicList = new List<ClinicTable>
+            {
+                new ClinicTable
+                {
+                    Identifier = 1,
+                    InternalCode = "C01",
+                    Title = "Dr",
+                    LastName = "Orlando",
+                    FirstName = "GP",
+                    Specialty = "Consultation",
+                    Department = "Lagos",
+                    Address = "0",
+                    Telephone = string.Empty,
+                    Email = null,
+                    CreatedAt = new DateTime(2013, 8, 28, 15, 6, 20),
+                    ModifiedAt = null
+                },
+                new ClinicTable
+                {
+                    Identifier = 2,
+                    InternalCode = "C02",
+                    Title = "Surgeon",
+                    LastName = "Test2",
+                    FirstName = "Aliko",
+                    Specialty = "General Surgery",
+                    Department = "Surgery",
+                    Address = "Ikeja",
+                    Telephone = "13452",
+                    Email = "Doc@Aliko.com",
+                    CreatedAt = new DateTime(2013, 8, 27, 2, 7, 33),
+                    ModifiedAt = new DateTime(2013, 8, 28, 15, 32, 25)
+                },
+                new ClinicTable
+                {
+                    Identifier = 3,
+                    InternalCode = "C03",
+                    Title = "Mrs.",
+                    LastName = string.Empty,
+                    FirstName = string.Empty,
+                    Specialty = string.Empty,
+                    Department = string.Empty,
+                    Address = "0",
+                    Telephone = string.Empty,
+                    Email = null,
+                    CreatedAt = new DateTime(2013, 8, 27, 2, 16, 44),
+                    ModifiedAt = new DateTime(2013, 8, 28, 15, 11, 21)
+                },
+            };
+
+            context.Clinicians.AddRange(clinicList);
+
+            var listAppointment = new List<AppointmentTable>
             {
                 new AppointmentTable()
                     {
@@ -84,6 +135,8 @@ namespace CIS.Data.DataAccess
                         ModifiedAt = null,
                     },
             };
+
+            context.Appointments.AddRange(listAppointment);
 
             base.Seed(context);
         }

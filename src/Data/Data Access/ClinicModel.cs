@@ -21,10 +21,10 @@
         // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
         // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
-        public virtual DbSet<Clinic> Clinicians { get; set; }
+        public virtual DbSet<ClinicTable> Clinicians { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Appointment> Appointments { get; set; }
+        public virtual DbSet<AppointmentTable> Appointments { get; set; }
         public virtual DbSet<Title> Titles { get; set; }
         public virtual DbSet<MaritalStatus> MaritalStatuses { get; set; }
         public virtual DbSet<Gender> Genders { get; set; }
