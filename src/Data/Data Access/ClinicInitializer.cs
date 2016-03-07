@@ -9,6 +9,32 @@ namespace CIS.Data.DataAccess
     {
         protected override void Seed(ClinicModel context)
         {
+            var logins = new List<UserTable>
+            {
+                new UserTable
+                {
+                    Identifier = 1,
+                    LastName = "Tadese",
+                    FirstName = "Micheal",
+                    Username = "olu",
+                    Password = "1234",
+                    ModuleAccess = "admin",
+                    StaffId = null
+                },
+                new UserTable
+                {
+                    Identifier = 2,
+                    LastName = "User",
+                    FirstName = "Test",
+                    Username = "user",
+                    Password = "pass",
+                    ModuleAccess = "Default",
+                    StaffId = null
+                },
+            };
+
+            context.Users.AddRange(logins);
+
             var clinicList = new List<ClinicTable>
             {
                 new ClinicTable
@@ -59,6 +85,100 @@ namespace CIS.Data.DataAccess
             };
 
             context.Clinicians.AddRange(clinicList);
+
+            var listPatient = new List<PatientTable> 
+            { 
+                new PatientTable
+                {
+                    Identifier = 1,
+                    HospitalNumber = "H1",
+                    Title = "Mr",
+                    FirstName = "Test",
+                    LastName = "Mike",
+                    MiddleName = "O.",
+                    Gender = "Male",
+                    BirthDate = new DateTime(2012, 12, 1),
+                    Phone = 8013,
+                    MobilePhone = 8023,
+                    Email = "o@a.com",
+                    HomeAddress = "1, xyz street",
+                    City = "yaba",
+                    State = "lagos",
+                    MaritalStatus = "Single",
+                    PatientConsultant = "Dr Test",
+                    Nationality = "nig",
+                    StateOfOrigin = "oyo",
+                    Hometown = "ibd",
+                    PlaceOfBirth = "lag",
+                    Religion = "xtian",
+                    Occupation = "IT Pro",
+                    OfficeAddress = "island",
+                    Photo = null,
+                    NationalIdType = "Driver's Licence",
+                    NationalIdNumber = "000",
+                    NextOfKin = "Test Carol",
+                    AddressNextOfKin = "Ikeja",
+                    PhoneNextOfKin = 804,
+                    EmailNextOfKin = "c@t.com",
+                    NextOfKinRelationship = "Sister",
+                    NameOfFather = "Tadese",
+                    NameOfMother = "Bick.",
+                    HealthInsuranceProvider = "nhis",
+                    AddressHealthInsuranceProvider = "abuja",
+                    PhoneHealthInsuranceProvider = 12345,
+                    EmailHealthInsuranceProvider = "n@h.com",
+                    DateRegistred = null,
+                    UserCreated = null,
+                    DateAmended = new DateTime(2013, 8, 30, 13, 6, 31),
+                    UserAmended = null,
+                },
+                new PatientTable
+                {
+                    Identifier = 2,
+                    HospitalNumber = "H2a",
+                    Title = "Mr.",
+                    FirstName = "Gab",
+                    LastName = "Fred",
+                    MiddleName = "M",
+                    Gender = "M",
+                    BirthDate = new DateTime(2006, 1, 20),
+                    Phone = 801,
+                    MobilePhone = 8012,
+                    Email = "m@gab.com",
+                    HomeAddress = "abc",
+                    City = "Ikeja",
+                    State = "Lagos",
+                    MaritalStatus = "Single",
+                    PatientConsultant = null,
+                    Nationality = string.Empty,
+                    StateOfOrigin = string.Empty,
+                    Hometown = string.Empty,
+                    PlaceOfBirth = string.Empty,
+                    Religion = string.Empty,
+                    Occupation = string.Empty,
+                    OfficeAddress = string.Empty,
+                    Photo = null,
+                    NationalIdType = string.Empty,
+                    NationalIdNumber = string.Empty,
+                    NextOfKin = string.Empty,
+                    AddressNextOfKin = string.Empty,
+                    PhoneNextOfKin = 0,
+                    EmailNextOfKin = string.Empty,
+                    NextOfKinRelationship = string.Empty,
+                    NameOfFather = string.Empty,
+                    NameOfMother = string.Empty,
+                    HealthInsuranceProvider = string.Empty,
+                    AddressHealthInsuranceProvider = string.Empty,
+                    PhoneHealthInsuranceProvider = 0,
+                    EmailHealthInsuranceProvider = string.Empty,
+                    DateRegistred = null,
+                    UserCreated = null,
+                    DateAmended = new DateTime(2013, 8, 30, 9, 17, 43),
+                    UserAmended = null,
+                },
+            };
+
+            context.Patients.AddRange(listPatient);
 
             var listAppointment = new List<AppointmentTable>
             {

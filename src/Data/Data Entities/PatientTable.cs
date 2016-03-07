@@ -9,9 +9,9 @@ namespace CIS.Data.Entities
         [DataMember]
         public int Identifier { get; set; }
         [DataMember]
-        public int HospitalNumber { get; set; }
+        public string HospitalNumber { get; set; }
         [DataMember]
-        public TitleTable Title { get; set; }
+        public string Title { get; set; }
         [DataMember]
         public string FirstName { get; set; }
         [DataMember]
@@ -19,7 +19,7 @@ namespace CIS.Data.Entities
         [DataMember]
         public string OtherName { get; set; }
         [DataMember]
-        public GenderTable Gender { get; set; }
+        public string Gender { get; set; }
         [DataMember]
         public DateTime BirthDate { get; set; }
         [DataMember]
@@ -27,7 +27,7 @@ namespace CIS.Data.Entities
         [DataMember]
         public string HomeAddress { get; set; }
         [DataMember]
-        public MaritalStatusTable MaritalStatus { get; set; }
+        public string MaritalStatus { get; set; }
         [DataMember]
         public string MiddleName { get; set; }
         [DataMember]
@@ -81,8 +81,14 @@ namespace CIS.Data.Entities
         [DataMember]
         public string EmailHealthInsuranceProvider { get; set; }
         [DataMember]
-        public string DateAmended { get; set; }
+        public DateTime? DateRegistred { get; set; }
+        [DataMember]
+        public DateTime? DateAmended { get; set; }
         [DataMember]
         public byte[] Photo { get; set; }
+        [DataMember]
+        public string UserCreated { get; set; }
+        [DataMember]
+        public string UserAmended { get; set; }
     }
 }

@@ -17,5 +17,7 @@ namespace CIS.Data.Entities
         public string Password { get; set; }
         [DataMember]
         public string ModuleAccess { get; set; }
+        [DataMember]
+        public string StaffId { get; set; }
     }
 }
