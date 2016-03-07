@@ -29,6 +29,9 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add<ClinicTable>(new ClinicConfiguration());
+            modelBuilder.Configurations.Add<UserTable>(new UserConfiguration());
+            modelBuilder.Configurations.Add<AppointmentTable>(new AppointmentConfiguration());
+            modelBuilder.Configurations.Add<PatientTable>(new PatientConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
