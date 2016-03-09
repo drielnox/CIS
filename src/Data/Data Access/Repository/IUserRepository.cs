@@ -2,7 +2,7 @@
 
 namespace CIS.Data.DataAccess.Repository
 {
-    public interface IPatientRepository : IRepository<PatientTable>
+    public interface IUserRepository : IRepository<UserTable>
     {
     }
 }

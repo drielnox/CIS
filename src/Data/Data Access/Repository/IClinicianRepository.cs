@@ -1,8 +1,8 @@
-﻿using CIS.Application.Entities;
+﻿using CIS.Data.Entities;
 
 namespace CIS.Data.DataAccess.Repository
 {
-    public interface IClinicianRepository : IRepository<Clinic>
+    public interface IClinicianRepository : IRepository<ClinicTable>
     {
     }
 }

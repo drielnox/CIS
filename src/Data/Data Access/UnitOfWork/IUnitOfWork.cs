@@ -1,17 +1,14 @@
-﻿
-using CIS.Data.DataAccess.Repository;
+﻿using CIS.Data.DataAccess.Repository;
 using System;
 
 namespace CIS.Data.DataAccess.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        ITitleRepository TitleRepository { get; }
-        IGenderRepository GenreRepository { get; }
-        IMaritalStatusRepository MaritalStatusRepository { get; }
         IClinicianRepository ClinicianRepository { get; }
         IAppointmentRepository AppointmentRepository { get; }
         IPatientRepository PatientRepository { get; }
+        IUserRepository UserRepository { get; }
         void Save();
     }
 }

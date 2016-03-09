@@ -1,8 +1,8 @@
-﻿using CIS.Application.Entities;
+﻿using CIS.Data.Entities;
 
 namespace CIS.Data.DataAccess.Repository
 {
-    public interface IAppointmentRepository : IRepository<Appointment>
+    public interface IAppointmentRepository : IRepository<AppointmentTable>
     {
     }
 }

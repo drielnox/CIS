@@ -8,12 +8,10 @@ namespace CIS.Data.DataAccess.UnitOfWork.Impl
     {
         private ClinicModel _context;
 
-        private ITitleRepository _titleRepository;
-        private IGenderRepository _genderRepository;
-        private IMaritalStatusRepository _maritalStatusRepository;
         private IClinicianRepository _clinicianRepository;
         private IAppointmentRepository _appointmentRepository;
         private IPatientRepository _patientRepository;
+        private IUserRepository _userRepository;
 
         public UnitOfWork()
         {
@@ -23,33 +21,6 @@ namespace CIS.Data.DataAccess.UnitOfWork.Impl
         ~UnitOfWork()
         {
             Dispose(false);
-        }
-
-        public ITitleRepository TitleRepository
-        {
-            get
-            {
-                return _titleRepository ??
-                    (_titleRepository = new TitleRepository(_context));
-            }
-        }
-
-        public IGenderRepository GenreRepository
-        {
-            get
-            {
-                return _genderRepository ??
-                    (_genderRepository = new GenderRepository(_context));
-            }
-        }
-
-        public IMaritalStatusRepository MaritalStatusRepository
-        {
-            get
-            {
-                return _maritalStatusRepository ??
-                    (_maritalStatusRepository = new MaritalStatusRepository(_context));
-            }
         }
 
         public IClinicianRepository ClinicianRepository
@@ -76,6 +47,15 @@ namespace CIS.Data.DataAccess.UnitOfWork.Impl
             {
                 return _patientRepository ??
                     (_patientRepository = new PatientRepository(_context));
+            }
+        }
+
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                return _userRepository ??
+                    (_userRepository = new UserRepository(_context));
             }
         }
 

@@ -1,52 +1,44 @@
-﻿using CIS.Data.DataFaçade.Repository;
+﻿using CIS.Data.DataAccess.UnitOfWork;
+using CIS.Data.Service.Contract.Repository;
+using CIS.Data.Service.Contract.UnitOfWork;
 using System;
 using System.ServiceModel;
 
-namespace CIS.Data.DataFaçade.UnitOfWork
+namespace CIS.Data.Service.Proxy.UnitOfWork
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    public class UnitOfWorkService : IUnitOfWorkService
+    public class UnitOfWorkProxy : IUnitOfWorkContract
     {
-        private IUnitOfWorkService _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
-        public UnitOfWorkService()
+        public UnitOfWorkProxy()
         {
-            _unitOfWork = new UnitOfWorkService();
+            _unitOfWork = new CIS.Data.DataAccess.UnitOfWork.Impl.UnitOfWork();
         }
 
-        ~UnitOfWorkService()
+        ~UnitOfWorkProxy()
         {
             Dispose(false);
         }
 
-        public ITitleRepositoryService TitleRepository
-        {
-            get { return _unitOfWork.TitleRepository; }
-        }
-
-        public IGenderRepositoryService GenreRepository
-        {
-            get { return _unitOfWork.GenreRepository; }
-        }
-
-        public IMaritalStatusRepositoryService MaritalStatusRepository
-        {
-            get { return _unitOfWork.MaritalStatusRepository; }
-        }
-
-        public IClinicianRepositoryService ClinicianRepository
+        public IClinicianRepositoryContract ClinicianRepository
         {
             get { return _unitOfWork.ClinicianRepository; }
         }
 
-        public IAppointmentRepositoryService AppointmentRepository
+        public IAppointmentRepositoryContract AppointmentRepository
         {
             get { return _unitOfWork.AppointmentRepository; }
         }
 
-        public IPatientRepositoryService PatientRepository
+        public IPatientRepositoryContract PatientRepository
         {
             get { return _unitOfWork.PatientRepository; }
+        }
+
+        public IUserRepositoryContract UserRepository
+        {
+            get { return _unitOfWork.UserRepository; }
         }
 
         public void Save()

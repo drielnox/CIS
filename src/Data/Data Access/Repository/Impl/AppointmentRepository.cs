@@ -1,4 +1,4 @@
-﻿using CIS.Application.Entities;
+﻿using CIS.Data.Entities;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,30 +14,30 @@ namespace CIS.Data.DataAccess.Repository.Impl
             _context = context;
         }
 
-        public int Add(Appointment entity)
+        public int Add(AppointmentTable entity)
         {
             _context.Appointments.Add(entity);
             return entity.Identifier;
         }
 
-        public void Modify(Appointment entity)
+        public void Modify(AppointmentTable entity)
         {
             _context.Appointments.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Remove(Appointment entity)
+        public void Remove(AppointmentTable entity)
         {
             _context.Appointments.Remove(entity);
         }
 
-        public Appointment GetById(int Id)
+        public AppointmentTable GetById(int Id)
         {
             return _context.Appointments
                 .Single(x => x.Identifier == Id);
         }
 
-        public IEnumerable<Appointment> GetAll()
+        public IEnumerable<AppointmentTable> GetAll()
         {
             return _context.Appointments
                 .AsEnumerable();
