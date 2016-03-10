@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.ServiceModel;
 using System.Text;
 
@@ -11,43 +13,49 @@ namespace CIS.Data.Service.Host
     {
         static void Main(string[] args)
         {
+            ServiceHost host = null;
+
             try
             {
-                using (ServiceHost host = new ServiceHost(typeof(UnitOfWorkProxy)))
-                {
-                    host.Opening += new EventHandler((o, e) => Console.WriteLine("Opening"));
-                    host.Opened += new EventHandler((o, e) => Console.WriteLine("Opened"));
-                    host.Closing += new EventHandler((o, e) => Console.WriteLine("Closing"));
-                    host.Closed += new EventHandler((o, e) => Console.WriteLine("Closed"));
-                    host.UnknownMessageReceived += new EventHandler<UnknownMessageReceivedEventArgs>((o, e) => Console.WriteLine("UnknownMessageReceived: {0}", e.Message));
-                    host.Faulted += new EventHandler((o, e) => Console.WriteLine("Faulted"));
+                host = new ServiceHost(typeof(UnitOfWorkProxy), new Uri("http://localhost/db"));
 
-                    host.Open();
+                host.Opening += new EventHandler((o, e) => Console.WriteLine("Opening"));
+                host.Opened += new EventHandler((o, e) => Console.WriteLine("Opened"));
+                host.Closing += new EventHandler((o, e) => Console.WriteLine("Closing"));
+                host.Closed += new EventHandler((o, e) => Console.WriteLine("Closed"));
+                host.UnknownMessageReceived += new EventHandler<UnknownMessageReceivedEventArgs>((o, e) => Console.WriteLine("UnknownMessageReceived: {0}", e.Message));
+                host.Faulted += new EventHandler((o, e) => Console.WriteLine("Faulted"));
 
-                    Console.ReadLine();
+                host.Open();
 
-                    host.Close();
-                }
+                Console.ReadLine();
+
+                host.Close();
             }
             catch (TimeoutException tex)
             {
                 Console.WriteLine(tex.Message);
+                host.Abort();
             }
             catch (CommunicationObjectFaultedException cofex)
             {
                 Console.WriteLine(cofex.Message);
+                host.Abort();
             }
             catch (ObjectDisposedException odex)
             {
                 Console.WriteLine(odex.Message);
+                host.Abort();
             }
             catch (InvalidOperationException ioex)
             {
                 Console.WriteLine(ioex.Message);
+                host.Abort();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                host.Abort();
             }
             finally
             {
