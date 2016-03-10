@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS.Data.Service.Proxy.UnitOfWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -12,7 +13,7 @@ namespace CIS.Data.Service.Host
         {
             try
             {
-                using (ServiceHost host = new ServiceHost(typeof(UnitOfWorkService)))
+                using (ServiceHost host = new ServiceHost(typeof(UnitOfWorkProxy)))
                 {
                     host.Opening += new EventHandler((o, e) => Console.WriteLine("Opening"));
                     host.Opened += new EventHandler((o, e) => Console.WriteLine("Opened"));

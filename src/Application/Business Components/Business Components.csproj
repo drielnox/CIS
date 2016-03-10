@@ -59,9 +59,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\Data Access\Data Access.csproj">
-      <Project>{8422faf0-0c10-4168-8e9b-440d4e868c08}</Project>
-      <Name>Data Access</Name>
+    <ProjectReference Include="..\..\Data\Service\Contract\Contract.csproj">
+      <Project>{db6d48bf-0cc6-492c-abb7-bfd1a80f6521}</Project>
+      <Name>Contract</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Presentation\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>

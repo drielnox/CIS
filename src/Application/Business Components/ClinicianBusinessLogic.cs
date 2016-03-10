@@ -1,26 +1,27 @@
 ﻿using CIS.Application.Entities;
-using CIS.Data.DataAccess.UnitOfWork;
 using CIS.Presentation.Model;
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.Model.Common;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ServiceModel;
+using CIS.Data.Service.Contract.UnitOfWork;
 
 namespace CIS.Application.BusinessComponents
 {
     public class ClinicianBusinessLogic : IDisposable
     {
-        private IUnitOfWork _unitOfWork;
+        private ChannelFactory<IUnitOfWorkContract> _factory;
 
         public ClinicianBusinessLogic()
         {
-            _unitOfWork = new UnitOfWork();
+            _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
         }
 
         public void AddClinic(NewClinicPresentationModel model)
         {
-            var title = _unitOfWork.TitleRepository.GetById(model.Title);
+            var title = _factory.TitleRepository.GetById(model.Title);
 
             var clinic = new Clinic
             {
@@ -36,8 +37,8 @@ namespace CIS.Application.BusinessComponents
                 Title = title
             };
 
-            _unitOfWork.ClinicianRepository.Add(clinic);
-            _unitOfWork.Save();
+            _factory.ClinicianRepository.Add(clinic);
+            _factory.Save();
         }
 
         public void UpdateClinic(EditClinicViewModel data)
@@ -45,12 +46,12 @@ namespace CIS.Application.BusinessComponents
             // TODO: falta implementar.
             var clinic = new Clinic { };
 
-            _unitOfWork.ClinicianRepository.Modify(clinic);
+            _factory.ClinicianRepository.Modify(clinic);
         }
 
         public IEnumerable<ClinicListViewModel> GetClinicians()
         {
-            return _unitOfWork.ClinicianRepository
+            return _factory.ClinicianRepository
                 .GetAll()
                 .Select(x => new ClinicListViewModel
                 {
@@ -70,8 +71,8 @@ namespace CIS.Application.BusinessComponents
         {
             if (disposing)
             {
-                _unitOfWork.Dispose();
-                _unitOfWork = null;
+                _factory.Dispose();
+                _factory = null;
             }
         }
     }

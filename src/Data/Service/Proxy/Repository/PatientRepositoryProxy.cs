@@ -1,37 +1,44 @@
-﻿using CIS.Data.Entities;
+﻿using CIS.Data.DataAccess.Repository;
+using CIS.Data.Entities;
 using CIS.Data.Service.Contract.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ServiceModel;
 
 namespace CIS.Data.Service.Proxy.Repository
 {
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     class PatientRepositoryProxy : IPatientRepositoryContract
     {
+        private IPatientRepository _repo;
+
+        public PatientRepositoryProxy(IPatientRepository repo)
+        {
+            _repo = repo;
+        }
+
         public int Add(PatientTable entity)
         {
-            throw new NotImplementedException();
+            return _repo.Add(entity);
         }
 
         public void Modify(PatientTable entity)
         {
-            throw new NotImplementedException();
+            _repo.Modify(entity);
         }
 
         public void Remove(PatientTable entity)
         {
-            throw new NotImplementedException();
+            _repo.Remove(entity);
         }
 
-        public PatientTable GetById(int Id)
+        public PatientTable GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repo.GetById(id);
         }
 
         public IEnumerable<PatientTable> GetAll()
         {
-            throw new NotImplementedException();
+            return _repo.GetAll();
         }
     }
 }

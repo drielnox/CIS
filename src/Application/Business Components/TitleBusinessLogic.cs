@@ -1,5 +1,5 @@
 ﻿using CIS.Application.Entities;
-using CIS.Data.DataAccess.UnitOfWork;
+using CIS.Data.Service.Contract.UnitOfWork;
 using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
@@ -10,20 +10,20 @@ namespace CIS.Application.BusinessComponents
 {
     public class TitleBusinessLogic : IDisposable
     {
-        private ChannelFactory<IUnitOfWork> _factory;
+        private ChannelFactory<IUnitOfWorkContract> _factory;
 
         public TitleBusinessLogic()
         {
-            _factory = new ChannelFactory<IUnitOfWork>("UnitOfWorkEndPoint");
+            _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
         }
 
-        internal Title GetById(int p)
+        internal Title GetById(int id)
         {
             try
             {
                 using (var proxy = _factory.CreateChannel())
                 {
-                    return proxy.TitleRepository.GetById(p);
+                    return proxy.TitleRepository.GetById(id);
                 }
             }
             catch (Exception ex)

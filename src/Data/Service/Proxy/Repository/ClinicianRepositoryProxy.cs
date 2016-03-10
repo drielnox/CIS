@@ -7,36 +7,35 @@ using System.ServiceModel;
 namespace CIS.Data.Service.Proxy.Repository
 {
     [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
-    class UserRepositoryProxy : IUserRepositoryContract
+    class ClinicianRepositoryProxy : IClinicianRepositoryContract
     {
-        private IUserRepository _repo;
+        private IClinicianRepository _repo;
 
-        public UserRepositoryProxy(IUserRepository repo)
+        public ClinicianRepositoryProxy(IClinicianRepository repo)
         {
             _repo = repo;
         }
-        
-        public int Add(UserTable entity)
+        public int Add(ClinicTable entity)
         {
             return _repo.Add(entity);
         }
 
-        public void Modify(UserTable entity)
+        public void Modify(ClinicTable entity)
         {
             _repo.Modify(entity);
         }
 
-        public void Remove(UserTable entity)
+        public void Remove(ClinicTable entity)
         {
             _repo.Remove(entity);
         }
 
-        public UserTable GetById(int id)
+        public ClinicTable GetById(int id)
         {
             return _repo.GetById(id);
         }
 
-        public IEnumerable<UserTable> GetAll()
+        public IEnumerable<ClinicTable> GetAll()
         {
             return _repo.GetAll();
         }

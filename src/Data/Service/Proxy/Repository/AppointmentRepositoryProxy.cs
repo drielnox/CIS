@@ -1,37 +1,44 @@
-﻿using CIS.Data.Entities;
+﻿using CIS.Data.DataAccess.Repository;
+using CIS.Data.Entities;
 using CIS.Data.Service.Contract.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ServiceModel;
 
 namespace CIS.Data.Service.Proxy.Repository
 {
-    public class AppointmentRepositoryService : IAppointmentRepositoryContract
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
+    public class AppointmentRepositoryProxy : IAppointmentRepositoryContract
     {
+        private IAppointmentRepository _repo;
+
+        public AppointmentRepositoryProxy(IAppointmentRepository repo)
+        {
+            _repo = repo;
+        }
+
         public int Add(AppointmentTable entity)
         {
-            throw new NotImplementedException();
+            return _repo.Add(entity);
         }
 
         public void Modify(AppointmentTable entity)
         {
-            throw new NotImplementedException();
+            _repo.Modify(entity);
         }
 
         public void Remove(AppointmentTable entity)
         {
-            throw new NotImplementedException();
+            _repo.Remove(entity);
         }
 
-        public AppointmentTable GetById(int Id)
+        public AppointmentTable GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repo.GetById(id);
         }
 
         public IEnumerable<AppointmentTable> GetAll()
         {
-            throw new NotImplementedException();
+            return _repo.GetAll();
         }
     }
 }
