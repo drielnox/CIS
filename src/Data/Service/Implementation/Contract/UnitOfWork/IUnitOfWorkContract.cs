@@ -1,11 +1,13 @@
 ﻿using CIS.Data.Service.Contract.Repository;
+using CIS.Data.Service.Proxy.UnitOfWork;
 using System;
 using System.ServiceModel;
 
 namespace CIS.Data.Service.Contract.UnitOfWork
 {
     [ServiceContract]
-    public interface IUnitOfWorkContract : IDisposable
+    [ServiceKnownType(typeof(UnitOfWorkProxy))]
+    public interface IUnitOfWorkContract : IGenericUnitOfWorkContract
     {
         IClinicianRepositoryContract ClinicianRepository
         {
@@ -30,8 +32,5 @@ namespace CIS.Data.Service.Contract.UnitOfWork
             [OperationContract]
             get;
         }
-
-        [OperationContract]
-        void Save();
     }
 }

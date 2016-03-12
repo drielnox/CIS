@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62E64589-ECB5-4704-B2FA-0940B2C58665}</ProjectGuid>
+    <ProjectGuid>{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CIS.Data.Service</RootNamespace>
-    <AssemblyName>dataServiceImplementation</AssemblyName>
+    <RootNamespace>CIS.Transversal.SharedKernel</RootNamespace>
+    <AssemblyName>sharedKernel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,31 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\Repository\IAppointmentRepositoryContract.cs" />
-    <Compile Include="Contract\Repository\IClinicianRepositoryContract.cs" />
-    <Compile Include="Contract\Repository\IPatientRepositoryContract.cs" />
-    <Compile Include="Contract\Repository\IReadOnlyRepositoryContract.cs" />
-    <Compile Include="Contract\Repository\IRepositoryContract.cs" />
-    <Compile Include="Contract\Repository\IUserRepositoryContract.cs" />
-    <Compile Include="Contract\UnitOfWork\IGenericUnitOfWorkContract.cs" />
-    <Compile Include="Contract\UnitOfWork\IUnitOfWorkContract.cs" />
-    <Compile Include="Proxy\Repository\AppointmentRepositoryProxy.cs" />
-    <Compile Include="Proxy\Repository\ClinicianRepositoryProxy.cs" />
-    <Compile Include="Proxy\Repository\PatientRepositoryProxy.cs" />
-    <Compile Include="Proxy\Repository\UserRepositoryProxy.cs" />
+    <Compile Include="Pattens\Repository\IReadOnlyRepository.cs" />
+    <Compile Include="Pattens\Repository\IRepository.cs" />
+    <Compile Include="Pattens\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxy\UnitOfWork\UnitOfWorkProxy.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Data Access\Data Access.csproj">
-      <Project>{8422faf0-0c10-4168-8e9b-440d4e868c08}</Project>
-      <Name>Data Access</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data Entities\Data Entities.csproj">
-      <Project>{962b181f-1212-4d2f-bfc0-236900c9752c}</Project>
-      <Name>Data Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
