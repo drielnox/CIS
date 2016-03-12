@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="CIS.Application.Entities.Appointment">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABACAQAAAAAAACAAAAAAAAAAAAQAIAAAQAAAAAA=</HashCode>
+      <FileName>Appointment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Clinic">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAECAAAAAAEAACAAACAAAAQAAAAAA=</HashCode>
+      <FileName>Clinic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Gender" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAACEAAAAgAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Gender.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.MaritalStatus" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAYAAgAAAAAAAIAAAAAAAQAAAAAA=</HashCode>
+      <FileName>MaritalStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Patient">
+    <Position X="2.75" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAABAABBgASSCIAAAQAAQABAAAEEECAYADRASACwQ=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Person" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAAg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Title" Collapsed="true">
+    <Position X="7.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAgAAAAAAAAAAAAAAAgAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Title.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.User">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAQAAAAAAAAAAAAACgAAAQAAAAAg=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.Hospital">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Hospital.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.InsuranceProvider">
+    <Position X="7.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAIAAQAAAAAA=</HashCode>
+      <FileName>InsuranceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CIS.Application.Entities.HealthInsuranceProvider">
+    <Position X="6" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HealthInsuranceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

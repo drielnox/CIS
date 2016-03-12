@@ -3,7 +3,6 @@ using CIS.Data.Service.Contract.Repository;
 using CIS.Data.Service.Contract.UnitOfWork;
 using CIS.Data.Service.Proxy.Repository;
 using System;
-using System.ServiceModel;
 
 namespace CIS.Data.Service.Proxy.UnitOfWork
 {

@@ -7,7 +7,6 @@ namespace CIS.Application.Entities
     [DataContract]
     public class Appointment
     {
-        [Key]
         [DataMember]
         public int Identifier { get; set; }
         [DataMember]
@@ -15,7 +14,7 @@ namespace CIS.Application.Entities
         [DataMember]
         public int PatientId { get; set; }
         [DataMember]
-        public int HospitalNumber { get; set; }
+        public Hospital HospitalNumber { get; set; }
         [DataMember]
         public string PatientName { get; set; }
         [DataMember]

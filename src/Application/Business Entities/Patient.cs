@@ -3,23 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CIS.Application.Entities
 {
-    public class Patient
+    class Patient : Person
     {
-        [Key]
         public int Identifier { get; set; }
-        public int HospitalNumber { get; set; }
-        public Title Title { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Hospital HospitalNumber { get; set; }
         public string OtherName { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        public int Phone { get; set; }
         public string HomeAddress { get; set; }
         public MaritalStatus MaritalStatus { get; set; }
         public string MiddleName { get; set; }
         public int MobilePhone { get; set; }
-        public string Email { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public string PatientConsultant { get; set; }
@@ -39,10 +33,7 @@ namespace CIS.Application.Entities
         public string NextOfKinRelationship { get; set; }
         public string NameOfFather { get; set; }
         public string NameOfMother { get; set; }
-        public string HealthInsuranceProvider { get; set; }
-        public string AddressHealthInsuranceProvider { get; set; }
-        public int PhoneHealthInsuranceProvider { get; set; }
-        public string EmailHealthInsuranceProvider { get; set; }
+        public HealthInsuranceProvider HealthInsuranceProvider { get; set; }
         public string DateAmended { get; set; }
         public byte[] Photo { get; set; }
     }

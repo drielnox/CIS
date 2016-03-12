@@ -2,11 +2,11 @@
 using CIS.Data.Entities;
 using CIS.Data.Service.Contract.Repository;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace CIS.Data.Service.Proxy.Repository
 {
-    [ServiceBehavior(IncludeExceptionDetailInFaults = true)]
     public class AppointmentRepositoryProxy : IAppointmentRepositoryContract
     {
         private IAppointmentRepository _repo;
