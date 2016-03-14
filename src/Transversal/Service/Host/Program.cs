@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CIS.Application.Entities
+namespace Host
 {
-    public class Hospital
+    class Program
     {
-        public int Identifier { get; set; }
+        static void Main(string[] args)
+        {
+        }
     }
 }

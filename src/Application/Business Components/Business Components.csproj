@@ -38,7 +38,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppointmentBusinessLogic.cs" />
@@ -56,9 +58,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Presentation\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>
@@ -67,6 +66,9 @@
       <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
       <Name>Business Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
