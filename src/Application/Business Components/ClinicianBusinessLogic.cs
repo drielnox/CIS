@@ -6,21 +6,25 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ServiceModel;
-using CIS.Data.Service.Contract.UnitOfWork;
 
 namespace CIS.Application.BusinessComponents
 {
     public class ClinicianBusinessLogic : IDisposable
     {
+#if !DEBUG
         private ChannelFactory<IUnitOfWorkContract> _factory;
+#endif
 
         public ClinicianBusinessLogic()
         {
+#if !DEBUG
             _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
+#endif
         }
 
         public void AddClinic(NewClinicPresentationModel model)
         {
+#if !DEBUG
             var title = _factory.TitleRepository.GetById(model.Title);
 
             var clinic = new Clinic
@@ -39,18 +43,22 @@ namespace CIS.Application.BusinessComponents
 
             _factory.ClinicianRepository.Add(clinic);
             _factory.Save();
+#endif
         }
 
         public void UpdateClinic(EditClinicViewModel data)
         {
+#if !DEBUG
             // TODO: falta implementar.
             var clinic = new Clinic { };
 
             _factory.ClinicianRepository.Modify(clinic);
+#endif
         }
 
         public IEnumerable<ClinicListViewModel> GetClinicians()
         {
+#if !DEBUG
             return _factory.ClinicianRepository
                 .GetAll()
                 .Select(x => new ClinicListViewModel
@@ -59,6 +67,9 @@ namespace CIS.Application.BusinessComponents
                     FirstName = x.FirstName,
                     LastName = x.LastName
                 });
+#else
+            return null;
+#endif
         }
 
         public void Dispose()
@@ -69,11 +80,13 @@ namespace CIS.Application.BusinessComponents
 
         protected virtual void Dispose(bool disposing)
         {
+#if !DEBUG
             if (disposing)
             {
                 _factory.Dispose();
                 _factory = null;
             }
+#endif
         }
     }
 }

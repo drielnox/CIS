@@ -1,5 +1,4 @@
-﻿using CIS.Data.DataAccess.UnitOfWork;
-using CIS.Presentation.Model.Appointment;
+﻿using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.Model.Patients;
 using System;
 using System.Linq;
@@ -8,11 +7,15 @@ namespace CIS.Application.BusinessComponents
 {
     public class PatientBusinessLogic : IDisposable
     {
+#if !DEBUG
         private IUnitOfWork _unitOfWork;
+#endif
 
         public PatientBusinessLogic()
         {
+#if !DEBUG
             _unitOfWork = new UnitOfWork();
+#endif
         }
 
         public void AddPatient(NewPatientViewModel data)
@@ -22,6 +25,7 @@ namespace CIS.Application.BusinessComponents
 
         public PatientsViewModel SearchPatients(SearchPatientViewModel criteria)
         {
+#if !DEBUG
             var patients = _unitOfWork.PatientRepository
                 .GetAll()
                 .Where(x => x.Identifier == int.Parse(criteria.PatientId))
@@ -39,6 +43,9 @@ namespace CIS.Application.BusinessComponents
             {
                 Patients = patients
             };
+#else
+            return null;
+#endif
         }
 
         public void UpdatePatient(EditPatientViewModel patient)
@@ -63,17 +70,22 @@ namespace CIS.Application.BusinessComponents
 
         public void Dispose()
         {
+#if !DEBUG
             Dispose(true);
             GC.SuppressFinalize(this);
+#endif
+
         }
 
         protected virtual void Dispose(bool disposing)
         {
+#if !DEBUG
             if (disposing)
             {
                 _unitOfWork.Dispose();
                 _unitOfWork = null;
             }
+#endif
         }
     }
 }

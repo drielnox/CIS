@@ -1,5 +1,4 @@
-﻿using CIS.Data.DataAccess.UnitOfWork;
-using CIS.Presentation.Model.Common;
+﻿using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
 
@@ -7,11 +6,15 @@ namespace CIS.Application.BusinessComponents
 {
     public class NationalIdentificationTypeBusinessLogic : IDisposable
     {
+#if !DEBUG
         private IUnitOfWork _unitOfWork;
+#endif
 
         public NationalIdentificationTypeBusinessLogic()
         {
+#if !DEBUG
             _unitOfWork = new UnitOfWork();
+#endif
         }
 
         public IEnumerable<ComboNationalIdTypesViewModel> GetNationalIdTypes()
@@ -29,8 +32,10 @@ namespace CIS.Application.BusinessComponents
         {
             if (disposing)
             {
+#if !DEBUG
                 _unitOfWork.Dispose();
                 _unitOfWork = null;
+#endif
             }
         }
     }

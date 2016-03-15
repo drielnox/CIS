@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CIS.Presentation.UI.Impl.WebForms
 {
-    public partial class Site : System.Web.UI.MasterPage
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,5 +1,4 @@
 ﻿using CIS.Application.Entities;
-using CIS.Data.Service.Contract.UnitOfWork;
 using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
@@ -10,15 +9,20 @@ namespace CIS.Application.BusinessComponents
 {
     public class TitleBusinessLogic : IDisposable
     {
+#if !DEBUG
         private ChannelFactory<IUnitOfWorkContract> _factory;
+#endif
 
         public TitleBusinessLogic()
         {
+#if !DEBUG
             _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
+#endif
         }
 
         internal Title GetById(int id)
         {
+#if !DEBUG
             try
             {
                 using (var proxy = _factory.CreateChannel())
@@ -30,10 +34,14 @@ namespace CIS.Application.BusinessComponents
             {
                 throw ex;
             }
+#else
+            return null;
+#endif
         }
 
         public IEnumerable<ComboTitleViewModel> GetTitles()
         {
+#if !DEBUG
             try
             {
                 using (var proxy = _factory.CreateChannel())
@@ -51,6 +59,9 @@ namespace CIS.Application.BusinessComponents
             {
                 throw ex;
             }
+#else
+            return null;
+#endif
         }
 
         public void Dispose()
@@ -63,10 +74,12 @@ namespace CIS.Application.BusinessComponents
         {
             if (disposing)
             {
+#if !DEBUG
                 if (_factory != null)
                 {
                     _factory = null;
                 }
+#endif
             }
         }
     }
