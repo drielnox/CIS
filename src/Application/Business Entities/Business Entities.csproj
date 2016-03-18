@@ -57,6 +57,12 @@
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Transversal\Shared Kernel\Shared Kernel.csproj">
+      <Project>{a6fd56c5-5311-4632-8db3-69d2c55c4f4f}</Project>
+      <Name>Shared Kernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

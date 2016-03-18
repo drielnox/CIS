@@ -55,11 +55,16 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GenderTest.cs" />
+    <Compile Include="TitleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Application\Business Entities\Business Entities.csproj">
       <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
       <Name>Business Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\src\Transversal\Shared Kernel\Shared Kernel.csproj">
+      <Project>{a6fd56c5-5311-4632-8db3-69d2c55c4f4f}</Project>
+      <Name>Shared Kernel</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

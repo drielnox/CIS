@@ -92,6 +92,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Impl", "Impl", "{84E8F213-8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Forms", "Presentation\UI\Impl\Web Forms\Web Forms.csproj", "{D6D07FD8-04F5-4D97-B304-17A4D40A977E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared Kernel", "Transversal\Shared Kernel\Shared Kernel.csproj", "{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -186,6 +188,10 @@ Global
 		{D6D07FD8-04F5-4D97-B304-17A4D40A977E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D07FD8-04F5-4D97-B304-17A4D40A977E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6D07FD8-04F5-4D97-B304-17A4D40A977E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -230,5 +236,6 @@ Global
 		{B489C792-B49D-415F-8DA6-1A9D6D5E1113} = {3D08D5E6-864C-40C6-A7EE-6FCB80809BD4}
 		{84E8F213-85DD-48F5-8B3F-0892EAC015BE} = {3D08D5E6-864C-40C6-A7EE-6FCB80809BD4}
 		{D6D07FD8-04F5-4D97-B304-17A4D40A977E} = {84E8F213-85DD-48F5-8B3F-0892EAC015BE}
+		{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F} = {82053317-5CCF-4834-ABEB-302CCDB8F6D6}
 	EndGlobalSection
 EndGlobal

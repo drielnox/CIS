@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CIS.Transversal.SharedKernel;
+using System;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace CIS.Application.Entities
 {
     [DataContract]
-    public class Gender
+    public class Gender : Entity
     {
         private int _identifier;
 
@@ -17,7 +19,7 @@ namespace CIS.Application.Entities
         public static readonly Gender FEMALE = new Gender(2, "Female");
 
         [DataMember]
-        public int Identifier
+        public override int Identifier
         {
             get
             {
@@ -25,7 +27,7 @@ namespace CIS.Application.Entities
             }
             protected set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
                     throw new ArgumentException();
                 }
@@ -53,14 +55,43 @@ namespace CIS.Application.Entities
                     throw new ArgumentException();
                 }
 
+                if (value.Any(c => char.IsDigit(c)))
+                {
+                    throw new ArgumentException();
+                }
+
+                if (value.Any(c => char.IsControl(c) || char.IsSeparator(c) || char.IsSymbol(c)))
+                {
+                    throw new ArgumentException();
+                }
+
+                if (value.Any(c => char.IsPunctuation(c)))
+                {
+                    throw new ArgumentException();
+                }
+
                 _description = value;
             }
         }
 
         public Gender(int identifier, string description)
+            : base(identifier)
         {
-            Identifier = identifier;
             Description = description;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            var gender = obj as Gender;
+
+            return Identifier.Equals(gender.Identifier) &&
+                Description.Equals(gender.Description) &&
+                base.Equals(obj);
         }
     }
 }
