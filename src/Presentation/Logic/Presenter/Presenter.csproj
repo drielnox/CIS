@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\ChangeUserPasswordPresenter.cs" />
+    <Compile Include="Administration\Configuration\Title\ViewTItlesPresenter.cs" />
     <Compile Include="Administration\NewUserPresenter.cs" />
     <Compile Include="Administration\ViewCliniciansPresenter.cs" />
     <Compile Include="Administration\ViewUsersPresenter.cs" />

@@ -73,6 +73,12 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Titles\frmViewTitles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Titles\frmViewTitles.Designer.cs">
+      <DependentUpon>frmViewTitles.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administration\Configuration\Titles\frmViewTitles.resx">
+      <DependentUpon>frmViewTitles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
       <SubType>Designer</SubType>

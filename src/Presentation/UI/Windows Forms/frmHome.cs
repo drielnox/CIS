@@ -20,7 +20,8 @@ namespace CIS.Presentation.UI.WindowsForms
             try
             {
                 frmViewUsers viewUsers = new frmViewUsers();
-                viewUsers.ShowDialog();
+                viewUsers.MdiParent = this;
+                viewUsers.Show();
             }
             catch (Exception ex)
             {
@@ -33,7 +34,8 @@ namespace CIS.Presentation.UI.WindowsForms
             try
             {
                 frmFullPatientList full = new frmFullPatientList();
-                full.ShowDialog();
+                full.MdiParent = this;
+                full.Show();
             }
             catch (Exception ex)
             {
@@ -45,8 +47,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmNewPatient register = new frmNewPatient();
-                register.ShowDialog();
+                frmNewPatient newPatientForm = new frmNewPatient();
+                newPatientForm.MdiParent = this;
+                newPatientForm.Show();
             }
             catch (Exception ex)
             {
@@ -58,8 +61,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmSearchPatient search = new frmSearchPatient();
-                search.ShowDialog();
+                frmSearchPatient searchPatientForm = new frmSearchPatient();
+                searchPatientForm.MdiParent = this;
+                searchPatientForm.Show();
             }
             catch (Exception ex)
             {
@@ -71,8 +75,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmNewUser new_user = new frmNewUser();
-                new_user.ShowDialog();
+                frmNewUser newUserForm = new frmNewUser();
+                newUserForm.MdiParent = this;
+                newUserForm.Show();
             }
             catch (Exception ex)
             {
@@ -84,8 +89,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmNewClinic clinic1 = new frmNewClinic();
-                clinic1.ShowDialog();
+                frmNewClinic newClinicForm = new frmNewClinic();
+                newClinicForm.MdiParent = this;
+                newClinicForm.Show();
             }
             catch (Exception ex)
             {
@@ -97,8 +103,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmClinicsList clinic2 = new frmClinicsList();
-                clinic2.ShowDialog();
+                frmClinicsList viewClinicianForm = new frmClinicsList();
+                viewClinicianForm.MdiParent = this;
+                viewClinicianForm.Show();
             }
             catch (Exception ex)
             {
@@ -110,8 +117,8 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmAbout About = new frmAbout();
-                About.ShowDialog();
+                frmAbout aboutForm = new frmAbout();
+                aboutForm.Show();
             }
             catch (Exception ex)
             {
@@ -123,8 +130,9 @@ namespace CIS.Presentation.UI.WindowsForms
         {
             try
             {
-                frmViewUsers frm = new frmViewUsers();
-                frm.ShowDialog();
+                frmViewUsers viewUserForm = new frmViewUsers();
+                viewUserForm.MdiParent = this;
+                viewUserForm.Show();
             }
             catch (Exception ex)
             {

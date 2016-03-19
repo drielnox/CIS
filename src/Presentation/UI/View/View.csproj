@@ -35,6 +35,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Title\IViewTitlesView.cs" />
     <Compile Include="Administration\IChangeUserPasswordView.cs" />
     <Compile Include="Administration\INewUserView.cs" />
     <Compile Include="Administration\IViewCliniciansView.cs" />

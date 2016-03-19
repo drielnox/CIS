@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="AppointmentTable.cs" />
     <Compile Include="ClinicTable.cs" />
+    <Compile Include="GenderTable.cs" />
     <Compile Include="PatientTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitleTable.cs" />
     <Compile Include="UserTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

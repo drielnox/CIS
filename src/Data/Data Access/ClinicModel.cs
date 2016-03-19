@@ -25,6 +25,8 @@
         public virtual DbSet<PatientTable> Patients { get; set; }
         public virtual DbSet<UserTable> Users { get; set; }
         public virtual DbSet<AppointmentTable> Appointments { get; set; }
+        public virtual DbSet<TitleTable> Titles { get; set; }
+        public virtual DbSet<GenderTable> Genders { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,6 +34,8 @@
             modelBuilder.Configurations.Add<UserTable>(new UserConfiguration());
             modelBuilder.Configurations.Add<AppointmentTable>(new AppointmentConfiguration());
             modelBuilder.Configurations.Add<PatientTable>(new PatientConfiguration());
+            modelBuilder.Configurations.Add<TitleTable>(new TitleMapping());
+            modelBuilder.Configurations.Add<GenderTable>(new GenderMapping());
 
             base.OnModelCreating(modelBuilder);
         }

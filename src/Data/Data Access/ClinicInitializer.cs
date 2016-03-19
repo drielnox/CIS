@@ -9,6 +9,24 @@ namespace CIS.Data.DataAccess
     {
         protected override void Seed(ClinicModel context)
         {
+            var titles = new List<TitleTable> 
+            { 
+                new TitleTable
+                {
+                    Identifier = 1,
+                    Abbreviation = "M",
+                    Description = "Male"
+                },
+                new TitleTable
+                {
+                    Identifier = 2,
+                    Abbreviation = "F",
+                    Description = "Female"
+                }
+            };
+
+            context.Titles.AddRange(titles);
+
             var logins = new List<UserTable>
             {
                 new UserTable
