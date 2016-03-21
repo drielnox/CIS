@@ -8,6 +8,7 @@ namespace CIS.Application.Entities
         public static readonly Title MISS = new Title(3, "Miss");
 
         public int Identifier { get; set; }
+        public string Abbreviation { get; set; }
         public string Description { get; set; }
 
         public Title(int identifier, string description)

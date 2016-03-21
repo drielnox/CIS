@@ -20,8 +20,8 @@ namespace CIS.Presentation.Logic.Presenter.Clinicians
 
         public void LoadTitles()
         {
-            var titles = _titleLogic.GetTitles();
-            _view.LoadTitles(titles);
+            // var titles = _titleLogic.GetTitles();
+            // _view.LoadTitles(titles);
         }
 
         public void SetFormData(EditClinicViewModel viewModel)

@@ -40,8 +40,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         {
             using (var proxy = _facade.CreateChannel())
             {
-                IEnumerable<ComboTitleViewModel> titles = proxy.Title.GetTitles();
-                _view.LoadTitles(titles);
+                //IEnumerable<ComboTitleViewModel> titles = proxy.Title.GetTitles();
+                // _view.LoadTitles(titles);
             }
         }
 

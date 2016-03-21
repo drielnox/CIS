@@ -1,4 +1,5 @@
 ﻿using CIS.Presentation.Logic.Presenter.Administration.Configuration.Title;
+using CIS.Presentation.Model.Administration.Title;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.Title;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Titles
+namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
 {
     public partial class frmViewTitles : Form, IViewTitlesView
     {
@@ -21,6 +22,15 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Titles
 
             _presenter = new ViewTitlesPresenter(this);
         }
+
+        #region IViewTitlesView
+
+        public void SetListData(IEnumerable<ListItemTitleViewModel> comboData)
+        {
+            bsTitles.DataSource = comboData;
+        }
+
+        #endregion
 
         #region Events
 

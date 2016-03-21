@@ -35,8 +35,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
 
         public void LoadTitles()
         {
-            var titles = _titleLogic.GetTitles();
-            _view.LoadTitles(titles);
+            //var titles = _titleLogic.GetTitles();
+            // _view.LoadTitles(titles);
         }
 
         public void LoadGenders()

@@ -39,7 +39,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public IEnumerable<ComboTitleViewModel> GetTitles()
+        public IEnumerable<Title> GetTitles()
         {
 #if !DEBUG
             try
@@ -60,7 +60,12 @@ namespace CIS.Application.BusinessComponents
                 throw ex;
             }
 #else
-            return null;
+            return new List<Title> 
+            { 
+                Title.MR,
+                Title.MRS,
+                Title.MISS
+            };
 #endif
         }
 

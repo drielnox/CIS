@@ -21,8 +21,8 @@ namespace CIS.Presentation.Logic.Presenter
 
         public void LoadTitles()
         {
-            var titles = _titleLogic.GetTitles();
-            _view.LoadTitles(titles);
+            //var titles = _titleLogic.GetTitles();
+            // _view.LoadTitles(titles);
         }
 
         public bool ValidateClinicNumber(string p)

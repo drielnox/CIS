@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title;
+using System;
 using System.Windows.Forms;
 
 namespace CIS.Presentation.UI.WindowsForms
@@ -142,7 +143,20 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void titlesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmViewTitles viewTitles = new frmViewTitles();
+                viewTitles.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

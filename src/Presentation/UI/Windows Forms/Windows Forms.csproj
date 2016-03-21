@@ -73,10 +73,10 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration\Configuration\Titles\frmViewTitles.cs">
+    <Compile Include="Administration\Configuration\Title\frmViewTitles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration\Configuration\Titles\frmViewTitles.Designer.cs">
+    <Compile Include="Administration\Configuration\Title\frmViewTitles.Designer.cs">
       <DependentUpon>frmViewTitles.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAbout.cs">
@@ -171,7 +171,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Administration\Configuration\Titles\frmViewTitles.resx">
+    <EmbeddedResource Include="Administration\Configuration\Title\frmViewTitles.resx">
       <DependentUpon>frmViewTitles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAbout.resx">
@@ -290,6 +290,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\Service\Contract\Contract.csproj">
+      <Project>{2d0f646a-5121-4087-930f-5c2db01d89fc}</Project>
+      <Name>Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>
