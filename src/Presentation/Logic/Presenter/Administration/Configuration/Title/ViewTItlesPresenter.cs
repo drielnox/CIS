@@ -23,16 +23,81 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
             channel = new ChannelFactory<IConfigurationContract>("ConfigurationEndPoint");
         }
 
+        public void SetInitialControlProperties()
+        {
+            _view.SetInitialGridProperties();
+        }
+
         public void LoadTitles()
         {
-            IEnumerable<ListItemTitleViewModel> comboData;
+            IEnumerable<ListItemTitleViewModel> listData;
 
-            using(var proxy = channel.CreateChannel())
+            using (var proxy = channel.CreateChannel())
             {
-                comboData = proxy.GetTitles();
+                listData = proxy.GetTitles();
             }
 
-            _view.SetListData(comboData);
+            _view.SetListData(listData);
+        }
+
+        public void AddNewTitle()
+        {
+            TitleViewModel newTitle = _view.ShowNewTitleForm();
+
+            if (newTitle != null)
+            {
+                IEnumerable<ListItemTitleViewModel> newListData;
+
+                try
+                {
+                    using (var proxy = channel.CreateChannel())
+                    {
+                        proxy.AddTitle(newTitle);
+                        newListData = proxy.GetTitles();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+                _view.SetListData(newListData);
+            }
+        }
+
+        public void ModifyTitle()
+        {
+            ListItemTitleViewModel itemSelected = _view.GetSelectedTitle();
+
+            if (itemSelected != null)
+            {
+                TitleViewModel modifiedTitle = _view.ShowModifyTitleForm(itemSelected);
+
+                if (modifiedTitle != null)
+                {
+                    IEnumerable<ListItemTitleViewModel> newListData;
+
+                    try
+                    {
+                        using (var proxy = channel.CreateChannel())
+                        {
+                            proxy.ModifyTitle(modifiedTitle);
+                            newListData = proxy.GetTitles();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+
+                    _view.SetListData(newListData);
+                }
+            }
+        }
+
+        public void DeleteTitle()
+        {
+            throw new NotImplementedException();
         }
     }
 }

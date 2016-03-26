@@ -25,9 +25,35 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
 
         #region IViewTitlesView
 
+        public void SetInitialGridProperties()
+        {
+            dgvTitles.AutoGenerateColumns = true;
+        }
+
         public void SetListData(IEnumerable<ListItemTitleViewModel> comboData)
         {
-            bsTitles.DataSource = comboData;
+            bsTitles.DataSource = comboData.ToList();
+        }
+
+        public TitleViewModel ShowNewTitleForm()
+        {
+            frmNewTitle frm = new frmNewTitle();
+            return frm.ShowDialog(this) == DialogResult.OK
+                ? frm.Tag as TitleViewModel
+                : null;
+        }
+
+        public ListItemTitleViewModel GetSelectedTitle()
+        {
+            return bsTitles.Current as ListItemTitleViewModel;
+        }
+
+        public TitleViewModel ShowModifyTitleForm(ListItemTitleViewModel itemSelected)
+        {
+            frmModifyTitle frm = new frmModifyTitle(itemSelected);
+            return frm.ShowDialog(this) == DialogResult.OK
+                ? frm.Tag as TitleViewModel
+                : null;
         }
 
         #endregion
@@ -38,6 +64,7 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
 
         private void frmViewTitles_Load(object sender, EventArgs e)
         {
+            _presenter.SetInitialControlProperties();
             _presenter.LoadTitles();
         }
 
@@ -45,28 +72,23 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
 
         #region Grid
 
-        private void lvTitles_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-
-        }
-
         #endregion
 
         #region Buttons
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            _presenter.AddNewTitle();
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-
+            _presenter.ModifyTitle();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            _presenter.DeleteTitle();
         }
 
         #endregion

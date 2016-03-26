@@ -9,5 +9,13 @@ namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Title
     public interface IViewTitlesView
     {
         void SetListData(IEnumerable<ListItemTitleViewModel> comboData);
+
+        void SetInitialGridProperties();
+
+        TitleViewModel ShowNewTitleForm();
+
+        ListItemTitleViewModel GetSelectedTitle();
+
+        TitleViewModel ShowModifyTitleForm(ListItemTitleViewModel itemSelected);
     }
 }

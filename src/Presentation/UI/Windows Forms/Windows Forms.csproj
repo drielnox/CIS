@@ -73,6 +73,18 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Title\frmModifyTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Title\frmModifyTitle.Designer.cs">
+      <DependentUpon>frmModifyTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Configuration\Title\frmNewTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Title\frmNewTitle.Designer.cs">
+      <DependentUpon>frmNewTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\Configuration\Title\frmViewTitles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +183,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administration\Configuration\Title\frmModifyTitle.resx">
+      <DependentUpon>frmModifyTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Configuration\Title\frmNewTitle.resx">
+      <DependentUpon>frmNewTitle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\Configuration\Title\frmViewTitles.resx">
       <DependentUpon>frmViewTitles.cs</DependentUpon>
     </EmbeddedResource>

@@ -44,6 +44,7 @@
     <Compile Include="Administration\ChangeUserPasswordViewModel.cs" />
     <Compile Include="Administration\NewUserViewModel.cs" />
     <Compile Include="Administration\Title\ListTitleViewModel.cs" />
+    <Compile Include="Administration\Title\TitleViewModel.cs" />
     <Compile Include="Administration\UsersViewModel.cs" />
     <Compile Include="Administration\UserViewModel.cs" />
     <Compile Include="Appointment\BookAppointmentViewModel.cs" />

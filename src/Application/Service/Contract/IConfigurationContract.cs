@@ -12,5 +12,9 @@ namespace CIS.Application.Service.Contract
     {
         [OperationContract]
         IEnumerable<ListItemTitleViewModel> GetTitles();
+        [OperationContract]
+        void AddTitle(TitleViewModel newTitle);
+        [OperationContract]
+        void ModifyTitle(TitleViewModel modifiedTitle);
     }
 }

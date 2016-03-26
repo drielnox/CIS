@@ -86,7 +86,9 @@
             this.dgvTitles.MultiSelect = false;
             this.dgvTitles.Name = "dgvTitles";
             this.dgvTitles.ReadOnly = true;
+            this.dgvTitles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvTitles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTitles.ShowEditingIcon = false;
             this.dgvTitles.Size = new System.Drawing.Size(260, 208);
             this.dgvTitles.TabIndex = 4;
             // 
