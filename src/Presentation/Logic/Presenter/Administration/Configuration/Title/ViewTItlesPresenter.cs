@@ -37,7 +37,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                 listData = proxy.GetTitles();
             }
 
-            _view.SetListData(listData);
+            _view.SetGridData(listData);
         }
 
         public void AddNewTitle()
@@ -61,7 +61,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                     throw;
                 }
 
-                _view.SetListData(newListData);
+                _view.SetGridData(newListData);
             }
         }
 
@@ -90,7 +90,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                         throw;
                     }
 
-                    _view.SetListData(newListData);
+                    _view.SetGridData(newListData);
                 }
             }
         }
@@ -120,7 +120,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                         throw;
                     }
 
-                    _view.SetListData(newListData);
+                    _view.SetGridData(newListData);
                 }
             }
         }

@@ -30,7 +30,7 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
             dgvTitles.AutoGenerateColumns = true;
         }
 
-        public void SetListData(IEnumerable<ListItemTitleViewModel> comboData)
+        public void SetGridData(IEnumerable<ListItemTitleViewModel> comboData)
         {
             bsTitles.DataSource = comboData.ToList();
         }

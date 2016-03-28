@@ -1,6 +1,7 @@
 ﻿using CIS.Application.BusinessComponents;
 using CIS.Application.Entities;
 using CIS.Application.Service.Contract;
+using CIS.Presentation.Model.Administration.MaritalStatus;
 using CIS.Presentation.Model.Administration.Title;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace CIS.Application.Service.Proxy
         {
             Dispose(false);
         }
+
+        #region Configuration >> Titles
 
         public IEnumerable<ListItemTitleViewModel> GetTitles()
         {
@@ -59,6 +62,17 @@ namespace CIS.Application.Service.Proxy
             Title title = new Title(deleteTitle.Identifier, deleteTitle.Abbreviation, deleteTitle.Description);
             logic.DeleteTitle(title);
         }
+
+        #endregion
+
+        #region Configuration >> Marital Status
+
+        public IEnumerable<ListItemMaritalStatusViewModel> GetMaritalStatuses()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
 
         public void Dispose()
         {

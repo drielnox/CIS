@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\ChangeUserPasswordViewModel.cs" />
+    <Compile Include="Administration\Marital Status\ListItemMaritalStatusViewModel.cs" />
+    <Compile Include="Administration\Marital Status\MaritalStatusViewModel.cs" />
     <Compile Include="Administration\NewUserViewModel.cs" />
     <Compile Include="Administration\Title\ListTitleViewModel.cs" />
     <Compile Include="Administration\Title\TitleViewModel.cs" />

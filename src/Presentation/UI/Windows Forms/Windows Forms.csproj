@@ -85,11 +85,11 @@
     <Compile Include="Administration\Configuration\Marital Status\frmNewMaritalStatus.Designer.cs">
       <DependentUpon>frmNewMaritalStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administration\Configuration\Marital Status\frmViewMaritalStatus.cs">
+    <Compile Include="Administration\Configuration\Marital Status\frmViewMaritalStatuses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration\Configuration\Marital Status\frmViewMaritalStatus.Designer.cs">
-      <DependentUpon>frmViewMaritalStatus.cs</DependentUpon>
+    <Compile Include="Administration\Configuration\Marital Status\frmViewMaritalStatuses.Designer.cs">
+      <DependentUpon>frmViewMaritalStatuses.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\Configuration\Title\frmModifyTitle.cs">
       <SubType>Form</SubType>
@@ -203,6 +203,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administration\Configuration\Marital Status\frmModifyMaritalStatus.resx">
       <DependentUpon>frmModifyMaritalStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Configuration\Marital Status\frmViewMaritalStatuses.resx">
+      <DependentUpon>frmViewMaritalStatuses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\Configuration\Title\frmModifyTitle.resx">
       <DependentUpon>frmModifyTitle.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using CIS.Presentation.Model.Administration.Title;
+﻿using CIS.Presentation.Model.Administration.MaritalStatus;
+using CIS.Presentation.Model.Administration.Title;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace CIS.Application.Service.Contract
     [ServiceContract]
     public interface IConfigurationContract : IDisposable
     {
+        #region Configuration >> Titles
+
         [OperationContract]
         IEnumerable<ListItemTitleViewModel> GetTitles();
         [OperationContract]
@@ -18,5 +21,18 @@ namespace CIS.Application.Service.Contract
         void ModifyTitle(TitleViewModel modifiedTitle);
         [OperationContract]
         void DeleteTitle(ListItemTitleViewModel itemSelected);
+
+        #endregion
+
+        #region Configuration >> Marital Status
+
+        [OperationContract]
+        IEnumerable<ListItemMaritalStatusViewModel> GetMaritalStatuses();
+        [OperationContract]
+        void AddMaritalStatus(MaritalStatusViewModel newMaritalStatus);
+        [OperationContract]
+        void ModifyMaritalStatus(ListItemMaritalStatusViewModel itemSelected);
+
+        #endregion
     }
 }

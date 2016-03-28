@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Marital_Status
+namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalStatus
 {
     public partial class frmModifyMaritalStatus : Form
     {

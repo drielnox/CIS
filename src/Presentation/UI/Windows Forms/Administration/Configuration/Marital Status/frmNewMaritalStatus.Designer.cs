@@ -1,4 +1,4 @@
-﻿namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Marital_Status
+﻿namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalStatus
 {
     partial class frmNewMaritalStatus
     {
