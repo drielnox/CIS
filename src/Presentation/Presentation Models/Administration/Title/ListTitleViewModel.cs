@@ -7,7 +7,7 @@ using System.Text;
 namespace CIS.Presentation.Model.Administration.Title
 {
     [DataContract]
-    public class ListItemTitleViewModel
+    public class ListItemTitleViewModel : TitleViewModel
     {
     }
 }

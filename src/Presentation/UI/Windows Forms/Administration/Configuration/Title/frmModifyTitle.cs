@@ -30,5 +30,95 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
         {
             _itemSelected = itemSelected;
         }
+
+        #region IModifyTitleView
+
+        public TitleViewModel GetCurrentTitle()
+        {
+            TitleViewModel model = new TitleViewModel
+            {
+                Identifier = _itemSelected.Identifier,
+                Abbreviation = _itemSelected.Abbreviation,
+                Description = _itemSelected.Description
+            };
+            return model;
+        }
+
+        public void SetIdentifier(int id)
+        {
+            txtIdentifier.Text = Convert.ToString(id);
+        }
+
+        public void SetAbbreviation(string abbr)
+        {
+            txtAbbreviation.Text = abbr;
+        }
+
+        public void SetDescription(string desc)
+        {
+            txtDescription.Text = desc;
+        }
+
+        public void EnableAcceptButton(bool enable)
+        {
+            btnAccept.Enabled = enable;
+        }
+
+        public int GetIdentifier()
+        {
+            string id = txtDescription.Text;
+            return Convert.ToInt32(id);
+        }
+
+        public string GetAbbreviation()
+        {
+            return txtAbbreviation.Text;
+        }
+
+        public string GetDescription()
+        {
+            return txtDescription.Text;
+        }
+
+        public void SetTag(TitleViewModel model)
+        {
+            Tag = model;
+        }
+
+        #endregion
+
+        #region Events
+
+        private void frmModifyTitle_Load(object sender, EventArgs e)
+        {
+            _presenter.LoadTitle();
+        }
+
+        private void txtAbbreviation_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtAbbreviation_Validated(object sender, EventArgs e)
+        {
+            _presenter.EnableAccept();
+        }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtDescription_Validated(object sender, EventArgs e)
+        {
+            _presenter.EnableAccept();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            _presenter.Accept();
+        }
+
+        #endregion
     }
 }

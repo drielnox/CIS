@@ -16,5 +16,11 @@ namespace CIS.Application.Entities
             Identifier = identifier;
             Description = description;
         }
+
+        public Title(int identifier, string abbrevation, string description)
+            : this(identifier, description)
+        {
+            Abbreviation = abbrevation;
+        }
     }
 }

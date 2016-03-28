@@ -16,5 +16,7 @@ namespace CIS.Application.Service.Contract
         void AddTitle(TitleViewModel newTitle);
         [OperationContract]
         void ModifyTitle(TitleViewModel modifiedTitle);
+        [OperationContract]
+        void DeleteTitle(ListItemTitleViewModel itemSelected);
     }
 }

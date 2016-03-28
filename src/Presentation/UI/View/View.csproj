@@ -35,6 +35,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Marital Status\IModifyMaritalStatusView.cs" />
+    <Compile Include="Administration\Configuration\Marital Status\INewMaritalStatusView.cs" />
+    <Compile Include="Administration\Configuration\Marital Status\IViewMaritalStatusesView.cs" />
     <Compile Include="Administration\Configuration\Title\IModifyTitleView.cs" />
     <Compile Include="Administration\Configuration\Title\INewTitleView.cs" />
     <Compile Include="Administration\Configuration\Title\IViewTitlesView.cs" />

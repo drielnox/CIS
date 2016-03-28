@@ -1,4 +1,5 @@
 ﻿using CIS.Application.BusinessComponents;
+using CIS.Application.Entities;
 using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration.Title;
 using System;
@@ -14,11 +15,21 @@ namespace CIS.Application.Service.Proxy
     {
         private bool _disposed = false;
 
+        public ConfigurationProxy()
+        {
+
+        }
+
+        ~ConfigurationProxy()
+        {
+            Dispose(false);
+        }
+
         public IEnumerable<ListItemTitleViewModel> GetTitles()
         {
-            var logic = new TitleBusinessLogic();
-            var titles = logic.GetTitles();
-            var listItems = titles
+            TitleBusinessLogic logic = new TitleBusinessLogic();
+            IEnumerable<Title> titles = logic.GetTitles();
+            IEnumerable<ListItemTitleViewModel> listItems = titles
                 .Select(x => new ListItemTitleViewModel
                 {
                     Identifier = x.Identifier,
@@ -28,9 +39,25 @@ namespace CIS.Application.Service.Proxy
             return listItems;
         }
 
-        ~ConfigurationProxy()
+        public void AddTitle(TitleViewModel newTitle)
         {
-            Dispose(false);
+            TitleBusinessLogic logic = new TitleBusinessLogic();
+            Title title = new Title(newTitle.Identifier, newTitle.Abbreviation, newTitle.Description);
+            logic.AddTitle(title);
+        }
+
+        public void ModifyTitle(TitleViewModel modifiedTitle)
+        {
+            TitleBusinessLogic logic = new TitleBusinessLogic();
+            Title title = new Title(modifiedTitle.Identifier, modifiedTitle.Abbreviation, modifiedTitle.Description);
+            logic.ModifyTitle(title);
+        }
+
+        public void DeleteTitle(ListItemTitleViewModel deleteTitle)
+        {
+            TitleBusinessLogic logic = new TitleBusinessLogic();
+            Title title = new Title(deleteTitle.Identifier, deleteTitle.Abbreviation, deleteTitle.Description);
+            logic.DeleteTitle(title);
         }
 
         public void Dispose()

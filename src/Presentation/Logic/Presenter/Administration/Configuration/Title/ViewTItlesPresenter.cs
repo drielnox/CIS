@@ -97,7 +97,32 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
 
         public void DeleteTitle()
         {
-            throw new NotImplementedException();
+            ListItemTitleViewModel itemSelected = _view.GetSelectedTitle();
+
+            if (itemSelected != null)
+            {
+                bool delete = _view.ShowDeleteTitleDialog(itemSelected);
+
+                if (delete)
+                {
+                    IEnumerable<ListItemTitleViewModel> newListData;
+
+                    try
+                    {
+                        using (var proxy = channel.CreateChannel())
+                        {
+                            proxy.DeleteTitle(itemSelected);
+                            newListData = proxy.GetTitles();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+
+                    _view.SetListData(newListData);
+                }
+            }
         }
     }
 }

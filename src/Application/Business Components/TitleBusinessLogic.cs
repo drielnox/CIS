@@ -11,12 +11,21 @@ namespace CIS.Application.BusinessComponents
     {
 #if !DEBUG
         private ChannelFactory<IUnitOfWorkContract> _factory;
+#else
+        private List<Title> _debugTitles = new List<Title>();
 #endif
 
         public TitleBusinessLogic()
         {
 #if !DEBUG
             _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
+#else
+            _debugTitles.AddRange(new List<Title>
+            {
+                Title.MR,
+                Title.MRS,
+                Title.MISS
+            });
 #endif
         }
 
@@ -35,7 +44,7 @@ namespace CIS.Application.BusinessComponents
                 throw ex;
             }
 #else
-            return null;
+            return _debugTitles.Single(x => x.Identifier == id);
 #endif
         }
 
@@ -60,12 +69,32 @@ namespace CIS.Application.BusinessComponents
                 throw ex;
             }
 #else
-            return new List<Title> 
-            { 
-                Title.MR,
-                Title.MRS,
-                Title.MISS
-            };
+            return _debugTitles;
+#endif
+        }
+
+        public void AddTitle(Title newTitle)
+        {
+#if !DEBUG
+#else
+            _debugTitles.Add(newTitle);
+#endif
+        }
+
+        public void ModifyTitle(Title modifiedTitle)
+        {
+#if !DEBUG
+#else
+            int index = _debugTitles.FindIndex(x => x.Identifier == modifiedTitle.Identifier);
+            _debugTitles[index] = modifiedTitle;
+#endif
+        }
+
+        public void DeleteTitle(Title title)
+        {
+#if !DEBUG
+#else
+            _debugTitles.Remove(title);
 #endif
         }
 

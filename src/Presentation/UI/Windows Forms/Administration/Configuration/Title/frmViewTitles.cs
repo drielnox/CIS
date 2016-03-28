@@ -56,6 +56,13 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title
                 : null;
         }
 
+        public bool ShowDeleteTitleDialog(ListItemTitleViewModel itemSelected)
+        {
+            string msg = string.Format("¿You want really delete the title \"{0}\"?", itemSelected.Description);
+            DialogResult result = MessageBox.Show(this, msg, "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            return result == DialogResult.OK;
+        }
+
         #endregion
 
         #region Events

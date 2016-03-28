@@ -17,5 +17,7 @@ namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Title
         ListItemTitleViewModel GetSelectedTitle();
 
         TitleViewModel ShowModifyTitleForm(ListItemTitleViewModel itemSelected);
+
+        bool ShowDeleteTitleDialog(ListItemTitleViewModel itemSelected);
     }
 }
