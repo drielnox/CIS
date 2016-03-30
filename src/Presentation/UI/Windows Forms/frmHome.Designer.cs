@@ -48,6 +48,7 @@
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maritalStatusesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,7 +170,8 @@
             // configurationToolStripMenuItem
             // 
             this.configurationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.titlesToolStripMenuItem});
+            this.titlesToolStripMenuItem,
+            this.maritalStatusesToolStripMenuItem});
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
             this.configurationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.configurationToolStripMenuItem.Text = "Configuration";
@@ -177,7 +179,7 @@
             // titlesToolStripMenuItem
             // 
             this.titlesToolStripMenuItem.Name = "titlesToolStripMenuItem";
-            this.titlesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.titlesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.titlesToolStripMenuItem.Text = "Titles";
             this.titlesToolStripMenuItem.Click += new System.EventHandler(this.titlesToolStripMenuItem_Click);
             // 
@@ -201,6 +203,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // maritalStatusesToolStripMenuItem
+            // 
+            this.maritalStatusesToolStripMenuItem.Name = "maritalStatusesToolStripMenuItem";
+            this.maritalStatusesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.maritalStatusesToolStripMenuItem.Text = "Marital Statuses";
+            this.maritalStatusesToolStripMenuItem.Click += new System.EventHandler(this.maritalStatusesToolStripMenuItem_Click);
             // 
             // frmHome
             // 
@@ -239,5 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem titlesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maritalStatusesToolStripMenuItem;
     }
 }

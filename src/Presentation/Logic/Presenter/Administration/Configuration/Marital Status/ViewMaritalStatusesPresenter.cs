@@ -101,6 +101,26 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalS
             if (itemSelected != null)
             {
                 bool delete = _view.ShowDeleteMaritalStatusDialog(itemSelected);
+
+                if (delete)
+                {
+                    IEnumerable<ListItemMaritalStatusViewModel> maritalStatuses;
+
+                    try
+                    {
+                        using (var proxy = channel.CreateChannel())
+                        {
+                            proxy.DeleteMaritalStatus(itemSelected);
+                            maritalStatuses = proxy.GetMaritalStatuses();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw;
+                    }
+
+                    _view.SetGridData(maritalStatuses);
+                }
             }
         }
     }

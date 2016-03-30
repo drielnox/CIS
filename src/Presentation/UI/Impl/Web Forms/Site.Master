@@ -14,6 +14,19 @@
             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
             <DynamicMenuStyle BackColor="#E3EAEB" />
             <DynamicSelectedStyle BackColor="#1C5E55" />
+            <Items>
+                <asp:MenuItem Selectable="False" Text="System">
+                    <asp:MenuItem Text="Quit" Value="Quit"></asp:MenuItem>
+                    <asp:MenuItem Text="Logout" Value="Logout"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Selectable="False" Text="Patient">
+                    <asp:MenuItem Text="Search" Value="Search"></asp:MenuItem>
+                    <asp:MenuItem Text="New" Value="New"></asp:MenuItem>
+                </asp:MenuItem>
+                <asp:MenuItem Selectable="False" Text="Clinic"></asp:MenuItem>
+                <asp:MenuItem Selectable="False" Text="Administration"></asp:MenuItem>
+                <asp:MenuItem Selectable="False" Text="Help"></asp:MenuItem>
+            </Items>
             <StaticHoverStyle BackColor="#666666" ForeColor="White" />
             <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
             <StaticSelectedStyle BackColor="#1C5E55" />

@@ -1,6 +1,6 @@
 ﻿namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalStatus
 {
-    partial class frmViewMaritalStatus
+    partial class frmViewMaritalStatuses
     {
         /// <summary>
         /// Required designer variable.

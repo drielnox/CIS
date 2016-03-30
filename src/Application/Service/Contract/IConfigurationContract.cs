@@ -32,6 +32,8 @@ namespace CIS.Application.Service.Contract
         void AddMaritalStatus(MaritalStatusViewModel newMaritalStatus);
         [OperationContract]
         void ModifyMaritalStatus(ListItemMaritalStatusViewModel itemSelected);
+        [OperationContract]
+        void DeleteMaritalStatus(ListItemMaritalStatusViewModel itemSelected);
 
         #endregion
     }

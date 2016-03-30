@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalStatus
 {
-    public partial class frmViewMaritalStatus : Form, IViewMaritalStatusesView
+    public partial class frmViewMaritalStatuses : Form, IViewMaritalStatusesView
     {
         private ViewMaritalStatusesPresenter _presenter;
 
-        public frmViewMaritalStatus()
+        public frmViewMaritalStatuses()
         {
             InitializeComponent();
 
@@ -50,7 +50,17 @@ namespace CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalS
 
         public MaritalStatusViewModel ShowModifyMaritalStatusForm(ListItemMaritalStatusViewModel itemSelected)
         {
-            string msg = string.Format();
+            frmModifyMaritalStatus frm = new frmModifyMaritalStatus(itemSelected);
+            return frm.ShowDialog(this) == DialogResult.OK
+                ? frm.Tag as MaritalStatusViewModel
+                : null;
+        }
+
+        public bool ShowDeleteMaritalStatusDialog(ListItemMaritalStatusViewModel itemSelected)
+        {
+            string msg = string.Format("You really want delete the marital status \"{0}\"?", itemSelected.Description);
+            DialogResult result = MessageBox.Show(this, msg, "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            return result == DialogResult.OK;
         }
 
         #endregion

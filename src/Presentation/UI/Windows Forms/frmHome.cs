@@ -1,4 +1,5 @@
-﻿using CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title;
+﻿using CIS.Presentation.UI.WindowsForms.Administration.Configuration.MaritalStatus;
+using CIS.Presentation.UI.WindowsForms.Administration.Configuration.Title;
 using System;
 using System.Windows.Forms;
 
@@ -151,6 +152,19 @@ namespace CIS.Presentation.UI.WindowsForms
             try
             {
                 frmViewTitles viewTitles = new frmViewTitles();
+                viewTitles.ShowDialog(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void maritalStatusesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmViewMaritalStatuses viewTitles = new frmViewMaritalStatuses();
                 viewTitles.ShowDialog(this);
             }
             catch (Exception ex)

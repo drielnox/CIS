@@ -69,6 +69,30 @@ namespace CIS.Application.Service.Proxy
 
         public IEnumerable<ListItemMaritalStatusViewModel> GetMaritalStatuses()
         {
+            MaritalStatusBusinessLogic logic = new MaritalStatusBusinessLogic();
+            IEnumerable<MaritalStatus> maritalStatuses = logic.GetMaritalStatuses();
+            IEnumerable<ListItemMaritalStatusViewModel> listItems = maritalStatuses
+                .Select(x => new ListItemMaritalStatusViewModel 
+                { 
+                    Identifier = x.Identifier,
+                    Abbreviation = x.Abbreviation,
+                    Description = x.Description
+                });
+            return listItems;
+        }
+
+        public void AddMaritalStatus(MaritalStatusViewModel newMaritalStatus)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModifyMaritalStatus(ListItemMaritalStatusViewModel itemSelected)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteMaritalStatus(ListItemMaritalStatusViewModel itemSelected)
+        {
             throw new NotImplementedException();
         }
 

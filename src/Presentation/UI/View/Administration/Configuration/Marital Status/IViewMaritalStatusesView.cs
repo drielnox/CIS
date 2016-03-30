@@ -17,5 +17,7 @@ namespace CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStat
         ListItemMaritalStatusViewModel GetSelectedItem();
 
         MaritalStatusViewModel ShowModifyMaritalStatusForm(ListItemMaritalStatusViewModel itemSelected);
+
+        bool ShowDeleteMaritalStatusDialog(ListItemMaritalStatusViewModel itemSelected);
     }
 }

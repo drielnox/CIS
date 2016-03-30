@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Model.Common;
+﻿using CIS.Application.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,26 @@ namespace CIS.Application.BusinessComponents
     {
 #if !DEBUG
         private IUnitOfWork _unitOfWork;
+#else
+        List<MaritalStatus> _maritalStatuses;
 #endif
 
         public MaritalStatusBusinessLogic()
         {
 #if !DEBUG
             _unitOfWork = new UnitOfWork();
+#else
+            _maritalStatuses = new List<MaritalStatus>
+            {
+                MaritalStatus.SINGLE,
+                MaritalStatus.MARRIED,
+                MaritalStatus.DIVORCED,
+                MaritalStatus.WIDOWED,
+            };
 #endif
         }
 
-        public IEnumerable<ComboMaritalStatusViewModel> GetMaritalStatuses()
+        public IEnumerable<MaritalStatus> GetMaritalStatuses()
         {
 #if !DEBUG
             return _unitOfWork.MaritalStatusRepository
@@ -29,7 +39,7 @@ namespace CIS.Application.BusinessComponents
                     Description = x.Description
                 });
 #else
-            return null;
+            return _maritalStatuses;
 #endif
         }
 

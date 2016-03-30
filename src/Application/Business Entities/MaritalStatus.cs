@@ -9,12 +9,19 @@ namespace CIS.Application.Entities
         public static readonly MaritalStatus WIDOWED = new MaritalStatus(4, "Widowed");
 
         public int Identifier { get; protected set; }
+        public string Abbreviation { get; set; }
         public string Description { get; protected set; }
 
         public MaritalStatus(int identifier, string description)
         {
             Identifier = identifier;
             Description = description;
+        }
+
+        public MaritalStatus(int identifier, string abbreviation, string description)
+            : this(identifier, description)
+        {
+            Abbreviation = abbreviation;
         }
     }
 }
