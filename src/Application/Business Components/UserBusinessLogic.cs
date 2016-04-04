@@ -1,21 +1,22 @@
-﻿using CIS.Presentation.Model.Administration;
+﻿using CIS.Application.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace CIS.Application.BusinessComponents
 {
     public class UserBusinessLogic
     {
-        public void Save(NewUserViewModel data)
+        public void Save(User data)
         {
             throw new NotImplementedException();
         }
 
-        public void ChangePassword(ChangeUserPasswordViewModel data)
+        public void ChangePassword(User data)
         {
             throw new NotImplementedException();
         }
 
-        public UsersViewModel GetUsers()
+        public IEnumerable<User> GetUsers()
         {
             throw new NotImplementedException();
         }

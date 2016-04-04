@@ -73,6 +73,24 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Gender\frmModifyGender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Gender\frmModifyGender.Designer.cs">
+      <DependentUpon>frmModifyGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Configuration\Gender\frmNewGender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Gender\frmNewGender.Designer.cs">
+      <DependentUpon>frmNewGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Configuration\Gender\frmViewGenders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\Configuration\Gender\frmViewGenders.Designer.cs">
+      <DependentUpon>frmViewGenders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\Configuration\Marital Status\frmModifyMaritalStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +221,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administration\Configuration\Marital Status\frmModifyMaritalStatus.resx">
       <DependentUpon>frmModifyMaritalStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\Configuration\Marital Status\frmNewMaritalStatus.resx">
+      <DependentUpon>frmNewMaritalStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\Configuration\Marital Status\frmViewMaritalStatuses.resx">
       <DependentUpon>frmViewMaritalStatuses.cs</DependentUpon>

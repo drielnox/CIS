@@ -35,6 +35,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Configuration\Gender\IModifyGenderView.cs" />
+    <Compile Include="Administration\Configuration\Gender\INewGenderView.cs" />
+    <Compile Include="Administration\Configuration\Gender\IViewGendersView.cs" />
     <Compile Include="Administration\Configuration\Marital Status\IModifyMaritalStatusView.cs" />
     <Compile Include="Administration\Configuration\Marital Status\INewMaritalStatusView.cs" />
     <Compile Include="Administration\Configuration\Marital Status\IViewMaritalStatusesView.cs" />

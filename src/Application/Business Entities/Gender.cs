@@ -93,5 +93,10 @@ namespace CIS.Application.Entities
                 Description.Equals(gender.Description) &&
                 base.Equals(obj);
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CIS.Application.Entities
+namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Gender
 {
-    public class HealthInsuranceProvider : InsuranceProvider
+    interface INewGenderView
     {
     }
 }

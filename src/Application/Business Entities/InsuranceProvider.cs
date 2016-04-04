@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CIS.Application.Entities
 {
-    abstract class InsuranceProvider
+    public abstract class InsuranceProvider
     {
         public string Identifier { get; set; }
         public string Address { get; set; }

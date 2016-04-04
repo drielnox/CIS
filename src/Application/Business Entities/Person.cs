@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CIS.Application.Entities
 {
-    abstract class Person
+    public abstract class Person
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

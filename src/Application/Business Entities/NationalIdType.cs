@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CIS.Application.Entities
 {
-    public class HealthInsuranceProvider : InsuranceProvider
+    public class NationalIdType
     {
     }
 }

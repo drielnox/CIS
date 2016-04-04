@@ -1,18 +1,23 @@
 ﻿using CIS.Application.BusinessComponents;
+using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
+using System;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
     public class ChangeUserPasswordPresenter
     {
         private IChangeUserPasswordView _view;
-        private UserBusinessLogic _logic;
+
+        private ChannelFactory<IAdministrationContract> channel;
 
         public ChangeUserPasswordPresenter(IChangeUserPasswordView view)
         {
             _view = view;
-            _logic = new UserBusinessLogic();
+
+            channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
         public bool ValidatePassword(string p)
@@ -28,7 +33,18 @@ namespace CIS.Presentation.Logic.Presenter.Administration
         public void Save()
         {
             ChangeUserPasswordViewModel data = _view.GetFormData();
-            _logic.ChangePassword(data);
+
+            try
+            {
+                using (var proxy = channel.CreateChannel())
+                {
+                    proxy.ChangePassword(data);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

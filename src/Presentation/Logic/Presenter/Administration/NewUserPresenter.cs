@@ -1,23 +1,39 @@
 ﻿using CIS.Application.BusinessComponents;
+using CIS.Application.Service.Contract;
+using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
+using System;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
     public class NewUserPresenter
     {
         private INewUserView _view;
-        private UserBusinessLogic _logic;
+
+        private ChannelFactory<IAdministrationContract> channel;
 
         public NewUserPresenter(INewUserView view)
         {
             _view = view;
-            _logic = new UserBusinessLogic();
+            channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
         public void SaveUser()
         {
-            var data = _view.GetUserData();
-            _logic.Save(data);
+            NewUserViewModel data = _view.GetUserData();
+
+            try
+            {
+                using (var proxy = channel.CreateChannel())
+                {
+                    proxy.Save(data);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using CIS.Presentation.Model.Appointment;
-using CIS.Presentation.Model.Patients;
+﻿using CIS.Application.Entities;
 using System;
 using System.Linq;
 
@@ -18,12 +17,12 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public void AddPatient(NewPatientViewModel data)
+        public void AddPatient(Patient data)
         {
             throw new NotImplementedException();
         }
 
-        public PatientsViewModel SearchPatients(SearchPatientViewModel criteria)
+        public Patient SearchPatients(Patient criteria)
         {
 #if !DEBUG
             var patients = _unitOfWork.PatientRepository
@@ -48,7 +47,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public void UpdatePatient(EditPatientViewModel patient)
+        public void UpdatePatient(Patient patient)
         {
             throw new NotImplementedException();
         }
@@ -58,12 +57,12 @@ namespace CIS.Application.BusinessComponents
             throw new NotImplementedException();
         }
 
-        public EditPatientViewModel GetPatient()
+        public Patient GetPatient()
         {
             throw new NotImplementedException();
         }
 
-        public PatientOfBookAppointmentViewModel GetPatientForBookAppointment(int patientId)
+        public Patient GetPatientForBookAppointment(int patientId)
         {
             throw new NotImplementedException();
         }

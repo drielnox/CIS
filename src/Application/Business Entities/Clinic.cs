@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CIS.Application.Entities
 {
-    class Clinic : Person
+    public class Clinic : Person
     {
         public int Identifier { get; set; }
         public string InternalCode { get; set; }

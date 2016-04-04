@@ -24,5 +24,10 @@ namespace CIS.Transversal.SharedKernel
 
             return Identifier.Equals(entity.Identifier);
         }
+
+        public override int GetHashCode()
+        {
+            return Identifier;
+        }
     }
 }

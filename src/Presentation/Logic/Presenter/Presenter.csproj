@@ -38,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\ChangeUserPasswordPresenter.cs" />
+    <Compile Include="Administration\Configuration\Gender\ModifyGenderPresenter.cs" />
+    <Compile Include="Administration\Configuration\Gender\NewGenderPresenter.cs" />
+    <Compile Include="Administration\Configuration\Gender\ViewGendersPresenter.cs" />
     <Compile Include="Administration\Configuration\Marital Status\ModifyMaritalStatusPresenter.cs" />
     <Compile Include="Administration\Configuration\Marital Status\NewMaritalStatusPresenter.cs" />
     <Compile Include="Administration\Configuration\Marital Status\ViewMaritalStatusesPresenter.cs" />
@@ -61,10 +64,6 @@
     <ProjectReference Include="..\..\..\Application\Business Components\Business Components.csproj">
       <Project>{07b20ca2-4025-4032-9caa-9c5fd771ebbf}</Project>
       <Name>Business Components</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Application\Service Façade\Service Façade.csproj">
-      <Project>{f4d44ffd-4423-4d78-9ee0-17346d2bd2e9}</Project>
-      <Name>Service Façade</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Application\Service\Contract\Contract.csproj">
       <Project>{2d0f646a-5121-4087-930f-5c2db01d89fc}</Project>

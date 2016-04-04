@@ -1,5 +1,4 @@
 ﻿using CIS.Application.Entities;
-using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

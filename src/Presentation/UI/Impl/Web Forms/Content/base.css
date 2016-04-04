@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.menu-container {
+    width: 100%;
+    background-color: black;
+}
+
+    .menu-container ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+        .menu-container ul li a {
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            .menu-container ul li a:hover {
+                background-color: darkgrey;
+            }

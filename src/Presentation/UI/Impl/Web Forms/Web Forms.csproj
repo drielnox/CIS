@@ -67,6 +67,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\base.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />

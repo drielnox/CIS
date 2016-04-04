@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Model.Common;
+﻿using CIS.Application.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public IEnumerable<ComboGenreViewModel> GetGenres()
+        public IEnumerable<Gender> GetGenres()
         {
 #if !DEBUG
             try

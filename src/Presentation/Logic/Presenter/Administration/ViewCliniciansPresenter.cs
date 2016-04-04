@@ -1,25 +1,44 @@
 ﻿
 using CIS.Application.BusinessComponents;
+using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Clinicians;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
     public class ViewCliniciansPresenter : IDisposable
     {
         private IViewCliniciansView _view;
-        private ClinicianBusinessLogic _clinicianLogic;
+        private ChannelFactory<IAdministrationContract> channel;
 
         public ViewCliniciansPresenter(IViewCliniciansView view)
         {
             _view = view;
-            _clinicianLogic = new ClinicianBusinessLogic();
+            channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
         public void LoadClinics()
         {
-            var clinicians = _clinicianLogic.GetClinicians();
+            IEnumerable<ClinicListViewModel> clinicians;
+
+            try
+            {
+                using (var proxy = channel.CreateChannel())
+                {
+                    clinicians = proxy.GetClinicians();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
             _view.LoadClinicians(clinicians);
         }
 
@@ -39,8 +58,8 @@ namespace CIS.Presentation.Logic.Presenter.Administration
         {
             if (disposing)
             {
-                _clinicianLogic.Dispose();
-                _clinicianLogic = null;
+                channel.Close();
+                channel = null;
             }
         }
     }

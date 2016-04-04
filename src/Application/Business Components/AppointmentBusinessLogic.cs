@@ -1,6 +1,5 @@
 ﻿
 using CIS.Application.Entities;
-using CIS.Presentation.Model.Appointment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public void AddAppointment(BookAppointmentViewModel ap)
+        public void AddAppointment(Appointment ap)
         {
 #if !DEBUG
             var appointment = new Appointment
@@ -34,7 +33,7 @@ namespace CIS.Application.BusinessComponents
 
         }
 
-        public IEnumerable<ViewAppointmentViewModel> GetAppointments()
+        public IEnumerable<Appointment> GetAppointments()
         {
 #if !DEBUG
             return _unitOfWork.AppointmentRepository

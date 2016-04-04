@@ -1,7 +1,4 @@
 ﻿using CIS.Application.Entities;
-using CIS.Presentation.Model;
-using CIS.Presentation.Model.Clinicians;
-using CIS.Presentation.Model.Common;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -22,7 +19,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public void AddClinic(NewClinicPresentationModel model)
+        public void AddClinic(Clinic model)
         {
 #if !DEBUG
             var title = _factory.TitleRepository.GetById(model.Title);
@@ -46,7 +43,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public void UpdateClinic(EditClinicViewModel data)
+        public void UpdateClinic(Clinic data)
         {
 #if !DEBUG
             // TODO: falta implementar.
@@ -56,7 +53,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public IEnumerable<ClinicListViewModel> GetClinicians()
+        public IEnumerable<Clinic> GetClinicians()
         {
 #if !DEBUG
             return _factory.ClinicianRepository

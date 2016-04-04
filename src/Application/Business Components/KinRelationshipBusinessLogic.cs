@@ -1,4 +1,4 @@
-﻿using CIS.Presentation.Model.Common;
+﻿using CIS.Application.Entities;
 using System;
 using System.Collections.Generic;
 
@@ -17,7 +17,7 @@ namespace CIS.Application.BusinessComponents
 #endif
         }
 
-        public IEnumerable<ComboKinRelationshipViewModel> GetKinRelations()
+        public IEnumerable<PersonRelationship> GetKinRelations()
         {
             throw new System.NotImplementedException();
         }

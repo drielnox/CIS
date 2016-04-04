@@ -58,6 +58,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Transversal\Shared Kernel\Shared Kernel.csproj">
+      <Project>{a6fd56c5-5311-4632-8db3-69d2c55c4f4f}</Project>
+      <Name>Shared Kernel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business Entities\Business Entities.csproj">
       <Project>{fdbb4eaf-7cb8-47bc-8b02-12c00db5b560}</Project>
       <Name>Business Entities</Name>
