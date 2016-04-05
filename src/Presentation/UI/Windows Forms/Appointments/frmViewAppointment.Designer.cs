@@ -55,6 +55,7 @@
             // 
             this.dgvAppointment.AllowUserToAddRows = false;
             this.dgvAppointment.AllowUserToDeleteRows = false;
+            this.dgvAppointment.AllowUserToOrderColumns = true;
             this.dgvAppointment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAppointment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAppointment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;

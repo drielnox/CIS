@@ -1,31 +1,24 @@
-﻿using CIS.Application.BusinessComponents;
+﻿using CIS.Application.Service.Contract;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
+using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
     public class EditPatientPresenter : IDisposable
     {
         private IEditPatientView _view;
-        private TitleBusinessLogic _titleLogic;
-        private GenreBusinessLogic _genrerLogic;
-        private MaritalStatusBusinessLogic _maritalStatusLogic;
-        private NationalIdentificationTypeBusinessLogic _nationalIdTypeLogic;
-        private KinRelationshipBusinessLogic _kinRelationshipLogic;
-        private PatientBusinessLogic _patientLogic;
-        private ClinicianBusinessLogic _clinicLogic;
+
+        private ChannelFactory<IPatientContract> _patientService;
 
         public EditPatientPresenter(IEditPatientView view)
         {
             _view = view;
-            _titleLogic = new TitleBusinessLogic();
-            _genrerLogic = new GenreBusinessLogic();
-            _maritalStatusLogic = new MaritalStatusBusinessLogic();
-            _nationalIdTypeLogic = new NationalIdentificationTypeBusinessLogic();
-            _kinRelationshipLogic = new KinRelationshipBusinessLogic();
-            _patientLogic = new PatientBusinessLogic();
-            _clinicLogic = new ClinicianBusinessLogic();
+
+            _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void LoadPatient(EditPatientViewModel patient)
@@ -35,56 +28,169 @@ namespace CIS.Presentation.Logic.Presenter.Patients
 
         public void LoadTitles()
         {
-            //var titles = _titleLogic.GetTitles();
-            // _view.LoadTitles(titles);
+            IEnumerable<ComboTitleViewModel> titles;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    titles = proxy.GetTitles();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            _view.LoadTitles(titles);
         }
 
         public void LoadGenders()
         {
-            var genrers = _genrerLogic.GetGenres();
-            _view.LoadGenres(genrers);
+            IEnumerable<ComboGenreViewModel> genders;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    genders = proxy.GetGenders();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            _view.LoadGenders(genders);
         }
 
         public void LoadMaritalStatus()
         {
-            var maritalStatuses = _maritalStatusLogic.GetMaritalStatuses();
+            IEnumerable<ComboMaritalStatusViewModel> maritalStatuses;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    maritalStatuses = proxy.GetMaritalStatuses();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadMaritalStatuses(maritalStatuses);
         }
 
         public void LoadNationalIdentificationTypes()
         {
-            var nationalIdTypes = _nationalIdTypeLogic.GetNationalIdTypes();
+            IEnumerable<ComboNationalIdTypesViewModel> nationalIdTypes;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    nationalIdTypes = proxy.GetNationalIdTypes();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadNationalIdTypes(nationalIdTypes);
         }
 
         public void LoadKinRelationships()
         {
-            var relatioships = _kinRelationshipLogic.GetKinRelations();
+            IEnumerable<ComboKinRelationshipViewModel> relatioships;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    relatioships = proxy.GetKinRelations();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadKinRelationships(relatioships);
         }
 
         public void Save()
         {
             EditPatientViewModel patient = _view.GetPatient();
-            _patientLogic.UpdatePatient(patient);
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    proxy.UpdatePatient(patient);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void DeletePatient()
         {
             int patientId = _view.GetCurrentPatientId();
-            _patientLogic.DeletePatient(patientId);
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    proxy.DeletePatient(patientId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void LoadReport()
         {
-            EditPatientViewModel patient = _patientLogic.GetPatient();
+            EditPatientViewModel patient;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    patient = proxy.GetPatient();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             string report = patient.ToString();
             _view.SetReport(report);
         }
 
         public void LoadClinics()
         {
-            var clinicians = _clinicLogic.GetClinicians();
+            IEnumerable<ClinicListViewModel> clinicians;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    clinicians = proxy.GetClinicians();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadClinics(clinicians);
         }
 
@@ -98,13 +204,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         {
             if (disposing)
             {
-                _titleLogic.Dispose();
-                _genrerLogic.Dispose();
-                _maritalStatusLogic.Dispose();
-                _nationalIdTypeLogic.Dispose();
-                _kinRelationshipLogic.Dispose();
-                _patientLogic.Dispose();
-                _clinicLogic.Dispose();
+                _patientService.Close();
+                _patientService = null;
             }
         }
     }

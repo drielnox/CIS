@@ -1,9 +1,7 @@
-﻿using CIS.Application.BusinessComponents;
-using CIS.Application.Service.Contract;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;
-using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
@@ -16,6 +14,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration
         public ViewUsersPresenter(IViewUsersView view)
         {
             _view = view;
+            
             channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
@@ -34,7 +33,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration
 
         public void LoadUserList()
         {
-            UserViewModel users;
+            UsersViewModel users;
 
             try
             {

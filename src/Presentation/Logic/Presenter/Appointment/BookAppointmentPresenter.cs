@@ -1,43 +1,81 @@
-﻿using CIS.Application.BusinessComponents;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Appointment;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Appointment
 {
     public class BookAppointmentPresenter : IDisposable
     {
         private IBookAppointmentView _view;
-        private AppointmentBusinessLogic _appointmentLogic;
-        private ClinicianBusinessLogic _clinicianLogic;
-        private PatientBusinessLogic _patientLogic;
+        
+        private ChannelFactory<IAppointmentContract> _appointmentService;
 
         public BookAppointmentPresenter(IBookAppointmentView view)
         {
             _view = view;
-            _appointmentLogic = new AppointmentBusinessLogic();
-            _clinicianLogic = new ClinicianBusinessLogic();
-            _patientLogic = new PatientBusinessLogic();
+
+            _appointmentService = new ChannelFactory<IAppointmentContract>("AppointmentEndPoint");
         }
 
         public void Save()
         {
-            var ap = _view.GetAppointment();
-            _appointmentLogic.AddAppointment(ap);
+            BookAppointmentViewModel ap = _view.GetAppointment();
+
+            try
+            {
+                using (var proxy = _appointmentService.CreateChannel())
+                {
+                    proxy.AddAppointment(ap);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void LoadClinicians()
         {
-            var clinicians = _clinicianLogic.GetClinicians();
+            IEnumerable<ClinicListViewModel> clinicians;
+
+            try
+            {
+                using (var proxy = _appointmentService.CreateChannel())
+                {
+                    clinicians = proxy.GetClinicians();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadClinicians(clinicians);
         }
 
         public void LoadPatient()
         {
-            int patientId = Convert.ToInt32(_view.GetPatientId());
-            PatientOfBookAppointmentViewModel patient = _patientLogic.GetPatientForBookAppointment(patientId);
-            _view.SetPatientForBookAppointment(patient);
+            try
+            {
+                int patientId = Convert.ToInt32(_view.GetPatientId());
+                PatientOfBookAppointmentViewModel patient;
+
+                using (var proxy = _appointmentService.CreateChannel())
+                {
+                    patient = proxy.GetPatientForBookAppointment(patientId);
+                }
+
+                _view.SetPatientForBookAppointment(patient);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public bool ValidatePatientId()
@@ -57,12 +95,8 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
         {
             if (disposing)
             {
-                _appointmentLogic.Dispose();
-                _appointmentLogic = null;
-                _clinicianLogic.Dispose();
-                _clinicianLogic = null;
-                _patientLogic.Dispose();
-                _patientLogic = null;
+                _appointmentService.Close();
+                _appointmentService = null;
             }
         }
     }

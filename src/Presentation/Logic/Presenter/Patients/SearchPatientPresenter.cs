@@ -1,26 +1,43 @@
-﻿using CIS.Application.BusinessComponents;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
 using System;
 using System.Linq;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
     public class SearchPatientPresenter : IDisposable
     {
         private ISearchPatientView _view;
-        private PatientBusinessLogic _logic;
+
+        private ChannelFactory<IPatientContract> _patientService;
 
         public SearchPatientPresenter(ISearchPatientView view)
         {
             _view = view;
-            _logic = new PatientBusinessLogic();
+
+            _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void SearchPatient()
         {
             SearchPatientViewModel criteria = _view.GetSearchCriteria();
-            PatientsViewModel patients = _logic.SearchPatients(criteria);
+
+            PatientsViewModel patients;
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    patients = proxy.SearchPatients(criteria);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.ShowSearchResult(patients);
         }
 
@@ -67,8 +84,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         {
             if (disposing)
             {
-                _logic.Dispose();
-                _logic = null;
+                _patientService.Close();
+                _patientService = null;
             }
         }
     }

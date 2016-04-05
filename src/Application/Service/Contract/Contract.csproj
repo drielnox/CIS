@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdministrationContract.cs" />
+    <Compile Include="IAppointmentContract.cs" />
+    <Compile Include="IClinicianContract.cs" />
     <Compile Include="IConfigurationContract.cs" />
+    <Compile Include="IPatientContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

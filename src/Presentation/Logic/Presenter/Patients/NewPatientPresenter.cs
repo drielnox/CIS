@@ -1,5 +1,4 @@
-﻿using CIS.Application.BusinessComponents;
-using CIS.Application.Façade;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
@@ -12,52 +11,80 @@ namespace CIS.Presentation.Logic.Presenter.Patients
     public class NewPatientPresenter : IDisposable
     {
         private INewPatientView _view;
-        private PatientBusinessLogic _logic;
-        private TitleBusinessLogic _titleLogic;
-        private GenreBusinessLogic _genreLogic;
-        private MaritalStatusBusinessLogic _maritalStatusLogic;
 
-        private ChannelFactory<IApplicationFaçade> _facade;
+        private ChannelFactory<IPatientContract> _patientService;
 
         public NewPatientPresenter(INewPatientView view)
         {
             _view = view;
-            _logic = new PatientBusinessLogic();
-            // _titleLogic = new TitleBusinessLogic();
-            // _genreLogic = new GenreBusinessLogic();
-            _maritalStatusLogic = new MaritalStatusBusinessLogic();
 
-            _facade = new ChannelFactory<IApplicationFaçade>("ApplicationEndPoint");
+            _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void Save()
         {
             NewPatientViewModel data = _view.GetFormData();
-            _logic.AddPatient(data);
+
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    proxy.AddPatient(data);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void LoadTitles()
         {
-            using (var proxy = _facade.CreateChannel())
+            try
             {
-                //IEnumerable<ComboTitleViewModel> titles = proxy.Title.GetTitles();
-                // _view.LoadTitles(titles);
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    IEnumerable<ComboTitleViewModel> titles = proxy.GetTitles();
+                    _view.LoadTitles(titles);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
         public void LoadGenres()
         {
-            using(var proxy = _facade.CreateChannel())
+            try
             {
-                IEnumerable<ComboGenreViewModel> genres = proxy.Genre.GetGenres();
-                _view.LoadGenres(genres);
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    IEnumerable<ComboGenreViewModel> genres = proxy.GetGenders();
+                    _view.LoadGenres(genres);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
         public void LoadMaritalStatuses()
         {
-            IEnumerable<ComboMaritalStatusViewModel> maritalStatuses = _maritalStatusLogic.GetMaritalStatuses();
-            _view.LoadMaritalStatuses(maritalStatuses);
+            try
+            {
+                using (var proxy = _patientService.CreateChannel())
+                {
+                    IEnumerable<ComboMaritalStatusViewModel> maritalStatuses = proxy.GetMaritalStatuses();
+                    _view.LoadMaritalStatuses(maritalStatuses);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void Dispose()
@@ -70,14 +97,8 @@ namespace CIS.Presentation.Logic.Presenter.Patients
         {
             if (disposing)
             {
-                _logic.Dispose();
-                _logic = null;
-                _titleLogic.Dispose();
-                _titleLogic = null;
-                _genreLogic.Dispose();
-                _genreLogic = null;
-                _maritalStatusLogic.Dispose();
-                _maritalStatusLogic = null;
+                _patientService.Close();
+                _patientService = null;
             }
         }
     }

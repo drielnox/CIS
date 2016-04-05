@@ -11,7 +11,7 @@ namespace CIS.Presentation.UI.Contracts.Patients
 
         void LoadTitles(IEnumerable<ComboTitleViewModel> titles);
 
-        void LoadGenres(IEnumerable<ComboGenreViewModel> genrers);
+        void LoadGenders(IEnumerable<ComboGenreViewModel> genrers);
 
         void LoadMaritalStatuses(IEnumerable<ComboMaritalStatusViewModel> maritalStatuses);
 

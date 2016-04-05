@@ -1,28 +1,44 @@
-﻿using CIS.Application.BusinessComponents;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model;
+using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter
 {
     public class NewClinicPresenter : IDisposable
     {
         private INewClinicView _view;
-        private ClinicianBusinessLogic _clinicBl;
-        private TitleBusinessLogic _titleLogic;
+
+        private ChannelFactory<IClinicianContract> _clinicianService;
 
         public NewClinicPresenter(INewClinicView view)
         {
             _view = view;
-            _clinicBl = new ClinicianBusinessLogic();
-            _titleLogic = new TitleBusinessLogic();
+
+            _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
         public void LoadTitles()
         {
-            //var titles = _titleLogic.GetTitles();
-            // _view.LoadTitles(titles);
+            IEnumerable<ComboTitleViewModel> titles;
+
+            try
+            {
+                using (var proxy = _clinicianService.CreateChannel())
+                {
+                    titles = proxy.GetTitles();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            _view.LoadTitles(titles);
         }
 
         public bool ValidateClinicNumber(string p)
@@ -42,7 +58,17 @@ namespace CIS.Presentation.Logic.Presenter
 
         public void Save(NewClinicPresentationModel model)
         {
-            _clinicBl.AddClinic(model);
+            try
+            {
+                using (var proxy = _clinicianService.CreateChannel())
+                {
+                    proxy.AddClinic(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void Dispose()
@@ -55,8 +81,8 @@ namespace CIS.Presentation.Logic.Presenter
         {
             if (disposing)
             {
-                _clinicBl.Dispose();
-                _clinicBl = null;
+                _clinicianService.Close();
+                _clinicianService = null;
             }
         }
     }

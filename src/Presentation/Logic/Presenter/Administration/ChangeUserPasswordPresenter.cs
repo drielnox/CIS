@@ -1,5 +1,4 @@
-﻿using CIS.Application.BusinessComponents;
-using CIS.Application.Service.Contract;
+﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;

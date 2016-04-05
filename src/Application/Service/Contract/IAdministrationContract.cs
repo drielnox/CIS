@@ -2,9 +2,7 @@
 using CIS.Presentation.Model.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 
 namespace CIS.Application.Service.Contract
 {
@@ -18,6 +16,6 @@ namespace CIS.Application.Service.Contract
         [OperationContract]
         IEnumerable<ClinicListViewModel> GetClinicians();
         [OperationContract]
-        UserViewModel GetUsers();
+        UsersViewModel GetUsers();
     }
 }

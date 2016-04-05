@@ -3,9 +3,7 @@ using CIS.Presentation.Model.Administration.MaritalStatus;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStatus;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
 
 namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalStatus
 {

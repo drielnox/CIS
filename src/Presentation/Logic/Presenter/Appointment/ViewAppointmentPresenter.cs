@@ -1,26 +1,42 @@
 ﻿
-using CIS.Application.BusinessComponents;
+using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.UI.Contracts.Appointment;
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Appointment
 {
     public class ViewAppointmentPresenter : IDisposable
     {
         private IViewAppointmentView _view;
-        private AppointmentBusinessLogic _appointmentLogic;
+
+        private ChannelFactory<IAppointmentContract> _appointmentService;
 
         public ViewAppointmentPresenter(IViewAppointmentView view)
         {
             _view = view;
-            _appointmentLogic = new AppointmentBusinessLogic();
+
+            _appointmentService = new ChannelFactory<IAppointmentContract>("AppointmentEndPoint");
         }
 
         public void LoadAppointments()
         {
-            var ap = _appointmentLogic.GetAppointments();
+            IEnumerable<ViewAppointmentViewModel> ap;
+
+            try
+            {
+                using (var proxy = _appointmentService.CreateChannel())
+                {
+                    ap = proxy.GetAppointments();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
             _view.LoadAppointments(ap);
         }
 
@@ -40,8 +56,8 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
         {
             if (disposing)
             {
-                _appointmentLogic.Dispose();
-                _appointmentLogic = null;
+                _appointmentService.Close();
+                _appointmentService = null;
             }
         }
     }

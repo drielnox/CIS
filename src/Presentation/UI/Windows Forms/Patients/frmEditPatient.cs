@@ -251,7 +251,7 @@ namespace CIS.Presentation.UI.WindowsForms
             cboTitle.ValueMember = "Identifier";
         }
 
-        public void LoadGenres(IEnumerable<ComboGenreViewModel> genrers)
+        public void LoadGenders(IEnumerable<ComboGenreViewModel> genrers)
         {
             cboGender.DataSource = genrers.ToList();
             cboGender.DisplayMember = "Description";

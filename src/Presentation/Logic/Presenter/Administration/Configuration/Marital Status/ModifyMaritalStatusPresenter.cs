@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using CIS.Presentation.Model.Administration.MaritalStatus;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStatus;
-using CIS.Presentation.Model.Administration.MaritalStatus;
 
 namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalStatus
 {
