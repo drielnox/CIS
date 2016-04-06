@@ -9,55 +9,70 @@ namespace CIS.Application.Service.Host
 {
     class Program
     {
+        private static IEnumerable<ServiceHost> hosts;
+
         static void Main(string[] args)
         {
-            ServiceHost host = null;
-
             try
             {
-                host = new ServiceHost(typeof(ConfigurationProxy), new Uri("net.pipe://localhost/app"));
+                hosts = new List<ServiceHost>
+                {
+                    new AdministrationServiceHost(),
+                    new AppointmentServiceHost(),
+                    new ClinicianServiceHost(),
+                    new ConfigurationServiceHost(),
+                    new PatientServiceHost()
+                };
 
-                host.Opening += new EventHandler((o, e) => Console.WriteLine("Opening"));
-                host.Opened += new EventHandler((o, e) => Console.WriteLine("Opened"));
-                host.Closing += new EventHandler((o, e) => Console.WriteLine("Closing"));
-                host.Closed += new EventHandler((o, e) => Console.WriteLine("Closed"));
-                host.UnknownMessageReceived += new EventHandler<UnknownMessageReceivedEventArgs>((o, e) => Console.WriteLine("UnknownMessageReceived: {0}", e.Message));
-                host.Faulted += new EventHandler((o, e) => Console.WriteLine("Faulted"));
-
-                host.Open();
+                foreach (ServiceHost host in hosts)
+                {
+                    host.UnknownMessageReceived += new EventHandler<UnknownMessageReceivedEventArgs>((o, e) => Console.WriteLine("UnknownMessageReceived: {0}", e.Message));
+                    host.Open();
+                }
 
                 Console.ReadLine();
 
-                host.Close();
+                foreach (DerivedServiceHost host in hosts)
+                {
+                    host.Close();
+                }
             }
             catch (TimeoutException tex)
             {
                 Console.WriteLine(tex.Message);
-                host.Abort();
+                AbortHosts();
             }
             catch (CommunicationObjectFaultedException cofex)
             {
                 Console.WriteLine(cofex.Message);
-                host.Abort();
+                AbortHosts();
             }
             catch (ObjectDisposedException odex)
             {
                 Console.WriteLine(odex.Message);
-                host.Abort();
+                AbortHosts();
             }
             catch (InvalidOperationException ioex)
             {
                 Console.WriteLine(ioex.Message);
-                host.Abort();
+                AbortHosts();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                host.Abort();
+                AbortHosts();
             }
             finally
             {
                 Console.ReadLine();
+            }
+        }
+
+        private static void AbortHosts()
+        {
+            foreach (DerivedServiceHost host in hosts)
+            {
+                host.Abort();
             }
         }
     }

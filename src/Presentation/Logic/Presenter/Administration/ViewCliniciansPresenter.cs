@@ -12,13 +12,13 @@ namespace CIS.Presentation.Logic.Presenter.Administration
 {
     public class ViewCliniciansPresenter : IDisposable
     {
-        private IViewCliniciansView _view;
-        private ChannelFactory<IAdministrationContract> channel;
+        private IViewCliniciansView _view;        
+        private ChannelFactory<IClinicianContract> _clinicianService;
 
         public ViewCliniciansPresenter(IViewCliniciansView view)
         {
             _view = view;
-            channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
+            _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
         public void LoadClinics()
@@ -27,14 +27,13 @@ namespace CIS.Presentation.Logic.Presenter.Administration
 
             try
             {
-                using (var proxy = channel.CreateChannel())
+                using (var proxy = _clinicianService.CreateChannel())
                 {
                     clinicians = proxy.GetClinicians();
                 }
             }
             catch (Exception ex)
             {
-
                 throw;
             }
 
@@ -57,8 +56,8 @@ namespace CIS.Presentation.Logic.Presenter.Administration
         {
             if (disposing)
             {
-                channel.Close();
-                channel = null;
+                _clinicianService.Close();
+                _clinicianService = null;
             }
         }
     }

@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrationServiceHost.cs" />
+    <Compile Include="AppointmentServiceHost.cs" />
+    <Compile Include="ClinicianServiceHost.cs" />
+    <Compile Include="ConfigurationServiceHost.cs" />
+    <Compile Include="DerivedServiceHost.cs" />
+    <Compile Include="PatientServiceHost.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

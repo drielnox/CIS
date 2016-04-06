@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CIS.Presentation.Model;
+using CIS.Presentation.Model.Clinicians;
+using CIS.Presentation.Model.Common;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -8,10 +11,12 @@ namespace CIS.Application.Service.Contract
     public interface IClinicianContract : IDisposable
     {
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboTitleViewModel> GetTitles();
+        IEnumerable<ComboTitleViewModel> GetTitles();
         [OperationContract]
-        void UpdateClinic(Presentation.Model.Clinicians.EditClinicViewModel data);
+        IEnumerable<ClinicListViewModel> GetClinicians();
         [OperationContract]
-        void AddClinic(Presentation.Model.NewClinicPresentationModel model);
+        void AddClinic(NewClinicPresentationModel model);
+        [OperationContract]
+        void UpdateClinic(EditClinicViewModel data);
     }
 }

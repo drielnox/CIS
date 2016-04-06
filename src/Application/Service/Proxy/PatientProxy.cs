@@ -1,4 +1,6 @@
 ﻿using CIS.Application.Service.Contract;
+using CIS.Presentation.Model.Common;
+using CIS.Presentation.Model.Patients;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,37 +10,37 @@ namespace CIS.Application.Service.Proxy
 {
     public class PatientProxy : IPatientContract
     {
-        public void AddPatient(Presentation.Model.Patients.NewPatientViewModel data)
+        public void AddPatient(NewPatientViewModel data)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ComboTitleViewModel> GetTitles()
+        public IEnumerable<ComboTitleViewModel> GetTitles()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ComboGenreViewModel> GetGenders()
+        public IEnumerable<ComboGenreViewModel> GetGenders()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ComboMaritalStatusViewModel> GetMaritalStatuses()
+        public IEnumerable<ComboMaritalStatusViewModel> GetMaritalStatuses()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ComboNationalIdTypesViewModel> GetNationalIdTypes()
+        public IEnumerable<ComboNationalIdTypesViewModel> GetNationalIdTypes()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ComboKinRelationshipViewModel> GetKinRelations()
+        public IEnumerable<ComboKinRelationshipViewModel> GetKinRelations()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdatePatient(Presentation.Model.Patients.EditPatientViewModel patient)
+        public void UpdatePatient(EditPatientViewModel patient)
         {
             throw new NotImplementedException();
         }
@@ -48,17 +50,17 @@ namespace CIS.Application.Service.Proxy
             throw new NotImplementedException();
         }
 
-        public Presentation.Model.Patients.EditPatientViewModel GetPatient()
+        public EditPatientViewModel GetPatient()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Presentation.Model.Common.ClinicListViewModel> GetClinicians()
+        public IEnumerable<ClinicListViewModel> GetClinicians()
         {
             throw new NotImplementedException();
         }
 
-        public Presentation.Model.Patients.PatientsViewModel SearchPatients(Presentation.Model.Patients.SearchPatientViewModel criteria)
+        public PatientsViewModel SearchPatients(SearchPatientViewModel criteria)
         {
             throw new NotImplementedException();
         }

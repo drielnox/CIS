@@ -14,8 +14,6 @@ namespace CIS.Application.Service.Contract
         [OperationContract]
         void Save(NewUserViewModel data);
         [OperationContract]
-        IEnumerable<ClinicListViewModel> GetClinicians();
-        [OperationContract]
         UsersViewModel GetUsers();
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CIS.Presentation.Model.Common;
+using CIS.Presentation.Model.Patients;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -8,26 +10,26 @@ namespace CIS.Application.Service.Contract
     public interface IPatientContract : IDisposable
     {
         [OperationContract]
-        void AddPatient(Presentation.Model.Patients.NewPatientViewModel data);
+        void AddPatient(NewPatientViewModel data);
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboTitleViewModel> GetTitles();
+        IEnumerable<ComboTitleViewModel> GetTitles();
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboGenreViewModel> GetGenders();
+        IEnumerable<ComboGenreViewModel> GetGenders();
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboMaritalStatusViewModel> GetMaritalStatuses();
+        IEnumerable<ComboMaritalStatusViewModel> GetMaritalStatuses();
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboNationalIdTypesViewModel> GetNationalIdTypes();
+        IEnumerable<ComboNationalIdTypesViewModel> GetNationalIdTypes();
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ComboKinRelationshipViewModel> GetKinRelations();
+        IEnumerable<ComboKinRelationshipViewModel> GetKinRelations();
         [OperationContract]
-        void UpdatePatient(Presentation.Model.Patients.EditPatientViewModel patient);
+        void UpdatePatient(EditPatientViewModel patient);
         [OperationContract]
         void DeletePatient(int patientId);
         [OperationContract]
-        Presentation.Model.Patients.EditPatientViewModel GetPatient();
+        EditPatientViewModel GetPatient();
         [OperationContract]
-        IEnumerable<Presentation.Model.Common.ClinicListViewModel> GetClinicians();
+        IEnumerable<ClinicListViewModel> GetClinicians();
         [OperationContract]
-        Presentation.Model.Patients.PatientsViewModel SearchPatients(Presentation.Model.Patients.SearchPatientViewModel criteria);
+        PatientsViewModel SearchPatients(SearchPatientViewModel criteria);
     }
 }
