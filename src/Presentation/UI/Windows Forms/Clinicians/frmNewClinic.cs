@@ -48,7 +48,8 @@ namespace CIS.Presentation.UI.WindowsForms
 
         public void LoadTitles(IEnumerable<ComboTitleViewModel> titles)
         {
-            cboTitle.DataSource = titles.ToList();
+            bsTitles.DataSource = titles.ToList();
+
             cboTitle.ValueMember = "Identifier";
             cboTitle.DisplayMember = "Description";
         }

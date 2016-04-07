@@ -10,14 +10,24 @@ namespace CIS.Application.BusinessComponents
     {
 #if !DEBUG
         private ChannelFactory<IUnitOfWorkContract> _factory;
+#else
+        private List<Clinic> _clinics;
 #endif
 
         public ClinicianBusinessLogic()
         {
 #if !DEBUG
             _factory = new ChannelFactory<IUnitOfWorkContract>("UnitOfWorkProxyEndPoint");
+#else
+            _clinics = new List<Clinic>
+            {
+                new Clinic() { Identifier = 1, FirstName = "Goerge", LastName = "Marxit"},
+                new Clinic() { Identifier = 2, FirstName = "Wells", LastName = "Furbit"},
+                new Clinic() { Identifier = 3, FirstName = "Pete", LastName = "Macarr"},
+            };
 #endif
         }
+
 
         public void AddClinic(Clinic model)
         {
@@ -40,6 +50,8 @@ namespace CIS.Application.BusinessComponents
 
             _factory.ClinicianRepository.Add(clinic);
             _factory.Save();
+#else
+            _clinics.Add(model);
 #endif
         }
 
@@ -50,6 +62,9 @@ namespace CIS.Application.BusinessComponents
             var clinic = new Clinic { };
 
             _factory.ClinicianRepository.Modify(clinic);
+#else
+            int index = _clinics.FindIndex(x => x.Identifier == data.Identifier);
+            _clinics[index] = data;
 #endif
         }
 
@@ -65,7 +80,15 @@ namespace CIS.Application.BusinessComponents
                     LastName = x.LastName
                 });
 #else
-            return null;
+            return _clinics;
+#endif
+        }
+
+        public Clinic GetClinician(int id)
+        {
+#if !DEBUG
+#else
+            return _clinics.Single(x => x.Identifier == id);
 #endif
         }
 

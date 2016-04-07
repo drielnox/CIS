@@ -7,10 +7,9 @@ namespace CIS.Presentation.UI.Contracts.Administration
 {
     public interface IViewCliniciansView
     {
+        void SetGridInitialSettings();
         void LoadClinicians(IEnumerable<ClinicListViewModel> clinicians);
-
-        EditClinicViewModel GetClinic();
-
+        ClinicListViewModel GetSelectedClinic();
         void ShowEditClinicForm(EditClinicViewModel clinic);
     }
 }

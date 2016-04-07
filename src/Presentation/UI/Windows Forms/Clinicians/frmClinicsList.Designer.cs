@@ -28,27 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClinicsList));
             this.dgvClinicians = new System.Windows.Forms.DataGridView();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnBookAppt = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.bsClinicians = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClinicians)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClinicians)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvClinicians
             // 
             this.dgvClinicians.AllowUserToAddRows = false;
             this.dgvClinicians.AllowUserToDeleteRows = false;
+            this.dgvClinicians.AllowUserToResizeRows = false;
+            this.dgvClinicians.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClinicians.AutoGenerateColumns = false;
             this.dgvClinicians.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClinicians.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvClinicians.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClinicians.DataSource = this.bsClinicians;
             this.dgvClinicians.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClinicians.Location = new System.Drawing.Point(12, 12);
             this.dgvClinicians.MultiSelect = false;
             this.dgvClinicians.Name = "dgvClinicians";
             this.dgvClinicians.ReadOnly = true;
             this.dgvClinicians.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClinicians.ShowEditingIcon = false;
             this.dgvClinicians.Size = new System.Drawing.Size(365, 150);
             this.dgvClinicians.TabIndex = 0;
             // 
@@ -107,6 +118,7 @@
             this.Text = "Clinicians List";
             this.Load += new System.EventHandler(this.frmClinicsList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClinicians)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsClinicians)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnBookAppt;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource bsClinicians;
     }
 }

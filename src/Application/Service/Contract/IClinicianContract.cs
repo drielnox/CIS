@@ -15,6 +15,8 @@ namespace CIS.Application.Service.Contract
         [OperationContract]
         IEnumerable<ClinicListViewModel> GetClinicians();
         [OperationContract]
+        ClinicViewModel GetClinician(int id);
+        [OperationContract]
         void AddClinic(NewClinicPresentationModel model);
         [OperationContract]
         void UpdateClinic(EditClinicViewModel data);

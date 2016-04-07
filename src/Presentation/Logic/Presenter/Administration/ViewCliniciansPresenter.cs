@@ -21,6 +21,11 @@ namespace CIS.Presentation.Logic.Presenter.Administration
             _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
+        public void SetInitialControlSettings()
+        {
+            _view.SetGridInitialSettings();
+        }
+
         public void LoadClinics()
         {
             IEnumerable<ClinicListViewModel> clinicians;
@@ -42,8 +47,32 @@ namespace CIS.Presentation.Logic.Presenter.Administration
 
         public void ShowEditClinic()
         {
-            EditClinicViewModel clinic = _view.GetClinic();
-            _view.ShowEditClinicForm(clinic);
+            ClinicListViewModel selectedClinic = _view.GetSelectedClinic();
+
+            try
+            {
+                ClinicViewModel rawClinic;
+
+                using (var proxy = _clinicianService.CreateChannel())
+                {
+                    int id = selectedClinic.Identifier;
+                    rawClinic = proxy.GetClinician(id);
+                }
+
+                if (rawClinic != null)
+                {
+                    EditClinicViewModel clinic = new EditClinicViewModel()
+                    {
+                        Identifier = rawClinic.Identifier
+                    };
+
+                    _view.ShowEditClinicForm(clinic);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void Dispose()

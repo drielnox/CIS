@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblClinicNumber = new System.Windows.Forms.Label();
             this.txtClinicNumber = new System.Windows.Forms.TextBox();
             this.cboTitle = new System.Windows.Forms.ComboBox();
@@ -48,6 +49,8 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.bsTitles = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTitles)).BeginInit();
             this.SuspendLayout();
             // 
             // lblClinicNumber
@@ -69,13 +72,9 @@
             // 
             // cboTitle
             // 
+            this.cboTitle.DataSource = this.bsTitles;
             this.cboTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTitle.FormattingEnabled = true;
-            this.cboTitle.Items.AddRange(new object[] {
-            "Mr",
-            "Mrs",
-            "Miss",
-            "Ms"});
             this.cboTitle.Location = new System.Drawing.Point(128, 38);
             this.cboTitle.Name = "cboTitle";
             this.cboTitle.Size = new System.Drawing.Size(144, 21);
@@ -223,11 +222,16 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // bsTitles
+            // 
+            this.bsTitles.AllowNew = false;
+            // 
             // frmNewClinic
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(284, 280);
             this.Controls.Add(this.btnCancel);
@@ -250,9 +254,15 @@
             this.Controls.Add(this.cboTitle);
             this.Controls.Add(this.lblClinicNumber);
             this.Controls.Add(this.txtClinicNumber);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmNewClinic";
+            this.ShowInTaskbar = false;
             this.Text = "New Clinic";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmNewClinic_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTitles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +290,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.BindingSource bsTitles;
     }
 }

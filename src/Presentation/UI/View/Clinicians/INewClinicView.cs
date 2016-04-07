@@ -7,9 +7,7 @@ namespace CIS.Presentation.UI.Contracts
     public interface INewClinicView
     {
         void LoadTitles(IEnumerable<ComboTitleViewModel> titles);
-
         int GetSelectedTitle();
-
         NewClinicPresentationModel GetClinicianData();
     }
 }

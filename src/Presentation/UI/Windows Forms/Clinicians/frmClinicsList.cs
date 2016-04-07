@@ -3,6 +3,7 @@ using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts.Administration;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -22,6 +23,7 @@ namespace CIS.Presentation.UI.WindowsForms
 
         private void frmClinicsList_Load(object sender, EventArgs e)
         {
+            _presenter.SetInitialControlSettings();
             _presenter.LoadClinics();
         }
 
@@ -49,21 +51,21 @@ namespace CIS.Presentation.UI.WindowsForms
 
         #endregion
 
-        public void LoadClinicians(IEnumerable<ClinicListViewModel> clinicians)
+        public void SetGridInitialSettings()
         {
-            dgvClinicians.DataSource = clinicians;
+            dgvClinicians.AutoGenerateColumns = true;
         }
 
-        public EditClinicViewModel GetClinic()
+        public void LoadClinicians(IEnumerable<ClinicListViewModel> clinicians)
         {
-            if (dgvClinicians.SelectedColumns.Count > 0)
-            {
-                return dgvClinicians.SelectedRows[0].Tag as EditClinicViewModel;
-            }
-            else
-            {
-                return null;
-            }
+            bsClinicians.DataSource = clinicians.ToList();
+        }
+
+        public ClinicListViewModel GetSelectedClinic()
+        {
+            return dgvClinicians.SelectedRows.Count > 0
+                ? bsClinicians.Current as ClinicListViewModel
+                : null;
         }
 
         public void ShowEditClinicForm(EditClinicViewModel clinic)

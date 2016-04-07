@@ -53,6 +53,7 @@
     <Compile Include="Appointment\PatientOfBookAppointmentViewModel.cs" />
     <Compile Include="Appointment\ViewAppointmentFilterViewModel.cs" />
     <Compile Include="Appointment\ViewAppointmentViewModel.cs" />
+    <Compile Include="Clinicians\ClinicViewModel.cs" />
     <Compile Include="Clinicians\EditClinicViewModel.cs" />
     <Compile Include="Common\ComboGenreViewModel.cs" />
     <Compile Include="Common\ComboKinRelationshipViewModel.cs" />
