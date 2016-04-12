@@ -42,11 +42,9 @@ namespace CIS.Data.DataAccess.Mapping
                 .IsOptional();
             Property<DateTime>(x => x.DateCreated)
                 .HasColumnName("date_of_appointment")
-                .HasColumnType("date")
                 .IsRequired();
             Property<DateTime>(x => x.TimeCreated)
                 .HasColumnName("time_of_appointment")
-                .HasColumnType("time")
                 .IsRequired();
             Property(x => x.Purpose)
                 .HasColumnName("purpose_of_appointment")
@@ -60,11 +58,9 @@ namespace CIS.Data.DataAccess.Mapping
                 .IsOptional();
             Property<DateTime>(x => x.Arrived)
                 .HasColumnName("time_arrived")
-                .HasColumnType("time")
                 .IsOptional();
             Property<DateTime>(x => x.Departed)
                 .HasColumnName("time_departed")
-                .HasColumnType("time")
                 .IsOptional();
             Property(x => x.Result)
                 .HasColumnName("appointment_outcome")

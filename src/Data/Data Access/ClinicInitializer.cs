@@ -14,14 +14,14 @@ namespace CIS.Data.DataAccess
                 new TitleTable
                 {
                     Identifier = 1,
-                    Abbreviation = "M",
-                    Description = "Male"
+                    Abbreviation = "MR",
+                    Description = "Mister"
                 },
                 new TitleTable
                 {
                     Identifier = 2,
-                    Abbreviation = "F",
-                    Description = "Female"
+                    Abbreviation = "MRS",
+                    Description = "Missis"
                 }
             };
 
@@ -209,7 +209,7 @@ namespace CIS.Data.DataAccess
                         HospitalNumber = "H1",
                         PatientName = "Test Mike",
                         DateCreated = new DateTime(2013, 9, 06),
-                        TimeCreated = new DateTime(0, 0, 0, 10, 0, 0),
+                        TimeCreated = new DateTime(2000, 1, 1, 10, 0, 0),
                         Purpose = "Consultation",
                         PatientAttented = null,
                         Arrived = null,
@@ -227,7 +227,7 @@ namespace CIS.Data.DataAccess
                         HospitalNumber = "H2a",
                         PatientName = "Mtest2 Gab",
                         DateCreated = new DateTime(2013, 9, 27),
-                        TimeCreated = new DateTime(0, 0, 0, 0, 0, 0),
+                        TimeCreated = new DateTime(2000, 1, 1, 0, 0, 0),
                         Purpose = string.Empty,
                         PatientAttented = null,
                         Arrived = null,
@@ -245,7 +245,7 @@ namespace CIS.Data.DataAccess
                         HospitalNumber = "H1",
                         PatientName = "Test Mike",
                         DateCreated = new DateTime(2015, 4, 21),
-                        TimeCreated = new DateTime(0, 0, 0, 0, 0, 0),
+                        TimeCreated = new DateTime(2000, 1, 1, 0, 0, 0),
                         Purpose = "consultation",
                         PatientAttented = null,
                         Arrived = null,
@@ -263,7 +263,7 @@ namespace CIS.Data.DataAccess
                         HospitalNumber = "H1",
                         PatientName = "Test Mike",
                         DateCreated = new DateTime(2015, 4, 21),
-                        TimeCreated = new DateTime(0, 0, 0, 12, 30, 0),
+                        TimeCreated = new DateTime(2000, 1, 1, 12, 30, 0),
                         Purpose = "consultation",
                         PatientAttented = null,
                         Arrived = null,

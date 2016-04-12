@@ -91,6 +91,7 @@
     <Compile Include="Repository\Impl\PatientRepository.cs" />
     <Compile Include="Repository\IClinicianRepository.cs" />
     <Compile Include="Repository\Impl\ClinicianRepository.cs" />
+    <Compile Include="Repository\ITitleRepository.cs" />
     <Compile Include="Repository\IUserRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\Impl\UnitOfWork.cs" />

@@ -18,6 +18,12 @@
             Database.SetInitializer(new ClinicInitializer());
         }
 
+        public ClinicModel(IDatabaseInitializer<ClinicModel> initializarStrategy)
+            : base("ClinicModel")
+        {
+            Database.SetInitializer(initializarStrategy);
+        }
+
         // Agregue un DbSet para cada tipo de entidad que desee incluir en el modelo. Para obtener más información 
         // sobre cómo configurar y usar un modelo Code First, vea http://go.microsoft.com/fwlink/?LinkId=390109.
 
