@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchPatient));
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvPatients = new System.Windows.Forms.DataGridView();
@@ -43,7 +44,9 @@
             this.btnSelect = new System.Windows.Forms.Button();
             this.lblSearchResult = new System.Windows.Forms.Label();
             this.lvPatients = new System.Windows.Forms.ListView();
+            this.bsPatients = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPatients)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -60,8 +63,10 @@
             // 
             this.dgvPatients.AllowUserToAddRows = false;
             this.dgvPatients.AllowUserToDeleteRows = false;
+            this.dgvPatients.AutoGenerateColumns = false;
             this.dgvPatients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPatients.DataSource = this.bsPatients;
             this.dgvPatients.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPatients.Location = new System.Drawing.Point(12, 94);
             this.dgvPatients.MultiSelect = false;
@@ -207,7 +212,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find Patient";
+            this.Load += new System.EventHandler(this.frmSearchPatient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPatients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +236,6 @@
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Label lblSearchResult;
         private System.Windows.Forms.ListView lvPatients;
+        private System.Windows.Forms.BindingSource bsPatients;
     }
 }

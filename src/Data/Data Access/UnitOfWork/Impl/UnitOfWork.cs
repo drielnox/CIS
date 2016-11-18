@@ -1,9 +1,9 @@
-﻿using CIS.Data.DataAccess.Repository;
-using CIS.Data.DataAccess.Repository.Impl;
-using System;
-
-namespace CIS.Data.DataAccess.UnitOfWork.Impl
+﻿namespace CIS.Data.DataAccess.UnitOfWork.Impl
 {
+    using Repository;
+    using Repository.Impl;
+    using System;
+
     public class UnitOfWork : IUnitOfWork
     {
         private ClinicModel _context;

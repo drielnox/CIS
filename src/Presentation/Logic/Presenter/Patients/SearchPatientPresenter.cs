@@ -1,28 +1,26 @@
-﻿using CIS.Application.Service.Contract;
-using CIS.Presentation.Model.Patients;
-using CIS.Presentation.UI.Contracts.Patients;
-using System;
-using System.Linq;
-using System.ServiceModel;
-
-namespace CIS.Presentation.Logic.Presenter.Patients
+﻿namespace CIS.Presentation.Logic.Presenter.Patients
 {
-    public class SearchPatientPresenter : IDisposable
-    {
-        private ISearchPatientView _view;
+    using Application.Service.Contract;
+    using Model.Patients;
+    using System;
+    using System.Linq;
+    using System.ServiceModel;
+    using Transversal.SharedKernel.Pattens.MVP;
+    using UI.Contracts.Patients;
 
+    public class SearchPatientPresenter : Presenter<ISearchPatientView>, IDisposable
+    {
         private ChannelFactory<IPatientContract> _patientService;
 
         public SearchPatientPresenter(ISearchPatientView view)
+            : base(view)
         {
-            _view = view;
-
             _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void SearchPatient()
         {
-            SearchPatientViewModel criteria = _view.GetSearchCriteria();
+            SearchPatientViewModel criteria = View.GetSearchCriteria();
 
             PatientsViewModel patients;
 
@@ -38,38 +36,38 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.ShowSearchResult(patients);
+            View.ShowSearchResult(patients);
         }
 
         public void ShowPatientData()
         {
-            PatientViewModel patient = _view.GetSelectedPatient();
+            PatientViewModel patient = View.GetSelectedPatient();
         }
 
         public bool ValidatePatientId()
         {
-            string value = _view.GetPatientId();
-            return string.IsNullOrWhiteSpace(value) 
+            string value = View.GetPatientId();
+            return string.IsNullOrWhiteSpace(value)
                 || value.Any(c => char.IsNumber(c));
         }
 
         public bool ValidateHospitalNumber()
         {
-            string value = _view.GetHospitalNumber();
+            string value = View.GetHospitalNumber();
             return string.IsNullOrWhiteSpace(value)
                 || value.Any(c => char.IsNumber(c));
         }
 
         public bool ValidateLastName()
         {
-            string value = _view.GetLastName();
+            string value = View.GetLastName();
             return string.IsNullOrWhiteSpace(value)
                 || value.Any(c => char.IsLetter(c) || char.IsSeparator(c));
         }
 
         public bool ValidateFirstName()
         {
-            string value = _view.GetFirstName();
+            string value = View.GetFirstName();
             return string.IsNullOrWhiteSpace(value)
                 || value.Any(c => char.IsNumber(c) || char.IsSeparator(c));
         }

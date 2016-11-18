@@ -1,7 +1,7 @@
 ﻿namespace CIS.Data.DataAccess
 {
-    using CIS.Data.DataAccess.Mapping;
-    using CIS.Data.Entities;
+    using Entities;
+    using Mapping;
     using System.Data.Entity;
 
     public class ClinicModel : DbContext
@@ -36,12 +36,12 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add<ClinicTable>(new ClinicConfiguration());
-            modelBuilder.Configurations.Add<UserTable>(new UserConfiguration());
-            modelBuilder.Configurations.Add<AppointmentTable>(new AppointmentConfiguration());
-            modelBuilder.Configurations.Add<PatientTable>(new PatientConfiguration());
-            modelBuilder.Configurations.Add<TitleTable>(new TitleMapping());
-            modelBuilder.Configurations.Add<GenderTable>(new GenderMapping());
+            modelBuilder.Configurations.Add(new ClinicConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new AppointmentConfiguration());
+            modelBuilder.Configurations.Add(new PatientConfiguration());
+            modelBuilder.Configurations.Add(new TitleMapping());
+            modelBuilder.Configurations.Add(new GenderMapping());
 
             base.OnModelCreating(modelBuilder);
         }

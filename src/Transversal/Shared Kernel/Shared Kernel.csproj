@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Entity.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="Pattens\MVP\IView.cs" />
+    <Compile Include="Pattens\MVP\Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

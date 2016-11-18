@@ -63,6 +63,10 @@
       <Project>{07b20ca2-4025-4032-9caa-9c5fd771ebbf}</Project>
       <Name>Business Components</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Transversal\Shared Kernel\Shared Kernel.csproj">
+      <Project>{A6FD56C5-5311-4632-8DB3-69D2C55C4F4F}</Project>
+      <Name>Shared Kernel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Presentation Models\Presentation Models.csproj">
       <Project>{9b2955c4-fa1a-4986-a8ca-8dff88ac5de6}</Project>
       <Name>Presentation Models</Name>

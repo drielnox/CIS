@@ -1,12 +1,12 @@
-﻿using CIS.Presentation.Logic.Presenter.Patients;
-using CIS.Presentation.Model.Patients;
-using CIS.Presentation.UI.Contracts.Patients;
-using System;
-using System.ComponentModel;
-using System.Windows.Forms;
-
-namespace CIS.Presentation.UI.WindowsForms
+﻿namespace CIS.Presentation.UI.WindowsForms
 {
+    using Contracts.Patients;
+    using Logic.Presenter.Patients;
+    using Model.Patients;
+    using System;
+    using System.ComponentModel;
+    using System.Windows.Forms;
+
     public partial class frmSearchPatient : Form, ISearchPatientView
     {
         private SearchPatientPresenter _presenter;
@@ -18,6 +18,11 @@ namespace CIS.Presentation.UI.WindowsForms
         }
 
         #region Form Events
+
+        private void frmSearchPatient_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
@@ -81,7 +86,7 @@ namespace CIS.Presentation.UI.WindowsForms
         }
 
         #endregion
-        
+
         #endregion
 
         #region Private Methods

@@ -1,8 +1,9 @@
-﻿using CIS.Presentation.Model.Patients;
-
-namespace CIS.Presentation.UI.Contracts.Patients
+﻿namespace CIS.Presentation.UI.Contracts.Patients
 {
-    public interface ISearchPatientView
+    using Model.Patients;
+    using Transversal.SharedKernel.Pattens.MVP;
+
+    public interface ISearchPatientView : IView
     {
         SearchPatientViewModel GetSearchCriteria();
 
