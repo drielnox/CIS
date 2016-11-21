@@ -3,27 +3,25 @@ using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts.Administration;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
-    public class ViewCliniciansPresenter : IDisposable
+    public class ViewCliniciansPresenter : Presenter<IViewCliniciansView>, IDisposable
     {
-        private IViewCliniciansView _view;        
         private ChannelFactory<IClinicianContract> _clinicianService;
 
-        public ViewCliniciansPresenter(IViewCliniciansView view)
+        public ViewCliniciansPresenter(IViewCliniciansView view) : base(view)
         {
-            _view = view;
             _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
         public void SetInitialControlSettings()
         {
-            _view.SetGridInitialSettings();
+            View.SetGridInitialSettings();
         }
 
         public void LoadClinics()
@@ -42,12 +40,12 @@ namespace CIS.Presentation.Logic.Presenter.Administration
                 throw;
             }
 
-            _view.LoadClinicians(clinicians);
+            View.LoadClinicians(clinicians);
         }
 
         public void ShowEditClinic()
         {
-            ClinicListViewModel selectedClinic = _view.GetSelectedClinic();
+            ClinicListViewModel selectedClinic = View.GetSelectedClinic();
 
             try
             {
@@ -66,7 +64,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration
                         Identifier = rawClinic.Identifier
                     };
 
-                    _view.ShowEditClinicForm(clinic);
+                    View.ShowEditClinicForm(clinic);
                 }
             }
             catch (Exception ex)

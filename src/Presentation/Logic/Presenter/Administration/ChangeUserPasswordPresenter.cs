@@ -1,21 +1,18 @@
 ﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
-    public class ChangeUserPasswordPresenter
+    public class ChangeUserPasswordPresenter : Presenter<IChangeUserPasswordView>
     {
-        private IChangeUserPasswordView _view;
-
         private ChannelFactory<IAdministrationContract> channel;
 
-        public ChangeUserPasswordPresenter(IChangeUserPasswordView view)
+        public ChangeUserPasswordPresenter(IChangeUserPasswordView view) : base(view)
         {
-            _view = view;
-
             channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
@@ -31,7 +28,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration
 
         public void Save()
         {
-            ChangeUserPasswordViewModel data = _view.GetFormData();
+            ChangeUserPasswordViewModel data = View.GetFormData();
 
             try
             {

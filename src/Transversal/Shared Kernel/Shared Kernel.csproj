@@ -42,13 +42,13 @@
   <ItemGroup>
     <Compile Include="Entity.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Pattens\MVP\IView.cs" />
-    <Compile Include="Pattens\MVP\Presenter.cs" />
+    <Compile Include="Patterns\MVP\IView.cs" />
+    <Compile Include="Patterns\MVP\Presenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pattens\Repository\" />
-    <Folder Include="Pattens\UnitOfWork\" />
+    <Folder Include="Patterns\Repository\" />
+    <Folder Include="Patterns\UnitOfWork\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

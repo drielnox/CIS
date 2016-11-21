@@ -5,7 +5,7 @@
     using System;
     using System.Linq;
     using System.ServiceModel;
-    using Transversal.SharedKernel.Pattens.MVP;
+    using Transversal.SharedKernel.Patterns.MVP;
     using UI.Contracts.Patients;
 
     public class SearchPatientPresenter : Presenter<ISearchPatientView>, IDisposable

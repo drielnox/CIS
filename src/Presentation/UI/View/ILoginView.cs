@@ -1,8 +1,9 @@
-﻿using CIS.Presentation.Model;
-
-namespace CIS.Presentation.UI.Contracts
+﻿namespace CIS.Presentation.UI.Contracts
 {
-    public interface ILoginView
+    using Model;
+    using Transversal.SharedKernel.Patterns.MVP;
+
+    public interface ILoginView : IView
     {
         LoginViewModel GetFormData();
     }

@@ -2,6 +2,7 @@
 using CIS.Presentation.Model;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,12 @@ using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter
 {
-    public class NewClinicPresenter : IDisposable
+    public class NewClinicPresenter : Presenter<INewClinicView>, IDisposable
     {
-        private INewClinicView _view;
-
         private ChannelFactory<IClinicianContract> _clinicianService;
 
-        public NewClinicPresenter(INewClinicView view)
+        public NewClinicPresenter(INewClinicView view) : base(view)
         {
-            _view = view;
-
             _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
@@ -38,7 +35,7 @@ namespace CIS.Presentation.Logic.Presenter
                 throw;
             }
 
-            _view.LoadTitles(titles);
+            View.LoadTitles(titles);
         }
 
         public bool ValidateClinicNumber(string p)
@@ -53,7 +50,7 @@ namespace CIS.Presentation.Logic.Presenter
 
         public NewClinicPresentationModel GetClinicianData()
         {
-            return _view.GetClinicianData();
+            return View.GetClinicianData();
         }
 
         public void Save(NewClinicPresentationModel model)

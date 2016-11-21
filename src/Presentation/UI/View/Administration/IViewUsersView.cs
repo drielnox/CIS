@@ -1,8 +1,9 @@
 ﻿using CIS.Presentation.Model.Administration;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 
 namespace CIS.Presentation.UI.Contracts.Administration
 {
-    public interface IViewUsersView
+    public interface IViewUsersView : IView
     {
         NewUserViewModel ShowAddUserDialog();
 
@@ -11,7 +12,7 @@ namespace CIS.Presentation.UI.Contracts.Administration
         UserViewModel GetSelectedUser();
 
         void ShowChangeUserPasswordDialog(UserViewModel user);
-        
+
         void LoadUserList(UsersViewModel users);
     }
 }

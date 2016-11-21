@@ -1,28 +1,25 @@
 ﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration.Title;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.Title;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
 {
-    public class ViewTitlesPresenter
+    public class ViewTitlesPresenter : Presenter<IViewTitlesView>
     {
-        private IViewTitlesView _view;
-
         private ChannelFactory<IConfigurationContract> channel;
 
-        public ViewTitlesPresenter(IViewTitlesView view)
+        public ViewTitlesPresenter(IViewTitlesView view) : base(view)
         {
-            _view = view;
-
             channel = new ChannelFactory<IConfigurationContract>("ConfigurationEndPoint");
         }
 
         public void SetInitialControlProperties()
         {
-            _view.SetInitialGridProperties();
+            View.SetInitialGridProperties();
         }
 
         public void LoadTitles()
@@ -34,12 +31,12 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                 listData = proxy.GetTitles();
             }
 
-            _view.SetGridData(listData);
+            View.SetGridData(listData);
         }
 
         public void AddNewTitle()
         {
-            TitleViewModel newTitle = _view.ShowNewTitleForm();
+            TitleViewModel newTitle = View.ShowNewTitleForm();
 
             if (newTitle != null)
             {
@@ -58,17 +55,17 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                     throw;
                 }
 
-                _view.SetGridData(newListData);
+                View.SetGridData(newListData);
             }
         }
 
         public void ModifyTitle()
         {
-            ListItemTitleViewModel itemSelected = _view.GetSelectedTitle();
+            ListItemTitleViewModel itemSelected = View.GetSelectedTitle();
 
             if (itemSelected != null)
             {
-                TitleViewModel modifiedTitle = _view.ShowModifyTitleForm(itemSelected);
+                TitleViewModel modifiedTitle = View.ShowModifyTitleForm(itemSelected);
 
                 if (modifiedTitle != null)
                 {
@@ -87,18 +84,18 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                         throw;
                     }
 
-                    _view.SetGridData(newListData);
+                    View.SetGridData(newListData);
                 }
             }
         }
 
         public void DeleteTitle()
         {
-            ListItemTitleViewModel itemSelected = _view.GetSelectedTitle();
+            ListItemTitleViewModel itemSelected = View.GetSelectedTitle();
 
             if (itemSelected != null)
             {
-                bool delete = _view.ShowDeleteTitleDialog(itemSelected);
+                bool delete = View.ShowDeleteTitleDialog(itemSelected);
 
                 if (delete)
                 {
@@ -117,7 +114,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
                         throw;
                     }
 
-                    _view.SetGridData(newListData);
+                    View.SetGridData(newListData);
                 }
             }
         }

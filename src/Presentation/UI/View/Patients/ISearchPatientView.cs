@@ -1,7 +1,7 @@
 ﻿namespace CIS.Presentation.UI.Contracts.Patients
 {
     using Model.Patients;
-    using Transversal.SharedKernel.Pattens.MVP;
+    using Transversal.SharedKernel.Patterns.MVP;
 
     public interface ISearchPatientView : IView
     {

@@ -1,7 +1,9 @@
 ﻿
+using CIS.Transversal.SharedKernel.Patterns.MVP;
+
 namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Gender
 {
-    interface IViewGendersView
+    public interface IViewGendersView : IView
     {
     }
 }

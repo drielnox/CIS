@@ -1,10 +1,11 @@
-﻿using CIS.Presentation.Model.Clinicians;
-using CIS.Presentation.Model.Common;
-using System.Collections.Generic;
-
-namespace CIS.Presentation.UI.Contracts.Clinicians
+﻿namespace CIS.Presentation.UI.Contracts.Clinicians
 {
-    public interface IEditClinicView
+    using Model.Clinicians;
+    using Model.Common;
+    using System.Collections.Generic;
+    using Transversal.SharedKernel.Patterns.MVP;
+
+    public interface IEditClinicView : IView
     {
         void LoadTitles(IEnumerable<ComboTitleViewModel> titles);
 

@@ -1,28 +1,28 @@
 ﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration.MaritalStatus;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStatus;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalStatus
 {
-    public class ViewMaritalStatusesPresenter
+    public class ViewMaritalStatusesPresenter : Presenter<IViewMaritalStatusesView>
     {
-        private IViewMaritalStatusesView _view;
 
         private ChannelFactory<IConfigurationContract> channel;
 
-        public ViewMaritalStatusesPresenter(IViewMaritalStatusesView view)
+        public ViewMaritalStatusesPresenter(IViewMaritalStatusesView view) : base(view)
         {
-            _view = view;
+
 
             channel = new ChannelFactory<IConfigurationContract>("ConfigurationEndPoint");
         }
 
         public void SetInitalControlProperties()
         {
-            _view.SetInitalGridProperties();
+            View.SetInitalGridProperties();
         }
 
         public void LoadMaritalStatuses()
@@ -34,12 +34,12 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalS
                 listMaritalStatuses = proxy.GetMaritalStatuses();
             }
 
-            _view.SetGridData(listMaritalStatuses);
+            View.SetGridData(listMaritalStatuses);
         }
 
         public void AddNewMaritalStatus()
         {
-            MaritalStatusViewModel newMaritalStatus = _view.ShowNewMaritalStatusForm();
+            MaritalStatusViewModel newMaritalStatus = View.ShowNewMaritalStatusForm();
 
             if (newMaritalStatus != null)
             {
@@ -58,17 +58,17 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalS
                     throw;
                 }
 
-                _view.SetGridData(listMaritalStatuses);
+                View.SetGridData(listMaritalStatuses);
             }
         }
 
         public void ModifyMaritalStatus()
         {
-            ListItemMaritalStatusViewModel itemSelected = _view.GetSelectedItem();
+            ListItemMaritalStatusViewModel itemSelected = View.GetSelectedItem();
 
             if (itemSelected != null)
             {
-                MaritalStatusViewModel modifiedMaritalStatus = _view.ShowModifyMaritalStatusForm(itemSelected);
+                MaritalStatusViewModel modifiedMaritalStatus = View.ShowModifyMaritalStatusForm(itemSelected);
 
                 if (true)
                 {
@@ -87,18 +87,18 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalS
                         throw;
                     }
 
-                    _view.SetGridData(listMaritalStatuses);
+                    View.SetGridData(listMaritalStatuses);
                 }
             }
         }
 
         public void DeleteMaritalStatus()
         {
-            ListItemMaritalStatusViewModel itemSelected = _view.GetSelectedItem();
+            ListItemMaritalStatusViewModel itemSelected = View.GetSelectedItem();
 
             if (itemSelected != null)
             {
-                bool delete = _view.ShowDeleteMaritalStatusDialog(itemSelected);
+                bool delete = View.ShowDeleteMaritalStatusDialog(itemSelected);
 
                 if (delete)
                 {
@@ -117,7 +117,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.MaritalS
                         throw;
                     }
 
-                    _view.SetGridData(maritalStatuses);
+                    View.SetGridData(maritalStatuses);
                 }
             }
         }

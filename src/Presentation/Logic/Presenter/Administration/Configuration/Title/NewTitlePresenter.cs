@@ -1,27 +1,26 @@
 ﻿using CIS.Presentation.Model.Administration.Title;
 using CIS.Presentation.UI.Contracts.Administration.Configuration.Title;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 
 namespace CIS.Presentation.Logic.Presenter.Administration.Configuration.Title
 {
-    public class NewTitlePresenter
+    public class NewTitlePresenter : Presenter<INewTitleView>
     {
-        private INewTitleView _view;
-
-        public NewTitlePresenter(INewTitleView view)
+        public NewTitlePresenter(INewTitleView view) : base(view)
         {
-            _view = view;
+
         }
 
         public void Accept()
         {
-            string abbreviation = _view.GetAbbreviation();
-            string description = _view.GetDescription();
+            string abbreviation = View.GetAbbreviation();
+            string description = View.GetDescription();
             TitleViewModel model = new TitleViewModel
             {
                 Abbreviation = abbreviation,
                 Description = description
             };
-            _view.SetFormTag(model);
+            View.SetFormTag(model);
         }
     }
 }

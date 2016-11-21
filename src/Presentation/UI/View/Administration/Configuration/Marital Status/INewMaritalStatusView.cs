@@ -1,7 +1,9 @@
 ﻿
+using CIS.Transversal.SharedKernel.Patterns.MVP;
+
 namespace CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStatus
 {
-    interface INewMaritalStatusView
+    public interface INewMaritalStatusView : IView
     {
     }
 }

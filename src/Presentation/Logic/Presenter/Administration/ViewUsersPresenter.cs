@@ -1,34 +1,32 @@
 ﻿using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Administration;
 using CIS.Presentation.UI.Contracts.Administration;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Administration
 {
-    public class ViewUsersPresenter
+    public class ViewUsersPresenter : Presenter<IViewUsersView>
     {
-        private IViewUsersView _view;
         private ChannelFactory<IAdministrationContract> channel;
 
-        public ViewUsersPresenter(IViewUsersView view)
+        public ViewUsersPresenter(IViewUsersView view) : base(view)
         {
-            _view = view;
-            
             channel = new ChannelFactory<IAdministrationContract>("AdministrationEndPoint");
         }
 
         public void AddUser()
         {
-            var result = _view.ShowAddUserDialog();
+            var result = View.ShowAddUserDialog();
 
-            _view.RefreshUserList();
+            View.RefreshUserList();
         }
 
         public void ChangeUserPassword()
         {
-            var user = _view.GetSelectedUser();
-            _view.ShowChangeUserPasswordDialog(user);
+            var user = View.GetSelectedUser();
+            View.ShowChangeUserPasswordDialog(user);
         }
 
         public void LoadUserList()
@@ -47,7 +45,7 @@ namespace CIS.Presentation.Logic.Presenter.Administration
                 throw;
             }
 
-            _view.LoadUserList(users);
+            View.LoadUserList(users);
         }
     }
 }
