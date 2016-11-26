@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{F9A6DD05-7561-4C3E-935E-3EEBE707CFD5}"
 EndProject
@@ -87,8 +87,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Application\Service\Proxy\Proxy.csproj", "{6E661222-35BC-4245-9E5F-63C7C1A3C26A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Data\Service\Contract\Contract.csproj", "{DB6D48BF-0CC6-492C-ABB7-BFD1A80F6521}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation Test", "..\test\Data\Service\Implementation Test\Implementation Test.csproj", "{B0D4C630-6E7E-4201-AA66-458112BE8D92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -180,10 +178,6 @@ Global
 		{DB6D48BF-0CC6-492C-ABB7-BFD1A80F6521}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB6D48BF-0CC6-492C-ABB7-BFD1A80F6521}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB6D48BF-0CC6-492C-ABB7-BFD1A80F6521}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0D4C630-6E7E-4201-AA66-458112BE8D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0D4C630-6E7E-4201-AA66-458112BE8D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0D4C630-6E7E-4201-AA66-458112BE8D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0D4C630-6E7E-4201-AA66-458112BE8D92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -226,6 +220,5 @@ Global
 		{2D0F646A-5121-4087-930F-5C2DB01D89FC} = {FB9A3C4A-0A06-4682-B96F-A300F07DBF3B}
 		{6E661222-35BC-4245-9E5F-63C7C1A3C26A} = {FB9A3C4A-0A06-4682-B96F-A300F07DBF3B}
 		{DB6D48BF-0CC6-492C-ABB7-BFD1A80F6521} = {7D149F02-D517-42FC-AAEC-446EB72F423D}
-		{B0D4C630-6E7E-4201-AA66-458112BE8D92} = {EFB6E6D7-1354-4241-8A86-EADDC3F03C7E}
 	EndGlobalSection
 EndGlobal
