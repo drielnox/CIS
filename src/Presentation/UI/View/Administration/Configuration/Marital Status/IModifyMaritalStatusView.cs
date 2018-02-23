@@ -1,8 +1,9 @@
 ﻿using CIS.Presentation.Model.Administration.MaritalStatus;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 
 namespace CIS.Presentation.UI.Contracts.Administration.Configuration.MaritalStatus
 {
-    public interface IModifyMaritalStatusView
+    public interface IModifyMaritalStatusView : IView
     {
         MaritalStatusViewModel GetCurrentMaritalStatus();
 

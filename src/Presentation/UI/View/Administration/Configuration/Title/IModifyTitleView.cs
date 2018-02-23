@@ -1,8 +1,9 @@
 ﻿using CIS.Presentation.Model.Administration.Title;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 
 namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Title
 {
-    public interface IModifyTitleView
+    public interface IModifyTitleView : IView
     {
         TitleViewModel GetCurrentTitle();
 

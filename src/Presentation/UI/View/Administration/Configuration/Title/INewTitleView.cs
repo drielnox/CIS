@@ -1,8 +1,9 @@
 ﻿using CIS.Presentation.Model.Administration.Title;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 
 namespace CIS.Presentation.UI.Contracts.Administration.Configuration.Title
 {
-    public interface INewTitleView
+    public interface INewTitleView : IView
     {
         string GetAbbreviation();
 

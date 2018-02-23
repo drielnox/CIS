@@ -2,22 +2,21 @@
 using CIS.Presentation.Model.Clinicians;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts.Clinicians;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Clinicians
 {
-    public class EditClinicPresenter : IDisposable
+    public class EditClinicPresenter : Presenter<IEditClinicView>, IDisposable
     {
-        private IEditClinicView _view;
+        private IEditClinicView View;
 
         private ChannelFactory<IClinicianContract> _clinicianService;
 
-        public EditClinicPresenter(IEditClinicView view)
+        public EditClinicPresenter(IEditClinicView view) : base(view)
         {
-            _view = view;
-
             _clinicianService = new ChannelFactory<IClinicianContract>("ClinicianEndPoint");
         }
 
@@ -37,17 +36,17 @@ namespace CIS.Presentation.Logic.Presenter.Clinicians
                 throw;
             }
 
-            _view.LoadTitles(titles);
+            View.LoadTitles(titles);
         }
 
         public void SetFormData(EditClinicViewModel viewModel)
         {
-            _view.LoadFormData(viewModel);
+            View.LoadFormData(viewModel);
         }
 
         public void Save()
         {
-            EditClinicViewModel data = _view.GetFormData();
+            EditClinicViewModel data = View.GetFormData();
 
             try
             {

@@ -2,28 +2,26 @@
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
-    public class NewPatientPresenter : IDisposable
+    public class NewPatientPresenter : Presenter<INewPatientView>, IDisposable
     {
-        private INewPatientView _view;
-
         private ChannelFactory<IPatientContract> _patientService;
 
         public NewPatientPresenter(INewPatientView view)
+            : base(view)
         {
-            _view = view;
-
             _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void Save()
         {
-            NewPatientViewModel data = _view.GetFormData();
+            NewPatientViewModel data = View.GetFormData();
 
             try
             {
@@ -45,7 +43,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 using (var proxy = _patientService.CreateChannel())
                 {
                     IEnumerable<ComboTitleViewModel> titles = proxy.GetTitles();
-                    _view.LoadTitles(titles);
+                    View.LoadTitles(titles);
                 }
             }
             catch (Exception ex)
@@ -62,7 +60,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 using (var proxy = _patientService.CreateChannel())
                 {
                     IEnumerable<ComboGenreViewModel> genres = proxy.GetGenders();
-                    _view.LoadGenres(genres);
+                    View.LoadGenres(genres);
                 }
             }
             catch (Exception ex)
@@ -78,7 +76,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 using (var proxy = _patientService.CreateChannel())
                 {
                     IEnumerable<ComboMaritalStatusViewModel> maritalStatuses = proxy.GetMaritalStatuses();
-                    _view.LoadMaritalStatuses(maritalStatuses);
+                    View.LoadMaritalStatuses(maritalStatuses);
                 }
             }
             catch (Exception ex)

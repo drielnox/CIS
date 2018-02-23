@@ -1,4 +1,4 @@
-﻿namespace CIS.Transversal.SharedKernel.Pattens.MVP
+﻿namespace CIS.Transversal.SharedKernel.Patterns.MVP
 {
     public abstract class Presenter<TView>
         where TView : IView

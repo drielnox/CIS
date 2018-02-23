@@ -1,11 +1,11 @@
-﻿
-using CIS.Presentation.Model.Common;
-using CIS.Presentation.Model.Patients;
-using System.Collections.Generic;
-
-namespace CIS.Presentation.UI.Contracts.Patients
+﻿namespace CIS.Presentation.UI.Contracts.Patients
 {
-    public interface IEditPatientView
+    using Model.Common;
+    using Model.Patients;
+    using System.Collections.Generic;
+    using Transversal.SharedKernel.Patterns.MVP;
+
+    public interface IEditPatientView : IView
     {
         void LoadPatient(EditPatientViewModel patient);
 

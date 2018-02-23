@@ -2,22 +2,19 @@
 using CIS.Application.Service.Contract;
 using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.UI.Contracts.Appointment;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Appointment
 {
-    public class ViewAppointmentPresenter : IDisposable
+    public class ViewAppointmentPresenter : Presenter<IViewAppointmentView>, IDisposable
     {
-        private IViewAppointmentView _view;
-
         private ChannelFactory<IAppointmentContract> _appointmentService;
 
-        public ViewAppointmentPresenter(IViewAppointmentView view)
+        public ViewAppointmentPresenter(IViewAppointmentView view) : base(view)
         {
-            _view = view;
-
             _appointmentService = new ChannelFactory<IAppointmentContract>("AppointmentEndPoint");
         }
 
@@ -37,13 +34,13 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
                 throw;
             }
 
-            _view.LoadAppointments(ap);
+            View.LoadAppointments(ap);
         }
 
         public void ApplyFilter()
         {
-            IEnumerable<ViewAppointmentFilterViewModel> filters = _view.GetFilters();
-            _view.SetFilters(filters);
+            IEnumerable<ViewAppointmentFilterViewModel> filters = View.GetFilters();
+            View.SetFilters(filters);
         }
 
         public void Dispose()

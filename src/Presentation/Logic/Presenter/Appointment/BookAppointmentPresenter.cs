@@ -2,6 +2,7 @@
 using CIS.Presentation.Model.Appointment;
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.UI.Contracts;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,18 @@ using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Appointment
 {
-    public class BookAppointmentPresenter : IDisposable
+    public class BookAppointmentPresenter : Presenter<IBookAppointmentView>, IDisposable
     {
-        private IBookAppointmentView _view;
-        
         private ChannelFactory<IAppointmentContract> _appointmentService;
 
-        public BookAppointmentPresenter(IBookAppointmentView view)
+        public BookAppointmentPresenter(IBookAppointmentView view) : base(view)
         {
-            _view = view;
-
             _appointmentService = new ChannelFactory<IAppointmentContract>("AppointmentEndPoint");
         }
 
         public void Save()
         {
-            BookAppointmentViewModel ap = _view.GetAppointment();
+            BookAppointmentViewModel ap = View.GetAppointment();
 
             try
             {
@@ -55,14 +52,14 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
                 throw;
             }
 
-            _view.LoadClinicians(clinicians);
+            View.LoadClinicians(clinicians);
         }
 
         public void LoadPatient()
         {
             try
             {
-                int patientId = Convert.ToInt32(_view.GetPatientId());
+                int patientId = Convert.ToInt32(View.GetPatientId());
                 PatientOfBookAppointmentViewModel patient;
 
                 using (var proxy = _appointmentService.CreateChannel())
@@ -70,7 +67,7 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
                     patient = proxy.GetPatientForBookAppointment(patientId);
                 }
 
-                _view.SetPatientForBookAppointment(patient);
+                View.SetPatientForBookAppointment(patient);
             }
             catch (Exception ex)
             {
@@ -80,7 +77,7 @@ namespace CIS.Presentation.Logic.Presenter.Appointment
 
         public bool ValidatePatientId()
         {
-            string patientId = _view.GetPatientId();
+            string patientId = View.GetPatientId();
 
             return string.IsNullOrWhiteSpace(patientId) || patientId.Any(c => !char.IsNumber(c));
         }

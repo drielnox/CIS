@@ -2,28 +2,25 @@
 using CIS.Presentation.Model.Common;
 using CIS.Presentation.Model.Patients;
 using CIS.Presentation.UI.Contracts.Patients;
+using CIS.Transversal.SharedKernel.Patterns.MVP;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace CIS.Presentation.Logic.Presenter.Patients
 {
-    public class EditPatientPresenter : IDisposable
+    public class EditPatientPresenter : Presenter<IEditPatientView>, IDisposable
     {
-        private IEditPatientView _view;
-
         private ChannelFactory<IPatientContract> _patientService;
 
-        public EditPatientPresenter(IEditPatientView view)
+        public EditPatientPresenter(IEditPatientView view) : base(view)
         {
-            _view = view;
-
             _patientService = new ChannelFactory<IPatientContract>("PatientEndPoint");
         }
 
         public void LoadPatient(EditPatientViewModel patient)
         {
-            _view.LoadPatient(patient);
+            View.LoadPatient(patient);
         }
 
         public void LoadTitles()
@@ -42,7 +39,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadTitles(titles);
+            View.LoadTitles(titles);
         }
 
         public void LoadGenders()
@@ -61,7 +58,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadGenders(genders);
+            View.LoadGenders(genders);
         }
 
         public void LoadMaritalStatus()
@@ -80,7 +77,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadMaritalStatuses(maritalStatuses);
+            View.LoadMaritalStatuses(maritalStatuses);
         }
 
         public void LoadNationalIdentificationTypes()
@@ -99,7 +96,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadNationalIdTypes(nationalIdTypes);
+            View.LoadNationalIdTypes(nationalIdTypes);
         }
 
         public void LoadKinRelationships()
@@ -118,12 +115,12 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadKinRelationships(relatioships);
+            View.LoadKinRelationships(relatioships);
         }
 
         public void Save()
         {
-            EditPatientViewModel patient = _view.GetPatient();
+            EditPatientViewModel patient = View.GetPatient();
 
             try
             {
@@ -140,7 +137,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
 
         public void DeletePatient()
         {
-            int patientId = _view.GetCurrentPatientId();
+            int patientId = View.GetCurrentPatientId();
 
             try
             {
@@ -172,7 +169,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
             }
 
             string report = patient.ToString();
-            _view.SetReport(report);
+            View.SetReport(report);
         }
 
         public void LoadClinics()
@@ -191,7 +188,7 @@ namespace CIS.Presentation.Logic.Presenter.Patients
                 throw;
             }
 
-            _view.LoadClinics(clinicians);
+            View.LoadClinics(clinicians);
         }
 
         public void Dispose()
